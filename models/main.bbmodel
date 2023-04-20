@@ -22,14 +22,14 @@
 			"rescale": false,
 			"locked": false,
 			"from": [0, 16, 2.26],
-			"to": [15, 27.5, 2.26],
+			"to": [15, 27, 2.26],
 			"autouv": 0,
 			"color": 0,
 			"inflate": 0.001,
 			"origin": [1, 16, 3.25],
 			"faces": {
 				"north": {
-					"uv": [0, 0, 30, 23],
+					"uv": [0, 0, 30, 22],
 					"texture": 0
 				},
 				"east": {
@@ -37,7 +37,7 @@
 					"texture": null
 				},
 				"south": {
-					"uv": [30, 0, 0, 23],
+					"uv": [30, 0, 0, 22],
 					"texture": 0
 				},
 				"west": {
@@ -61,16 +61,15 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
-			"from": [0.5, 3.5, 2.25],
-			"to": [9, 19, 2.25],
+			"from": [0, 2, 2.25],
+			"to": [13, 18, 2.25],
 			"autouv": 0,
 			"color": 0,
 			"inflate": 0.001,
-			"rotation": [0, 0, -2.5],
 			"origin": [1.5, 19, 2.25],
 			"faces": {
 				"north": {
-					"uv": [0, 23, 17, 54],
+					"uv": [0, 22, 26, 54],
 					"texture": 0
 				},
 				"east": {
@@ -78,7 +77,7 @@
 					"texture": null
 				},
 				"south": {
-					"uv": [17, 23, 0, 54],
+					"uv": [26, 22, 0, 54],
 					"texture": 0
 				},
 				"west": {
@@ -103,14 +102,14 @@
 			"rescale": false,
 			"locked": false,
 			"from": [-15, 16, 2.26],
-			"to": [0, 27.5, 2.26],
+			"to": [0, 27, 2.26],
 			"autouv": 0,
 			"color": 0,
 			"inflate": 0.001,
 			"origin": [-1, 16, 3.25],
 			"faces": {
 				"north": {
-					"uv": [30, 0, 0, 23],
+					"uv": [30, 0, 0, 22],
 					"texture": 0
 				},
 				"east": {
@@ -118,7 +117,7 @@
 					"texture": null
 				},
 				"south": {
-					"uv": [0, 0, 30, 23],
+					"uv": [0, 0, 30, 22],
 					"texture": 0
 				},
 				"west": {
@@ -142,16 +141,15 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
-			"from": [-9, 3.5, 2.25],
-			"to": [-0.5, 19, 2.25],
+			"from": [-13, 2, 2.25],
+			"to": [0, 18, 2.25],
 			"autouv": 0,
 			"color": 0,
 			"inflate": 0.001,
-			"rotation": [0, 0, 2.5],
 			"origin": [-1.5, 19, 2.25],
 			"faces": {
 				"north": {
-					"uv": [17, 23, 0, 54],
+					"uv": [26, 22, 0, 54],
 					"texture": 0
 				},
 				"east": {
@@ -159,7 +157,7 @@
 					"texture": null
 				},
 				"south": {
-					"uv": [0, 23, 17, 54],
+					"uv": [0, 22, 26, 54],
 					"texture": 0
 				},
 				"west": {
@@ -239,7 +237,7 @@
 	],
 	"textures": [
 		{
-			"path": "/Users/gakuto/Documents/Minecraft JavaEdition/profiles/Fabric/figura/avatars/ButterflyWings/textures/main.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\ButterflyWings\\textures\\main.png",
 			"name": "main.png",
 			"folder": "",
 			"namespace": "",
@@ -256,7 +254,7 @@
 			"saved": true,
 			"uuid": "4dbd4ce9-a112-d40c-207c-90bf9044184f",
 			"relative_path": "../../textures/main.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAA2CAYAAADQzyn5AAAAAXNSR0IArs4c6QAAAZdJREFUWEftmGGSwiAMhYlH2Nm9/wF1vEJ2gtChGEhIoNaZ+q/a9ssL8HgIYf/B6pq7BMU94i35JRGIKHMBdlxzEfQgaoCsdEcRLnBZTNEJVRemgXMR2gKmg6sCmuqXgamApJ6Fb7PaOsGkddOCLwe3lJdtMC8rSTUHPwU4mZfsXhqFHcOJYusZd1i7ual+CPxU4EPGumVpy9vd20mWwcnNDgdnC5X2TrfqKrFsS3g6uAWqDUUCizNcC7KAI7xjk5ri3x4HRPwNITxDCD+SBwPAvbwHEf/SzvOQnn1TjIi39CULLmF1WKA2ExwA5oEzsJdMvGBq9fbRAJlYOzzOeYwpmMXxG81evUDXG3eqlBTfR4HaGNuCu8OeR7HLFi+w1kjcR5ir1VerT2kgYsroeu7rD5jxTSK91OxenuWUBZngXw02jfUMxR8FD8GTWkqa42GPWSrqSWZtc2/97eD5tMDF27SGKT4NqRbPx5WqrSCPWlFx4+X5ODPsVrtY3LDDqMyrSoq39e/Loa1Wfwwc17Jlx9GmD7rvHx0r8jTNivU2AAAAAElFTkSuQmCC"
+			"source": "data:image/png;base64,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"
 		}
 	]
 }
