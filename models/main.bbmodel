@@ -205,12 +205,11 @@
 						{
 							"name": "Right",
 							"origin": [0, 19.25, 2.26],
-							"rotation": [0, -10, 0],
 							"color": 0,
 							"uuid": "21cbd619-53c7-9f99-f57c-56a318d9c37c",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": true,
+							"isOpen": false,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
@@ -219,7 +218,6 @@
 						{
 							"name": "Left",
 							"origin": [0, 19.25, 2.26],
-							"rotation": [0, 10, 0],
 							"color": 0,
 							"uuid": "3cd11598-1fb2-500b-c18e-1f0b095c1e82",
 							"export": true,
