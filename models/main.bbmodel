@@ -17,7 +17,7 @@
 	},
 	"elements": [
 		{
-			"name": "RightTop",
+			"name": "RightTopWing",
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
@@ -57,7 +57,7 @@
 			"uuid": "9f8eaa4f-d37c-6cba-6105-a4984d9cb39b"
 		},
 		{
-			"name": "RightBottom",
+			"name": "RightBottomWing",
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
@@ -97,7 +97,7 @@
 			"uuid": "ecffcb53-431b-a9e4-dbfa-90527126456d"
 		},
 		{
-			"name": "LeftTop",
+			"name": "LeftTopWing",
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
@@ -137,7 +137,7 @@
 			"uuid": "35181a54-e814-f729-b774-7efe99e8dd76"
 		},
 		{
-			"name": "LeftBottom",
+			"name": "LeftBottomWing",
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
@@ -568,7 +568,64 @@
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
-							"children": ["9f8eaa4f-d37c-6cba-6105-a4984d9cb39b", "ecffcb53-431b-a9e4-dbfa-90527126456d"]
+							"children": [
+								{
+									"name": "RightTopWing",
+									"origin": [0, 17.5, 2.25],
+									"color": 0,
+									"uuid": "5c94cca6-9da9-7a7b-ffab-2d59e7475f23",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": [
+										"9f8eaa4f-d37c-6cba-6105-a4984d9cb39b",
+										{
+											"name": "ParticleAnchorRT",
+											"origin": [15, 25, 2.25],
+											"color": 0,
+											"uuid": "56cf6937-fb43-302b-e2db-3f4bcb8e9cd2",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": true,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "RightBottomWing",
+									"origin": [0, 17.5, 2.25],
+									"color": 0,
+									"uuid": "2bafb88d-7eeb-2314-10f1-8bc2f793410e",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": [
+										"ecffcb53-431b-a9e4-dbfa-90527126456d",
+										{
+											"name": "ParticleAnchorRB",
+											"origin": [12.5, 9.25, 2.25],
+											"color": 0,
+											"uuid": "67ae0e60-0833-6567-4fc3-a591466952b2",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": false,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"children": []
+										}
+									]
+								}
+							]
 						},
 						{
 							"name": "LeftWing",
@@ -582,7 +639,64 @@
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
-							"children": ["35181a54-e814-f729-b774-7efe99e8dd76", "0bd5fc0e-ca32-0131-d6ac-79c5b5ba46b4"]
+							"children": [
+								{
+									"name": "LeftTopWing",
+									"origin": [0, 17.5, 2.25],
+									"color": 0,
+									"uuid": "de804801-e38f-fb07-486d-f017f4dd1db5",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": [
+										"35181a54-e814-f729-b774-7efe99e8dd76",
+										{
+											"name": "ParticleAnchorLT",
+											"origin": [-15, 25, 2.25],
+											"color": 0,
+											"uuid": "451b2709-57ff-d414-a747-4d0731b63ea0",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": false,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "LeftBottomWing",
+									"origin": [0, 17.5, 2.25],
+									"color": 0,
+									"uuid": "b63be274-ef83-77ed-d8ac-af7344b44ac8",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": [
+										"0bd5fc0e-ca32-0131-d6ac-79c5b5ba46b4",
+										{
+											"name": "ParticleAnchorLB",
+											"origin": [-12.5, 9.25, 2.25],
+											"color": 0,
+											"uuid": "b76de584-5940-f254-4ebe-e86f52fa6fc7",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": false,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"children": []
+										}
+									]
+								}
+							]
 						}
 					]
 				}
