@@ -30,12 +30,12 @@ events.RENDER:register(function ()
         end
     end
     local rightLegRotX = player:getVehicle() == nil and vanilla_model.RIGHT_LEG:getOriginRot().x or 0
-    models.models.main.Body.ButterflyWings.Right:setRot(0, rightLegRotX * 0.1 - (Wing.WingCrouchRatio * 60 + 10))
-    models.models.main.Body.ButterflyWings.Left:setRot(0, rightLegRotX * -0.1 + (Wing.WingCrouchRatio * 60 + 10))
-    for _, modelPart in ipairs(models.models.main.Body.ButterflyWings.Right:getChildren()) do
+    models.models.main.Body.ButterflyWings.RightWing:setRot(0, rightLegRotX * 0.1 - (Wing.WingCrouchRatio * 60 + 10))
+    models.models.main.Body.ButterflyWings.LeftWing:setRot(0, rightLegRotX * -0.1 + (Wing.WingCrouchRatio * 60 + 10))
+    for _, modelPart in ipairs(models.models.main.Body.ButterflyWings.RightWing:getChildren()) do
         modelPart:setRot(0, 0, Wing.WingCrouchRatio * -10)
     end
-    for _, modelPart in ipairs(models.models.main.Body.ButterflyWings.Left:getChildren()) do
+    for _, modelPart in ipairs(models.models.main.Body.ButterflyWings.LeftWing:getChildren()) do
         modelPart:setRot(0, 0, Wing.WingCrouchRatio * 10)
     end
     Wing.CrouchingPrev = crouching
