@@ -5,5 +5,19 @@
 	"version": "0.1.0-rc.14",
 	"autoScripts": [
 		"scripts/index.lua"
-	]
+	],
+	"customizations": {
+		"models.player.Player.RightArm.RightArmClassic": {
+			"parentType": "None"
+		},
+		"models.player.Player.RightArm.RightArmSlim": {
+			"parentType": "None"
+		},
+		"models.player.Player.LeftArm.LeftArmClassic": {
+			"parentType": "None"
+		},
+		"models.player.Player.LeftArm.LeftArmSlim": {
+			"parentType": "None"
+		}
+	}
 }
