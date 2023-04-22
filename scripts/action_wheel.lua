@@ -122,19 +122,19 @@ if host:isHost() then
 
     --メインページのアクションの設定
     --アクション1. 色変更（グラデーション1）
-    ActionWheel.MainPage:newAction(1):title(Locale.getTranslate("action_wheel__main__action_1")):item("red_dye"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function ()
+    ActionWheel.MainPage:newAction(1):title(Locale.getTranslate("action_wheel__main__action_1")):item("red_dye"):color(Color.Color[1]):hoverColor(1, 1, 1):onLeftClick(function ()
     end)
 
     --アクション2. 色変更（グラデーション2）
-    ActionWheel.MainPage:newAction(2):title(Locale.getTranslate("action_wheel__main__action_2")):item("yellow_dye"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function ()
+    ActionWheel.MainPage:newAction(2):title(Locale.getTranslate("action_wheel__main__action_2")):item("yellow_dye"):color(Color.Color[2]):hoverColor(1, 1, 1):onLeftClick(function ()
     end)
 
     --アクション3. 色変更（縁）
-    ActionWheel.MainPage:newAction(3):title(Locale.getTranslate("action_wheel__main__action_3")):item("green_dye"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function ()
+    ActionWheel.MainPage:newAction(3):title(Locale.getTranslate("action_wheel__main__action_3")):item("green_dye"):color(Color.Color[3]):hoverColor(1, 1, 1):onLeftClick(function ()
     end)
 
     --アクション4. 色変更（模様）
-    ActionWheel.MainPage:newAction(4):title(Locale.getTranslate("action_wheel__main__action_4")):item("blue_dye"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function ()
+    ActionWheel.MainPage:newAction(4):title(Locale.getTranslate("action_wheel__main__action_4")):item("blue_dye"):color(Color.Color[4]):hoverColor(1, 1, 1):onLeftClick(function ()
     end)
 
     --アクション5. 羽の発光

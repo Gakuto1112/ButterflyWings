@@ -7,6 +7,9 @@
 		"scripts/index.lua"
 	],
 	"customizations": {
+		"models.player": {
+			"primaryRenderType": "CUTOUT"
+		},
 		"models.player.Player.RightArm.RightArmClassic": {
 			"parentType": "None"
 		},

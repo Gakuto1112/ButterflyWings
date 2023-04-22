@@ -54,10 +54,10 @@ events.TICK:register(function ()
         end
 
         for _, modelPart in ipairs({models.models.main.Body.ButterflyWings.RightWing.RightTopWing.ParticleAnchorRT, models.models.main.Body.ButterflyWings.LeftWing.LeftTopWing.ParticleAnchorLT}) do
-            particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(105 / 255, 255 / 255, 175 / 255):scale(0.1)
+            particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[1]):scale(0.1)
         end
         for _, modelPart in ipairs({models.models.main.Body.ButterflyWings.RightWing.RightBottomWing.ParticleAnchorRB, models.models.main.Body.ButterflyWings.LeftWing.LeftBottomWing.ParticleAnchorLB}) do
-            particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(48 / 255, 251 / 255, 255 / 255):scale(0.1)
+            particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[2]):scale(0.1)
         end
     end
 end)
