@@ -88,7 +88,7 @@ if host:isHost() then
             print(Locale.getTranslate("action_wheel__color_picker__action_5__copy"))
         end):onRightClick(function ()
             if ActionWheel.CopiedColor ~= nil then
-                RGBToHSVInt(currentColor)
+                RGBToHSVInt(ActionWheel.CopiedColor)
                 print(Locale.getTranslate("action_wheel__color_picker__action_5__paste"))
             else
                 print(Locale.getTranslate("action_wheel__color_picker__action_5__no_paste_color"))
@@ -122,19 +122,44 @@ if host:isHost() then
 
     --メインページのアクションの設定
     --アクション1. 色変更（グラデーション1）
-    ActionWheel.MainPage:newAction(1):title(Locale.getTranslate("action_wheel__main__action_1")):item("red_dye"):color(Color.Color[1]):hoverColor(1, 1, 1):onLeftClick(function ()
+    ActionWheel.MainPage:newAction(1):title(Locale.getTranslate("action_wheel__main__action_1")):item("red_dye"):color(Color.Color[1]):hoverColor(1, 1, 1):onLeftClick(function (action)
+        colorPicker(Color.Color[1], vectors.vec3(0.69, 0.51, 0.84), function (newColor)
+            Color.Color[1] = newColor
+            Color.drawWingGradation()
+            Color.setFeelerTipColor()
+            action:color(newColor)
+            print(Locale.getTranslate("action_wheel__color_picker__message__done"))
+        end)
     end)
 
     --アクション2. 色変更（グラデーション2）
-    ActionWheel.MainPage:newAction(2):title(Locale.getTranslate("action_wheel__main__action_2")):item("yellow_dye"):color(Color.Color[2]):hoverColor(1, 1, 1):onLeftClick(function ()
+    ActionWheel.MainPage:newAction(2):title(Locale.getTranslate("action_wheel__main__action_2")):item("yellow_dye"):color(Color.Color[2]):hoverColor(1, 1, 1):onLeftClick(function (action)
+        colorPicker(Color.Color[2], vectors.vec3(0.02, 0.96, 0.97), function (newColor)
+            Color.Color[2] = newColor
+            Color.drawWingGradation()
+            action:color(newColor)
+            print(Locale.getTranslate("action_wheel__color_picker__message__done"))
+        end)
     end)
 
     --アクション3. 色変更（縁）
-    ActionWheel.MainPage:newAction(3):title(Locale.getTranslate("action_wheel__main__action_3")):item("green_dye"):color(Color.Color[3]):hoverColor(1, 1, 1):onLeftClick(function ()
+    ActionWheel.MainPage:newAction(3):title(Locale.getTranslate("action_wheel__main__action_3")):item("green_dye"):color(Color.Color[3]):hoverColor(1, 1, 1):onLeftClick(function (action)
+        colorPicker(Color.Color[3], vectors.vec3(0.2, 0.05, 0.04), function (newColor)
+            Color.Color[3] = newColor
+            Color.setEdgeColor()
+            action:color(newColor)
+            print(Locale.getTranslate("action_wheel__color_picker__message__done"))
+        end)
     end)
 
     --アクション4. 色変更（模様）
-    ActionWheel.MainPage:newAction(4):title(Locale.getTranslate("action_wheel__main__action_4")):item("blue_dye"):color(Color.Color[4]):hoverColor(1, 1, 1):onLeftClick(function ()
+    ActionWheel.MainPage:newAction(4):title(Locale.getTranslate("action_wheel__main__action_4")):item("blue_dye"):color(Color.Color[4]):hoverColor(1, 1, 1):onLeftClick(function (action)
+        colorPicker(Color.Color[4], vectors.vec3(0.27, 0.13, 0.45), function (newColor)
+            Color.Color[4] = newColor
+            Color.setPatternColor()
+            action:color(newColor)
+            print(Locale.getTranslate("action_wheel__color_picker__message__done"))
+        end)
     end)
 
     --アクション5. 羽の発光

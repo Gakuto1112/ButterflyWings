@@ -13,6 +13,10 @@ Color = {
             end
         end
         textures["textures.main"]:update()
+    end,
+
+    ---触角の先の色を設定する。
+    setFeelerTipColor = function ()
         for _, modelPart in ipairs({models.models.main.Head.Feeler.RightFeeler1.RightFeeler2.RightFeelerTip.RightColoredTip, models.models.main.Head.Feeler.LeftFeeler1.LeftFeeler2.LeftFeelerTip.LeftColoredTip}) do
             modelPart:setColor(Color.Color[1])
         end
@@ -35,6 +39,7 @@ Color = {
 }
 
 Color.drawWingGradation()
+Color.setFeelerTipColor()
 Color.setEdgeColor()
 Color.setPatternColor()
 
