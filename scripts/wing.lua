@@ -1,21 +1,21 @@
 ---@class Wing 蝶の羽を制御するクラス
----@field CrouchingPrev boolean 前チックにスニークしていたかどうか
+---@field WingOpenedPrev boolean 前チックに羽を開く条件を満たしていたかどうか
 ---@field CloseStep number 羽の開閉のアニメーションの進行度：0. 開いている ～ 1. 閉じている
 ---@field WingCrouchRatio number スニークによる羽の開閉がどれぐらいの割合で影響を及ぼすかの変数（0-1）
 
 Wing = {
-    CrouchingPrev = false,
+    WingOpenedPrev = false,
     CloseStep = 1,
     WingCrouchRatio = 1
 }
 
 events.RENDER:register(function ()
-    local crouching = player:isCrouching()
+    local wingOpened = player:isCrouching() or player:getPose() == "FALL_FLYING"
     local FPS = client:getFPS()
-    if crouching then
+    if wingOpened then
         if Wing.CloseStep > 0 then
             Wing.CloseStep = math.max(Wing.CloseStep - 1 / FPS, 0)
-            if not Wing.CrouchingPrev then
+            if not Wing.WingOpenedPrev then
                 Wing.CloseStep = math.pow(Wing.WingCrouchRatio, 0.25)
             end
             Wing.WingCrouchRatio = math.pow(Wing.CloseStep, 4)
@@ -23,7 +23,7 @@ events.RENDER:register(function ()
     else
         if Wing.CloseStep < 1 then
             Wing.CloseStep = math.min(Wing.CloseStep + 1 / FPS, 1)
-            if Wing.CrouchingPrev then
+            if Wing.WingOpenedPrev then
                 Wing.CloseStep = 1 - math.pow(1 - Wing.WingCrouchRatio, 0.25)
             end
             Wing.WingCrouchRatio = 1 - math.pow(1 - Wing.CloseStep, 4)
@@ -36,7 +36,7 @@ events.RENDER:register(function ()
     models.models.main.Body.ButterflyWings.RightWing.RightBottom:setRot(0, 0, Wing.WingCrouchRatio * -10)
     models.models.main.Body.ButterflyWings.LeftWing.LeftTop:setRot(0, 0, Wing.WingCrouchRatio * 20)
     models.models.main.Body.ButterflyWings.LeftWing.LeftBottom:setRot(0, 0, Wing.WingCrouchRatio * 10)
-    Wing.CrouchingPrev = crouching
+    Wing.WingOpenedPrev = wingOpened
 end)
 
 return Wing
