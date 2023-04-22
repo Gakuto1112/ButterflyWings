@@ -1,2 +1,2 @@
 --クラスのインスタンス化
-require("scripts.wing")
+Wing = require("scripts.wing")
