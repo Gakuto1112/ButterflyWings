@@ -559,6 +559,7 @@
 						{
 							"name": "RightWing",
 							"origin": [0, 17.5, 2.25],
+							"rotation": [0, -10, 0],
 							"color": 0,
 							"uuid": "21cbd619-53c7-9f99-f57c-56a318d9c37c",
 							"export": true,
@@ -572,6 +573,7 @@
 						{
 							"name": "LeftWing",
 							"origin": [0, 17.5, 2.25],
+							"rotation": [0, 10, 0],
 							"color": 0,
 							"uuid": "3cd11598-1fb2-500b-c18e-1f0b095c1e82",
 							"export": true,
@@ -607,6 +609,149 @@
 			"uuid": "4dbd4ce9-a112-d40c-207c-90bf9044184f",
 			"relative_path": "../../textures/main.png",
 			"source": "data:image/png;base64,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"
+		}
+	],
+	"animations": [
+		{
+			"uuid": "a7a3f25d-4b15-4e6a-63fe-a9345e129611",
+			"name": "flap",
+			"loop": "loop",
+			"override": false,
+			"length": 0.25,
+			"snapping": 24,
+			"selected": true,
+			"anim_time_update": "",
+			"blend_weight": "",
+			"start_delay": "",
+			"loop_delay": "",
+			"animators": {
+				"21cbd619-53c7-9f99-f57c-56a318d9c37c": {
+					"name": "RightWing",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": "0",
+									"y": "0",
+									"z": "0"
+								}
+							],
+							"uuid": "851168c0-874b-8894-76ac-211ec36952c0",
+							"time": 0,
+							"color": -1,
+							"interpolation": "catmullrom",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						},
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": 0,
+									"y": 0,
+									"z": 0
+								}
+							],
+							"uuid": "49d1bdbb-5d26-eba1-5f27-41c45fa4fdcb",
+							"time": 0.25,
+							"color": -1,
+							"interpolation": "catmullrom",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						},
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": 0,
+									"y": "60",
+									"z": 0
+								}
+							],
+							"uuid": "a1330a3c-ded5-52aa-5253-a162c71b6757",
+							"time": 0.125,
+							"color": -1,
+							"interpolation": "catmullrom",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						}
+					]
+				},
+				"3cd11598-1fb2-500b-c18e-1f0b095c1e82": {
+					"name": "LeftWing",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": "0",
+									"y": "0",
+									"z": "0"
+								}
+							],
+							"uuid": "1631317f-c502-5c38-9d3c-c43a351edf91",
+							"time": 0,
+							"color": -1,
+							"interpolation": "catmullrom",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						},
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": 0,
+									"y": 0,
+									"z": 0
+								}
+							],
+							"uuid": "a3026760-1cbd-b346-1aa9-19a3af27bc2f",
+							"time": 0.25,
+							"color": -1,
+							"interpolation": "catmullrom",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						},
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": 0,
+									"y": "-60",
+									"z": 0
+								}
+							],
+							"uuid": "0b77e245-5932-07ea-5409-742468d99987",
+							"time": 0.125,
+							"color": -1,
+							"interpolation": "catmullrom",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						}
+					]
+				}
+			}
 		}
 	]
 }

@@ -1,18 +1,53 @@
 ---@class Wing 蝶の羽を制御するクラス
----@field WingOpenedPrev boolean 前チックに羽を開く条件を満たしていたかどうか
+---@field Flying boolean クリエイティブ飛行をしているかどうか
+---@field SlowFallEffect boolean 低速落下のバフを受けているかどうか
+---@field WingOpened boolean 羽を開く条件を満たしているかどうか
+---@field WingOpenedPrev boolean 前レンダーチックに羽を開く条件を満たしていたかどうか
 ---@field CloseStep number 羽の開閉のアニメーションの進行度：0. 開いている ～ 1. 閉じている
 ---@field WingCrouchRatio number スニークによる羽の開閉がどれぐらいの割合で影響を及ぼすかの変数（0-1）
 
 Wing = {
+    Flying = false,
+    SlowFallEffect = false,
+    WingOpened = false,
     WingOpenedPrev = false,
     CloseStep = 1,
     WingCrouchRatio = 1
 }
 
+function pings.setFlying(value)
+    Wing.Flying = value
+end
+
+function pings.setSlowFallEffect(value)
+    Wing.SlowFallEffect = value
+end
+
+events.TICK:register(function ()
+    if host:isHost() then
+        local flying = host:isFlying()
+        if flying ~= Wing.Flying then
+            pings.setFlying(flying)
+        end
+        local slowFallEffect = false
+        for _, effect in ipairs(host:getStatusEffects()) do
+            if effect.name == "effect.minecraft.slow_falling" then
+                slowFallEffect = true
+                break
+            end
+        end
+        if slowFallEffect ~= Wing.SlowFallEffect then
+            pings.setSlowFallEffect(slowFallEffect)
+        end
+    end
+    local flap = Wing.Flying or (Wing.SlowFallEffect and not (player:isOnGround() or player:getVehicle() ~= nil or player:isInWater() or player:isInLava()))
+    Wing.WingOpened = flap or player:isCrouching() or player:getPose() == "FALL_FLYING"
+    animations["models.main"]["flap"]:setPlaying(flap)
+end)
+
 events.RENDER:register(function ()
-    local wingOpened = player:isCrouching() or player:getPose() == "FALL_FLYING"
     local FPS = client:getFPS()
-    if wingOpened then
+    if Wing.WingOpened then
         if Wing.CloseStep > 0 then
             Wing.CloseStep = math.max(Wing.CloseStep - 1 / FPS, 0)
             if not Wing.WingOpenedPrev then
@@ -36,7 +71,7 @@ events.RENDER:register(function ()
     models.models.main.Body.ButterflyWings.RightWing.RightBottom:setRot(0, 0, Wing.WingCrouchRatio * -10)
     models.models.main.Body.ButterflyWings.LeftWing.LeftTop:setRot(0, 0, Wing.WingCrouchRatio * 20)
     models.models.main.Body.ButterflyWings.LeftWing.LeftBottom:setRot(0, 0, Wing.WingCrouchRatio * 10)
-    Wing.WingOpenedPrev = wingOpened
+    Wing.WingOpenedPrev = Wing.WingOpened
 end)
 
 return Wing
