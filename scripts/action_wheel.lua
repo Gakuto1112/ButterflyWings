@@ -127,6 +127,7 @@ if host:isHost() then
             Color.Color[1] = newColor
             Color.drawWingGradation()
             Color.setFeelerTipColor()
+            Config.saveConfig("color1", newColor)
             action:color(newColor)
             print(Locale.getTranslate("action_wheel__color_picker__message__done"))
         end)
@@ -137,6 +138,7 @@ if host:isHost() then
         colorPicker(Color.Color[2], vectors.vec3(0.02, 0.96, 0.97), function (newColor)
             Color.Color[2] = newColor
             Color.drawWingGradation()
+            Config.saveConfig("color2", newColor)
             action:color(newColor)
             print(Locale.getTranslate("action_wheel__color_picker__message__done"))
         end)
@@ -147,6 +149,7 @@ if host:isHost() then
         colorPicker(Color.Color[3], vectors.vec3(0.2, 0.05, 0.04), function (newColor)
             Color.Color[3] = newColor
             Color.setEdgeColor()
+            Config.saveConfig("color3", newColor)
             action:color(newColor)
             print(Locale.getTranslate("action_wheel__color_picker__message__done"))
         end)
@@ -157,6 +160,7 @@ if host:isHost() then
         colorPicker(Color.Color[4], vectors.vec3(0.27, 0.13, 0.45), function (newColor)
             Color.Color[4] = newColor
             Color.setPatternColor()
+            Config.saveConfig("color4", newColor)
             action:color(newColor)
             print(Locale.getTranslate("action_wheel__color_picker__message__done"))
         end)
@@ -164,12 +168,19 @@ if host:isHost() then
 
     --アクション5. 羽の発光
     ActionWheel.MainPage:newAction(5):title(Locale.getTranslate("action_wheel__main__action_5")..Locale.getTranslate("action_wheel__toggle_off")):toggleTitle(Locale.getTranslate("action_wheel__main__action_5")..Locale.getTranslate("action_wheel__toggle_on")):item("glow_ink_sac"):color(0.67):toggleColor(0, 0.67):hoverColor(1, 0.33, 0.33):onToggle(function (_, action)
-        action:hoverColor(0.33, 1, 0.33)
         Wing.setGlowing(true)
+        Config.saveConfig("wingGlow", true)
+        action:hoverColor(0.33, 1, 0.33)
     end):onUntoggle(function (_, action)
-        action:hoverColor(1, 0.33, 0.33)
         Wing.setGlowing(false)
+        Config.saveConfig("wingGlow", false)
+        action:hoverColor(1, 0.33, 0.33)
     end)
+    if Config.loadConfig("wingGlow", true) then
+		local action = ActionWheel.MainPage:getAction(5)
+		action:toggled(true)
+		action:hoverColor(0.33, 1, 0.33)
+	end
 
     action_wheel:setPage(ActionWheel.MainPage)
 end
