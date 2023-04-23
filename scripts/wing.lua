@@ -5,6 +5,7 @@
 ---@field WingOpenedPrev boolean 前レンダーチックに羽を開く条件を満たしていたかどうか
 ---@field CloseStep number 羽の開閉のアニメーションの進行度：0. 開いている ～ 1. 閉じている
 ---@field WingCrouchRatio number スニークによる羽の開閉がどれぐらいの割合で影響を及ぼすかの変数（0-1）
+---@field Glowing boolean 羽が発光しているかどうか
 
 Wing = {
     Flying = false,
@@ -13,6 +14,7 @@ Wing = {
     WingOpenedPrev = false,
     CloseStep = 1,
     WingCrouchRatio = 1,
+    Glowing = true,
 
     ---羽の発光を設定する。
     ---@param glow boolean 羽の発光させるかどうか
@@ -20,13 +22,19 @@ Wing = {
         for _, modelPart in ipairs({models.models.main.Body.ButterflyWings.RightWing.RightTopWing.Base, models.models.main.Body.ButterflyWings.RightWing.RightBottomWing.Base, models.models.main.Body.ButterflyWings.LeftWing.LeftTopWing.Base, models.models.main.Body.ButterflyWings.LeftWing.LeftBottomWing.Base, models.models.main.Head.Feeler.RightFeeler1.RightFeeler2.RightFeelerTip.RightColoredTip, models.models.main.Head.Feeler.LeftFeeler1.LeftFeeler2.LeftFeelerTip.LeftColoredTip}) do
             modelPart:light(glow and 15 or nil)
         end
+        Wing.Glowing = glow
     end
 }
 
+--ping関数
+---クリエイティブ飛行のフラグを設定する。
+---@param value boolean クリエイティブ飛行のフラグ
 function pings.setFlying(value)
     Wing.Flying = value
 end
 
+---低速落下のバフのフラグを設定する。
+---@param value boolean 低速落下のバフを受けているかどうか
 function pings.setSlowFallEffect(value)
     Wing.SlowFallEffect = value
 end

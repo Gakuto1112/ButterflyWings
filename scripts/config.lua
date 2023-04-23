@@ -42,14 +42,26 @@ Config = {
 
 --ping関数
 ---アバター設定を他Figuraクライアントと同期する。
-function pings.syncAvatarConfig()
+---@param colors table<Vector3> 色設定のテーブル
+---@param wingGlow boolean 羽を発光させるかどうか
+---@param flyingFlag boolean クリエイティブ飛行のフラグ
+---@param slowFallFlag boolean 低速落下のバフのフラグ
+function pings.syncAvatarConfig(colors, wingGlow, flyingFlag, slowFallFlag)
 	if not Config.IsSynced then
+		Color.Color = colors
+		Color.drawWingGradation()
+		Color.setFeelerTipColor()
+		Color.setEdgeColor()
+		Color.setPatternColor()
+		Wing.setGlowing(wingGlow)
+		Wing.Flying = flyingFlag
+		Wing.SlowFallEffect = slowFallFlag
 	end
 end
 
 events.TICK:register(function ()
 	if Config.NextSyncCount == 0 then
-		pings.syncAvatarConfig()
+		pings.syncAvatarConfig(Color.Color, Wing.Glowing, Wing.Flying, Wing.SlowFallEffect)
 		Config.NextSyncCount = 300
 	else
 		Config.NextSyncCount = Config.NextSyncCount - 1

@@ -7,6 +7,42 @@ ActionWheel = {
     CopiedColor = nil
 }
 
+--ping関数
+---色1（グラデーション1）を設定する。
+---@param newColor Vector3 新しい色
+function pings.setColor1(newColor)
+    Color.Color[1] = newColor
+    Color.drawWingGradation()
+    Color.setFeelerTipColor()
+end
+
+---色2（グラデーション2）を設定する。
+---@param newColor Vector3 新しい色
+function pings.setColor2(newColor)
+    Color.Color[2] = newColor
+    Color.drawWingGradation()
+end
+
+---色3（縁）を設定する。
+---@param newColor Vector3 新しい色
+function pings.setColor3(newColor)
+    Color.Color[3] = newColor
+    Color.setEdgeColor()
+end
+
+---色4（模様）を設定する。
+---@param newColor Vector3 新しい色
+function pings.setColor4(newColor)
+    Color.Color[4] = newColor
+    Color.setPatternColor()
+end
+
+---羽の発光を設定する。
+---@param glow boolean 羽を発光させるかどうか
+function pings.setWingGlow(glow)
+    Wing.setGlowing(glow)
+end
+
 if host:isHost() then
     ---ユーザが色を選択可能なカラーピッカーを表示する。
     ---@param currentColor Vector3 現在の色。
@@ -124,9 +160,7 @@ if host:isHost() then
     --アクション1. 色変更（グラデーション1）
     ActionWheel.MainPage:newAction(1):title(Locale.getTranslate("action_wheel__main__action_1")):item("red_dye"):color(Color.Color[1]):hoverColor(1, 1, 1):onLeftClick(function (action)
         colorPicker(Color.Color[1], vectors.vec3(0.69, 0.51, 0.84), function (newColor)
-            Color.Color[1] = newColor
-            Color.drawWingGradation()
-            Color.setFeelerTipColor()
+            pings.setColor1(newColor)
             Config.saveConfig("color1", newColor)
             action:color(newColor)
             print(Locale.getTranslate("action_wheel__color_picker__message__done"))
@@ -136,8 +170,7 @@ if host:isHost() then
     --アクション2. 色変更（グラデーション2）
     ActionWheel.MainPage:newAction(2):title(Locale.getTranslate("action_wheel__main__action_2")):item("yellow_dye"):color(Color.Color[2]):hoverColor(1, 1, 1):onLeftClick(function (action)
         colorPicker(Color.Color[2], vectors.vec3(0.02, 0.96, 0.97), function (newColor)
-            Color.Color[2] = newColor
-            Color.drawWingGradation()
+            pings.setColor2(newColor)
             Config.saveConfig("color2", newColor)
             action:color(newColor)
             print(Locale.getTranslate("action_wheel__color_picker__message__done"))
@@ -147,8 +180,7 @@ if host:isHost() then
     --アクション3. 色変更（縁）
     ActionWheel.MainPage:newAction(3):title(Locale.getTranslate("action_wheel__main__action_3")):item("green_dye"):color(Color.Color[3]):hoverColor(1, 1, 1):onLeftClick(function (action)
         colorPicker(Color.Color[3], vectors.vec3(0.2, 0.05, 0.04), function (newColor)
-            Color.Color[3] = newColor
-            Color.setEdgeColor()
+            pings.setColor3(newColor)
             Config.saveConfig("color3", newColor)
             action:color(newColor)
             print(Locale.getTranslate("action_wheel__color_picker__message__done"))
@@ -158,8 +190,7 @@ if host:isHost() then
     --アクション4. 色変更（模様）
     ActionWheel.MainPage:newAction(4):title(Locale.getTranslate("action_wheel__main__action_4")):item("blue_dye"):color(Color.Color[4]):hoverColor(1, 1, 1):onLeftClick(function (action)
         colorPicker(Color.Color[4], vectors.vec3(0.27, 0.13, 0.45), function (newColor)
-            Color.Color[4] = newColor
-            Color.setPatternColor()
+            pings.setColor4(newColor)
             Config.saveConfig("color4", newColor)
             action:color(newColor)
             print(Locale.getTranslate("action_wheel__color_picker__message__done"))
@@ -168,11 +199,11 @@ if host:isHost() then
 
     --アクション5. 羽の発光
     ActionWheel.MainPage:newAction(5):title(Locale.getTranslate("action_wheel__main__action_5")..Locale.getTranslate("action_wheel__toggle_off")):toggleTitle(Locale.getTranslate("action_wheel__main__action_5")..Locale.getTranslate("action_wheel__toggle_on")):item("glow_ink_sac"):color(0.67):toggleColor(0, 0.67):hoverColor(1, 0.33, 0.33):onToggle(function (_, action)
-        Wing.setGlowing(true)
+        pings.setWingGlow(true)
         Config.saveConfig("wingGlow", true)
         action:hoverColor(0.33, 1, 0.33)
     end):onUntoggle(function (_, action)
-        Wing.setGlowing(false)
+        pings.setWingGlow(false)
         Config.saveConfig("wingGlow", false)
         action:hoverColor(1, 0.33, 0.33)
     end)
