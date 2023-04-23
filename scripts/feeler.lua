@@ -37,9 +37,9 @@ events.RENDER:register(function ()
 	end
     --触角の角度の決定
     local feelerRot = math.clamp(Feeler.VelocityAverage[1] * 30 - Feeler.VelocityAverage[2] * 30 - 30, -50, -10)
-    models.models.main.Head.Feeler.RightFeeler1:setRot(feelerRot, 20)
-    models.models.main.Head.Feeler.LeftFeeler1:setRot(feelerRot, -20)
-    for _, modelPart in ipairs({models.models.main.Head.Feeler.RightFeeler1.RightFeeler2, models.models.main.Head.Feeler.LeftFeeler1.LeftFeeler2}) do
+    models.models.main.Player.Head.ButterflyH.RightFeeler1:setRot(feelerRot, 20)
+    models.models.main.Player.Head.ButterflyH.LeftFeeler1:setRot(feelerRot, -20)
+    for _, modelPart in ipairs({models.models.main.Player.Head.ButterflyH.RightFeeler1.RightFeeler2, models.models.main.Player.Head.ButterflyH.LeftFeeler1.LeftFeeler2}) do
         modelPart:setRot(feelerRot)
     end
 end)

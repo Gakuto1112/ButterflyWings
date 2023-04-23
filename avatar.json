@@ -7,20 +7,28 @@
 		"scripts/index.lua"
 	],
 	"customizations": {
-		"models.player": {
+		"models.main": {
 			"primaryRenderType": "CUTOUT"
 		},
-		"models.player.Player.RightArm.RightArmClassic": {
+		"models.main.Player.RightArm.RightArmClassic": {
 			"parentType": "None"
 		},
-		"models.player.Player.RightArm.RightArmSlim": {
+		"models.main.Player.RightArm.RightArmSlim": {
 			"parentType": "None"
 		},
-		"models.player.Player.LeftArm.LeftArmClassic": {
+		"models.main.Player.LeftArm.LeftArmClassic": {
 			"parentType": "None"
 		},
-		"models.player.Player.LeftArm.LeftArmSlim": {
+		"models.main.Player.LeftArm.LeftArmSlim": {
 			"parentType": "None"
+		},
+		"models.butterfly.ButterflyH": {
+			"moveTo": "models.main.Player.Head",
+			"primaryRenderType": "TRANSLUCENT_CULL"
+		},
+		"models.butterfly.ButterflyB": {
+			"moveTo": "models.main.Player.Body",
+			"primaryRenderType": "TRANSLUCENT_CULL"
 		}
 	}
 }

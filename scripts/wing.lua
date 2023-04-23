@@ -19,7 +19,7 @@ Wing = {
     ---羽の発光を設定する。
     ---@param glow boolean 羽の発光させるかどうか
     setGlowing = function (glow)
-        for _, modelPart in ipairs({models.models.main.Body.ButterflyWings.RightWing.RightTopWing.Base, models.models.main.Body.ButterflyWings.RightWing.RightBottomWing.Base, models.models.main.Body.ButterflyWings.LeftWing.LeftTopWing.Base, models.models.main.Body.ButterflyWings.LeftWing.LeftBottomWing.Base, models.models.main.Head.Feeler.RightFeeler1.RightFeeler2.RightFeelerTip.RightColoredTip, models.models.main.Head.Feeler.LeftFeeler1.LeftFeeler2.LeftFeelerTip.LeftColoredTip}) do
+        for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.Base, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.Base, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.Base, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.Base, models.models.main.Player.Head.ButterflyH.RightFeeler1.RightFeeler2.RightFeelerTip.RightColoredTip, models.models.main.Player.Head.ButterflyH.LeftFeeler1.LeftFeeler2.LeftFeelerTip.LeftColoredTip}) do
             modelPart:light(glow and 15 or nil)
         end
         Wing.Glowing = glow
@@ -41,6 +41,7 @@ end
 
 events.TICK:register(function ()
     if host:isHost() then
+        ---@diagnostic disable-next-line: undefined-field
         local flying = host:isFlying()
         if flying ~= Wing.Flying then
             pings.setFlying(flying)
@@ -59,7 +60,7 @@ events.TICK:register(function ()
     local flap = Wing.Flying or (Wing.SlowFallEffect and not (player:isOnGround() or player:getVehicle() ~= nil or player:isInWater() or player:isInLava()))
     local fallFlying = player:getPose() == "FALL_FLYING"
     Wing.WingOpened = flap or player:isCrouching() or fallFlying
-    animations["models.main"]["flap"]:setPlaying(flap)
+    animations["models.butterfly"]["flap"]:setPlaying(flap)
     if flap or fallFlying then
         ---モデルの絶対位置を返す
         ---@param modelPart ModelPart 対象のモデル
@@ -69,10 +70,10 @@ events.TICK:register(function ()
             return vectors.vec3(matrix[4][1], matrix[4][2], matrix[4][3])
         end
 
-        for _, modelPart in ipairs({models.models.main.Body.ButterflyWings.RightWing.RightTopWing.ParticleAnchorRT, models.models.main.Body.ButterflyWings.LeftWing.LeftTopWing.ParticleAnchorLT}) do
+        for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.ParticleAnchorRT, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.ParticleAnchorLT}) do
             particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[1]):scale(0.1)
         end
-        for _, modelPart in ipairs({models.models.main.Body.ButterflyWings.RightWing.RightBottomWing.ParticleAnchorRB, models.models.main.Body.ButterflyWings.LeftWing.LeftBottomWing.ParticleAnchorLB}) do
+        for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.ParticleAnchorRB, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.ParticleAnchorLB}) do
             particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[2]):scale(0.1)
         end
     end
@@ -98,12 +99,12 @@ events.RENDER:register(function ()
         end
     end
     local rightLegRotX = player:getVehicle() == nil and vanilla_model.RIGHT_LEG:getOriginRot().x or 0
-    models.models.main.Body.ButterflyWings.RightWing:setRot(0, rightLegRotX * 0.1 - (Wing.WingCrouchRatio * 60 + 10))
-    models.models.main.Body.ButterflyWings.LeftWing:setRot(0, rightLegRotX * -0.1 + (Wing.WingCrouchRatio * 60 + 10))
-    models.models.main.Body.ButterflyWings.RightWing.RightTopWing:setRot(0, 0, Wing.WingCrouchRatio * -20)
-    models.models.main.Body.ButterflyWings.RightWing.RightBottomWing:setRot(0, 0, Wing.WingCrouchRatio * -10)
-    models.models.main.Body.ButterflyWings.LeftWing.LeftTopWing:setRot(0, 0, Wing.WingCrouchRatio * 20)
-    models.models.main.Body.ButterflyWings.LeftWing.LeftBottomWing:setRot(0, 0, Wing.WingCrouchRatio * 10)
+    models.models.main.Player.Body.ButterflyB.RightWing:setRot(0, rightLegRotX * 0.1 - (Wing.WingCrouchRatio * 60 + 10))
+    models.models.main.Player.Body.ButterflyB.LeftWing:setRot(0, rightLegRotX * -0.1 + (Wing.WingCrouchRatio * 60 + 10))
+    models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing:setRot(0, 0, Wing.WingCrouchRatio * -20)
+    models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing:setRot(0, 0, Wing.WingCrouchRatio * -10)
+    models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing:setRot(0, 0, Wing.WingCrouchRatio * 20)
+    models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing:setRot(0, 0, Wing.WingCrouchRatio * 10)
     Wing.WingOpenedPrev = Wing.WingOpened
 end)
 
