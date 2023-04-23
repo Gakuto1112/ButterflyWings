@@ -69,6 +69,14 @@ events.RENDER:register(function ()
             Player.FlyIdleAnimationCount = math.max(Player.FlyIdleAnimationCount - 4 / FPS, 0)
         end
     end
+    local crouching = player:isCrouching()
+    if crouching then
+        models.models.main.Player.Body.RightArm:setPos(0, 3)
+        models.models.main.Player.Body.LeftArm:setPos(0, 3)
+    else
+        models.models.main.Player.Body.RightArm:setPos()
+        models.models.main.Player.Body.LeftArm:setPos()
+    end
     local FlyAnimationCountSin = math.sin(Player.FlyAnimationCount * math.pi * 2)
     models.models.main:setPos(0, FlyAnimationCountSin, 0)
 
@@ -79,8 +87,9 @@ events.RENDER:register(function ()
         return vectorToScale:scale(0.95 - FlyAnimationCountSin * 0.1):scale(Player.FlyIdleAnimationCount)
     end
 
-    models.models.main.Player.Body.RightArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, 6.25, -13.65)):add(Player.ArmsOffset[1]))
-    models.models.main.Player.Body.LeftArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, -6.28, 13.65)):add(Player.ArmsOffset[2]))
+    local crouchingOffset = crouching and 30 or 0
+    models.models.main.Player.Body.RightArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, 6.25, -13.65)):add(crouchingOffset):add(Player.ArmsOffset[1]))
+    models.models.main.Player.Body.LeftArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, -6.28, 13.65)):add(crouchingOffset):add(Player.ArmsOffset[2]))
     if General.Flying and Player.FlyIdle then
         models.models.main.Player.RightLeg:setRot(flyIdleAnimationScale(vectors.vec3(59.62, -8.65, 5.04)))
         models.models.main.Player.LeftLeg:setRot(flyIdleAnimationScale(vectors.vec3(59.62, 8.65, -5.04)))
