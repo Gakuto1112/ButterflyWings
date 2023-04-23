@@ -10,16 +10,16 @@
 		"models.main": {
 			"primaryRenderType": "CUTOUT"
 		},
-		"models.main.Player.RightArm.RightArmClassic": {
+		"models.main.Player.Body.RightArm.RightArmClassic": {
 			"parentType": "None"
 		},
-		"models.main.Player.RightArm.RightArmSlim": {
+		"models.main.Player.Body.RightArm.RightArmSlim": {
 			"parentType": "None"
 		},
-		"models.main.Player.LeftArm.LeftArmClassic": {
+		"models.main.Player.Body.LeftArm.LeftArmClassic": {
 			"parentType": "None"
 		},
-		"models.main.Player.LeftArm.LeftArmSlim": {
+		"models.main.Player.Body.LeftArm.LeftArmSlim": {
 			"parentType": "None"
 		},
 		"models.butterfly.ButterflyH": {
