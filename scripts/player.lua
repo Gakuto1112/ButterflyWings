@@ -35,8 +35,9 @@ events.TICK:register(function ()
             models.models.main.Player.Body.LeftArm:setParentType("LeftArm")
         else
             local armSwing = player:isSwingingArm()
-            models.models.main.Player.Body.RightArm:setParentType((armSwing and not leftHanded) and "RightArm" or "None")
-            models.models.main.Player.Body.LeftArm:setParentType((armSwing and leftHanded) and "LeftArm" or "None")
+            local firstPerson = renderer:isFirstPerson()
+            models.models.main.Player.Body.RightArm:setParentType(((armSwing or firstPerson) and not leftHanded) and "RightArm" or "None")
+            models.models.main.Player.Body.LeftArm:setParentType(((armSwing or firstPerson) and leftHanded) and "LeftArm" or "None")
         end
         for _, modelPart in ipairs({models.models.main.Player.RightLeg, models.models.main.Player.LeftLeg}) do
             modelPart:setParentType("None")
