@@ -165,8 +165,10 @@ if host:isHost() then
     --アクション5. 羽の発光
     ActionWheel.MainPage:newAction(5):title(Locale.getTranslate("action_wheel__main__action_5")..Locale.getTranslate("action_wheel__toggle_off")):toggleTitle(Locale.getTranslate("action_wheel__main__action_5")..Locale.getTranslate("action_wheel__toggle_on")):item("glow_ink_sac"):color(0.67):toggleColor(0, 0.67):hoverColor(1, 0.33, 0.33):onToggle(function (_, action)
         action:hoverColor(0.33, 1, 0.33)
+        Wing.setGlowing(true)
     end):onUntoggle(function (_, action)
         action:hoverColor(1, 0.33, 0.33)
+        Wing.setGlowing(false)
     end)
 
     action_wheel:setPage(ActionWheel.MainPage)

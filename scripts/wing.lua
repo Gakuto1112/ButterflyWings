@@ -12,7 +12,15 @@ Wing = {
     WingOpened = false,
     WingOpenedPrev = false,
     CloseStep = 1,
-    WingCrouchRatio = 1
+    WingCrouchRatio = 1,
+
+    ---羽の発光を設定する。
+    ---@param glow boolean 羽の発光させるかどうか
+    setGlowing = function (glow)
+        for _, modelPart in ipairs({models.models.main.Body.ButterflyWings.RightWing.RightTopWing.Base, models.models.main.Body.ButterflyWings.RightWing.RightBottomWing.Base, models.models.main.Body.ButterflyWings.LeftWing.LeftTopWing.Base, models.models.main.Body.ButterflyWings.LeftWing.LeftBottomWing.Base, models.models.main.Head.Feeler.RightFeeler1.RightFeeler2.RightFeelerTip.RightColoredTip, models.models.main.Head.Feeler.LeftFeeler1.LeftFeeler2.LeftFeelerTip.LeftColoredTip}) do
+            modelPart:light(glow and 15 or nil)
+        end
+    end
 }
 
 function pings.setFlying(value)
