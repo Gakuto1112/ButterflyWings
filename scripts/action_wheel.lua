@@ -20,7 +20,7 @@ if host:isHost() then
         ---カラー選択アクションのタイトルを設定する。
         ---@param index integer アクションのインデックス（2-4）
         local function setColorActionTitle(index)
-            colorPickerPage:getAction(index):title(Locale.getTranslate("action_wheel__color_picker__action_"..index)..currentColorHSVInt[index - 1])
+            colorPickerPage:getAction(index):title(Locale.getTranslate("action_wheel__color_picker__action_"..index)..currentColorHSVInt[index - 1]..Locale.getTranslate("action_wheel__color_picker__message_fast_scroll"))
         end
 
         ---HSVIntをRGBに変換する。
