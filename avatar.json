@@ -30,6 +30,22 @@
 			"moveTo": "models.main.Player.Body",
 			"primaryRenderType": "TRANSLUCENT_CULL"
 		},
+		"models.butterfly.ButterflyB.RightWing.RightTopWing.TatteredLayerRT": {
+			"primaryRenderType": "TRANSLUCENT",
+			"visible": false
+		},
+		"models.butterfly.ButterflyB.RightWing.RightBottomWing.TatteredLayerRB": {
+			"primaryRenderType": "TRANSLUCENT",
+			"visible": false
+		},
+		"models.butterfly.ButterflyB.LeftWing.LeftTopWing.TatteredLayerLT": {
+			"primaryRenderType": "TRANSLUCENT",
+			"visible": false
+		},
+		"models.butterfly.ButterflyB.LeftWing.LeftBottomWing.TatteredLayerLB": {
+			"primaryRenderType": "TRANSLUCENT",
+			"visible": false
+		},
 		"models.armor.ArmorH": {
 			"moveTo": "models.main.Player.Head",
 			"visible": false

@@ -1,3 +1,8 @@
+---@alias HealthLevel
+---| "HIGH"
+---| "MEDIUM"
+---| "LOW"
+
 ---@class Wing 蝶の羽を制御するクラス
 ---@field SlowFallEffect boolean 低速落下のバフを受けているかどうか
 ---@field WingOpened boolean 羽を開く条件を満たしているかどうか
@@ -5,6 +10,7 @@
 ---@field CloseStep number 羽の開閉のアニメーションの進行度：0. 開いている ～ 1. 閉じている
 ---@field WingCrouchRatio number スニークによる羽の開閉がどれぐらいの割合で影響を及ぼすかの変数（0-1）
 ---@field Glowing boolean 羽が発光しているかどうか
+---@field HealthConditionPrev HealthLevel 前チックのプレイヤーのHPの状態
 
 Wing = {
     SlowFallEffect = false,
@@ -13,6 +19,7 @@ Wing = {
     CloseStep = 1,
     WingCrouchRatio = 1,
     Glowing = true,
+    HealthConditionPrev = "HIGH",
 
     ---羽の発光を設定する。
     ---@param glow boolean 羽の発光させるかどうか
@@ -62,6 +69,22 @@ events.TICK:register(function ()
             particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[2]):scale(0.1)
         end
     end
+    local healthPercent = (player:getHealth() + player:getAbsorptionAmount()) / player:getMaxHealth()
+    local gamemode = player:getGamemode()
+    local healthCondition = (healthPercent > 0.5 or gamemode == "CREATIVE" or gamemode == "SPECTATOR") and "HIGH" or (healthPercent > 0.2 and "MEDIUM" or "LOW")
+    if healthCondition ~= Wing.HealthConditionPrev then
+        if healthCondition ~= "HIGH" then
+            for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.TatteredLayerRT, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.TatteredLayerRB, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.TatteredLayerLT, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.TatteredLayerLB}) do
+                modelPart:setVisible(true)
+                modelPart:setUVPixels(healthCondition == "LOW" and 60 or 0,0)
+            end
+        else
+            for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.TatteredLayerRT, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.TatteredLayerRB, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.TatteredLayerLT, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.TatteredLayerLB}) do
+                modelPart:setVisible(false)
+            end
+        end
+        Wing.HealthConditionPrev = healthCondition
+    end
 end)
 
 events.RENDER:register(function ()
@@ -92,5 +115,9 @@ events.RENDER:register(function ()
     models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing:setRot(0, 0, Wing.WingCrouchRatio * 10)
     Wing.WingOpenedPrev = Wing.WingOpened
 end)
+
+for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.TatteredLayerRT, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.TatteredLayerRB, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.TatteredLayerLT, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.TatteredLayerLB}) do
+    modelPart:setOpacity(0)
+end
 
 return Wing
