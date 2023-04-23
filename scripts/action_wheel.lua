@@ -44,13 +44,18 @@ function pings.setWingGlow(glow)
 end
 
 if host:isHost() then
+    ---透明度変更アクションのタイトルを設定する。
+    local function setOpacityActionTitle()
+        ActionWheel.MainPage:getAction(5):title(Locale.getTranslate("action_wheel__main__action_5")..math.round(Color.Opacity * 100)..Locale.getTranslate("action_wheel__color_picker__message_fast_scroll"))
+    end
+
+    local sprintKey = keybinds:fromVanilla("key.sprint")
     ---ユーザが色を選択可能なカラーピッカーを表示する。
     ---@param currentColor Vector3 現在の色。
     ---@param defaultColor Vector3 デフォルトの色
     ---@param callbackFunction function 色が決定された時に実行する関数（引数1<Vector3>：新しい色）
     local function colorPicker(currentColor, defaultColor, callbackFunction)
         local colorPickerPage = action_wheel:newPage()
-        local sprintKey = keybinds:fromVanilla("key.sprint")
         local currentColorHSVInt = nil
 
         ---カラー選択アクションのタイトルを設定する。
@@ -102,8 +107,7 @@ if host:isHost() then
         ---@param index integer アクションのインデックス
         local function SVScroll(index, direction)
             local addValue = (direction > 0 and 1 or -1) * (sprintKey:isPressed() and 5 or 1)
-            currentColorHSVInt[index - 1] = currentColorHSVInt[index - 1] + addValue
-            currentColorHSVInt[index - 1] = currentColorHSVInt[index - 1] < 0 and 0 or (currentColorHSVInt[index - 1] > 100 and 100 or currentColorHSVInt[index - 1])
+            currentColorHSVInt[index - 1] = math.clamp(currentColorHSVInt[index - 1] + addValue, 0, 100)
             setColorActionTitle(index)
             setPreviewColor()
         end
@@ -197,8 +201,22 @@ if host:isHost() then
         end)
     end)
 
-    --アクション5. 羽の発光
-    ActionWheel.MainPage:newAction(5):title(Locale.getTranslate("action_wheel__main__action_5")..Locale.getTranslate("action_wheel__toggle_off")):toggleTitle(Locale.getTranslate("action_wheel__main__action_5")..Locale.getTranslate("action_wheel__toggle_on")):item("glow_ink_sac"):color(0.67):toggleColor(0, 0.67):hoverColor(1, 0.33, 0.33):onToggle(function (_, action)
+    --アクション5. 羽の透明度
+    ActionWheel.MainPage:newAction(5):item("minecraft:glass_pane"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onScroll(function (direction, action)
+        local addValue = (direction > 0 and 1 or -1) * (sprintKey:isPressed() and 0.05 or 0.01)
+        Color.Opacity = math.clamp(Color.Opacity + addValue, 0, 1)
+        Color.setOpacity()
+        Config.saveConfig("opacity", Color.Opacity)
+        setOpacityActionTitle()
+    end):onRightClick(function ()
+        Color.Opacity = 0.75
+        Color.setOpacity()
+        Config.saveConfig("opacity", 0.75)
+        setOpacityActionTitle()
+    end)
+
+    --アクション6. 羽の発光
+    ActionWheel.MainPage:newAction(6):title(Locale.getTranslate("action_wheel__main__action_6")..Locale.getTranslate("action_wheel__toggle_off")):toggleTitle(Locale.getTranslate("action_wheel__main__action_6")..Locale.getTranslate("action_wheel__toggle_on")):item("glow_ink_sac"):color(0.67):toggleColor(0, 0.67):hoverColor(1, 0.33, 0.33):onToggle(function (_, action)
         pings.setWingGlow(true)
         Config.saveConfig("wingGlow", true)
         action:hoverColor(0.33, 1, 0.33)
@@ -208,12 +226,13 @@ if host:isHost() then
         action:hoverColor(1, 0.33, 0.33)
     end)
     if Config.loadConfig("wingGlow", true) then
-		local action = ActionWheel.MainPage:getAction(5)
+		local action = ActionWheel.MainPage:getAction(6)
         Wing.setGlowing(true)
 		action:toggled(true)
 		action:hoverColor(0.33, 1, 0.33)
 	end
 
+    setOpacityActionTitle()
     action_wheel:setPage(ActionWheel.MainPage)
 end
 
