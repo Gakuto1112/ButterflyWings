@@ -209,6 +209,7 @@ if host:isHost() then
     end)
     if Config.loadConfig("wingGlow", true) then
 		local action = ActionWheel.MainPage:getAction(5)
+        Wing.setGlowing(true)
 		action:toggled(true)
 		action:hoverColor(0.33, 1, 0.33)
 	end
