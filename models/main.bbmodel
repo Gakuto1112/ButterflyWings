@@ -684,11 +684,40 @@
 					"uuid": "377a0216-0412-0570-47bb-926885d2a833",
 					"export": true,
 					"mirror_uv": false,
-					"isOpen": false,
+					"isOpen": true,
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
-					"children": ["b6db0010-24d7-8a86-3bb4-e8dab67dc77b", "59ab800b-f587-236d-1313-354bc17327f1"]
+					"children": [
+						"b6db0010-24d7-8a86-3bb4-e8dab67dc77b",
+						"59ab800b-f587-236d-1313-354bc17327f1",
+						{
+							"name": "RightSpyglassPivot",
+							"origin": [1.6, 27.35, -4.35],
+							"color": 0,
+							"uuid": "f0162cf9-04e9-533d-1887-8ab75a0df18b",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": false,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"children": []
+						},
+						{
+							"name": "LeftSpyglassPivot",
+							"origin": [-1.6, 27.35, -4.35],
+							"color": 0,
+							"uuid": "c43ca291-711e-c119-178a-b5e45c8adede",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": false,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"children": []
+						}
+					]
 				},
 				{
 					"name": "Body",
@@ -783,7 +812,7 @@
 							"uuid": "695e6131-cdef-9dbf-da36-7496218039bd",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": false,
+							"isOpen": true,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
@@ -895,10 +924,10 @@
 			"frame_interpolate": false,
 			"visible": true,
 			"mode": "bitmap",
-			"saved": false,
+			"saved": true,
 			"uuid": "2d2d5ef0-b1da-d50f-1f42-3e5a22a64084",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAIRJREFUeF7t1QERADAMArHi33SFfOagHBm7+Fv8/hOABsQTQCBeAJ8gAgjEE0AgXgArgAAC8QQQiBfACiCAQDwBBOIFsAIIIBBPAIF4AawAAgjEE0AgXgArgAAC8QQQiBfACiCAQDwBBOIFsAIIIBBPAIF4AawAAgjEE0AgXgArgECdwANo2ABBrP9ggQAAAABJRU5ErkJggg==",
-			"relative_path": "../../textures/steve.png"
+			"relative_path": "../../textures/steve.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAIRJREFUeF7t1QERADAMArHi33SFfOagHBm7+Fv8/hOABsQTQCBeAJ8gAgjEE0AgXgArgAAC8QQQiBfACiCAQDwBBOIFsAIIIBBPAIF4AawAAgjEE0AgXgArgAAC8QQQiBfACiCAQDwBBOIFsAIIIBBPAIF4AawAAgjEE0AgXgArgECdwANo2ABBrP9ggQAAAABJRU5ErkJggg=="
 		}
 	]
 }

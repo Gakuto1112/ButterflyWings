@@ -97,6 +97,8 @@ end
 for _, modelPart in ipairs(player:getModelType() == "DEFAULT" and {models.models.main.Player.Body.RightArm.RightArmSlim, models.models.main.Player.Body.LeftArm.LeftArmSlim} or {models.models.main.Player.Body.RightArm.RightArmClassic, models.models.main.Player.Body.LeftArm.LeftArmClassic}) do
 	modelPart:setVisible(false)
 end
-vanilla_model.ALL:setVisible(false)
+for _, vanillaModel in ipairs({vanilla_model.PLAYER, vanilla_model.ARMOR, vanilla_model.ELYTRA}) do
+    vanillaModel:setVisible(false)
+end
 
 return Player
