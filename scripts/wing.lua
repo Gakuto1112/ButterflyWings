@@ -1,5 +1,4 @@
 ---@class Wing 蝶の羽を制御するクラス
----@field Flying boolean クリエイティブ飛行をしているかどうか
 ---@field SlowFallEffect boolean 低速落下のバフを受けているかどうか
 ---@field WingOpened boolean 羽を開く条件を満たしているかどうか
 ---@field WingOpenedPrev boolean 前レンダーチックに羽を開く条件を満たしていたかどうか
@@ -8,7 +7,6 @@
 ---@field Glowing boolean 羽が発光しているかどうか
 
 Wing = {
-    Flying = false,
     SlowFallEffect = false,
     WingOpened = false,
     WingOpenedPrev = false,
@@ -26,13 +24,6 @@ Wing = {
     end
 }
 
---ping関数
----クリエイティブ飛行のフラグを設定する。
----@param value boolean クリエイティブ飛行のフラグ
-function pings.setFlying(value)
-    Wing.Flying = value
-end
-
 ---低速落下のバフのフラグを設定する。
 ---@param value boolean 低速落下のバフを受けているかどうか
 function pings.setSlowFallEffect(value)
@@ -41,11 +32,6 @@ end
 
 events.TICK:register(function ()
     if host:isHost() then
-        ---@diagnostic disable-next-line: undefined-field
-        local flying = host:isFlying()
-        if flying ~= Wing.Flying then
-            pings.setFlying(flying)
-        end
         local slowFallEffect = false
         for _, effect in ipairs(host:getStatusEffects()) do
             if effect.name == "effect.minecraft.slow_falling" then
@@ -57,7 +43,7 @@ events.TICK:register(function ()
             pings.setSlowFallEffect(slowFallEffect)
         end
     end
-    local flap = Wing.Flying or player:getPose() == "FALL_FLYING" or (Wing.SlowFallEffect and not (player:isOnGround() or player:getVehicle() ~= nil or player:isInWater() or player:isInLava()))
+    local flap = General.Flying or player:getPose() == "FALL_FLYING" or (Wing.SlowFallEffect and not (player:isOnGround() or player:getVehicle() ~= nil or player:isInWater() or player:isInLava()))
     Wing.WingOpened = flap or player:isCrouching()
     animations["models.butterfly"]["flap"]:setPlaying(flap)
     if flap then

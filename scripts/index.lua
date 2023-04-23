@@ -1,6 +1,7 @@
 --クラスのインスタンス化
 events.ENTITY_INIT:register(function ()
-    require("scripts.player")
+    General = require("scripts.general")
+    Player = require("scripts.player")
     Config = require("scripts.config")
     Color = require("scripts.color")
     Locale = require("scripts.locale")
