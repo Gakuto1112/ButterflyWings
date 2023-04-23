@@ -49,6 +49,11 @@ if host:isHost() then
         ActionWheel.MainPage:getAction(5):title(Locale.getTranslate("action_wheel__main__action_5")..math.round(Color.Opacity * 100)..Locale.getTranslate("action_wheel__color_picker__message_fast_scroll"))
     end
 
+    ---パーティクルの出現時間変更アクションのタイトルを設定する。
+    local function setParticleDurationActionTitle()
+        ActionWheel.MainPage:getAction(7):title(Locale.getTranslate("action_wheel__main__action_7")..Locale.getTranslate(Wing.ParticleDuration == 0 and "action_wheel__main__action_7__none" or (Wing.ParticleDuration == 1 and "action_wheel__main__action_7__short" or (Wing.ParticleDuration == 2 and "action_wheel__main__action_7__normal" or (Wing.ParticleDuration == 3 and "action_wheel__main__action_7__long" or "action_wheel__main__action_7__very_long")))))
+    end
+
     local sprintKey = keybinds:fromVanilla("key.sprint")
     ---ユーザが色を選択可能なカラーピッカーを表示する。
     ---@param currentColor Vector3 現在の色。
@@ -232,7 +237,20 @@ if host:isHost() then
 		action:hoverColor(0.33, 1, 0.33)
 	end
 
+    --アクション7. パーティクルの出現時間
+    ActionWheel.MainPage:newAction(7):item("minecraft:glowstone_dust"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onScroll(function (direction)
+        local addValue = direction > 0 and 1 or -1
+        Wing.ParticleDuration = math.clamp(Wing.ParticleDuration + addValue, 0, 4)
+        Config.saveConfig("particleDuration", Wing.ParticleDuration)
+        setParticleDurationActionTitle()
+    end):onRightClick(function ()
+        Wing.ParticleDuration = 2
+        Config.saveConfig("particleDuration", 2)
+        setParticleDurationActionTitle()
+    end)
+
     setOpacityActionTitle()
+    setParticleDurationActionTitle()
     action_wheel:setPage(ActionWheel.MainPage)
 end
 
