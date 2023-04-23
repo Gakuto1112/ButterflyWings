@@ -29,6 +29,36 @@
 		"models.butterfly.ButterflyB": {
 			"moveTo": "models.main.Player.Body",
 			"primaryRenderType": "TRANSLUCENT_CULL"
+		},
+		"models.armor.ArmorH": {
+			"moveTo": "models.main.Player.Head",
+			"visible": false
+		},
+		"models.armor.ArmorB": {
+			"moveTo": "models.main.Player.Body",
+			"visible": false
+		},
+		"models.armor.ArmorRA": {
+			"moveTo": "models.main.Player.Body.RightArm",
+			"visible": false
+		},
+		"models.armor.ArmorLA": {
+			"moveTo": "models.main.Player.Body.LeftArm",
+			"visible": false
+		},
+		"models.armor.ArmorRL": {
+			"moveTo": "models.main.Player.RightLeg",
+			"visible": false
+		},
+		"models.armor.ArmorRL.RightLeggings": {
+			"parentType": "None"
+		},
+		"models.armor.ArmorLL": {
+			"moveTo": "models.main.Player.LeftLeg",
+			"visible": false
+		},
+		"models.armor.ArmorLL.LeftLeggings": {
+			"parentType": "None"
 		}
 	}
 }
