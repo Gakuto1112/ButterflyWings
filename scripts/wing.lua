@@ -57,11 +57,10 @@ events.TICK:register(function ()
             pings.setSlowFallEffect(slowFallEffect)
         end
     end
-    local flap = Wing.Flying or (Wing.SlowFallEffect and not (player:isOnGround() or player:getVehicle() ~= nil or player:isInWater() or player:isInLava()))
-    local fallFlying = player:getPose() == "FALL_FLYING"
-    Wing.WingOpened = flap or player:isCrouching() or fallFlying
+    local flap = Wing.Flying or player:getPose() == "FALL_FLYING" or (Wing.SlowFallEffect and not (player:isOnGround() or player:getVehicle() ~= nil or player:isInWater() or player:isInLava()))
+    Wing.WingOpened = flap or player:isCrouching()
     animations["models.butterfly"]["flap"]:setPlaying(flap)
-    if flap or fallFlying then
+    if flap then
         ---モデルの絶対位置を返す
         ---@param modelPart ModelPart 対象のモデル
         ---@return Vector3 modelPos モデルの基点の絶対座標
