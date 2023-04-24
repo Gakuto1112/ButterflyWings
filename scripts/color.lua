@@ -1,6 +1,6 @@
 ---@class Color アバターのカスタマイズ可能な色を制御するクラス
 ---@field Color table<Vector3> 管理する色のテーブル：1. グラデーション1, 2. グラデーション2, 3. 縁, 4. 模様
----@field Palette table<table<Vector3>> カラーパレットのテーブル（読み込みはアクションホイールで行う）
+---@field Palette table<table<Vector3|number>> カラーパレットのテーブル（読み込みはアクションホイールで行う）
 ---@field Opacity number 羽や触角の透明度
 
 Color = {
@@ -20,7 +20,9 @@ Color = {
     ---@param update boolean 最後にテクスチャの適用処理を行うかどうか
     setPaletteColorSet = function (paletteIndex, update)
         for colorIndex, color in ipairs(paletteIndex == 0 and Color.Color or Color.Palette[paletteIndex]) do
-            textures["textures.palette"]:setPixel(paletteIndex * 2 + (colorIndex - 1) % 2, math.ceil(colorIndex / 2) - 1, color)
+            if colorIndex <= 4 then
+                textures["textures.palette"]:setPixel(paletteIndex * 2 + (colorIndex - 1) % 2, math.ceil(colorIndex / 2) - 1, color)
+            end
         end
         if update then
             textures["textures.palette"]:update()

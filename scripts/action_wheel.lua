@@ -276,7 +276,7 @@ if host:isHost() then
     ActionWheel.MainPage:newAction(8):title(Locale.getTranslate("action_wheel__main__action_8")):item("book"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function ()
         if not ActionWheel.PalettePageInit then
             for i = 1, 6 do
-                table.insert(Color.Palette, Config.loadConfig("palette"..i, {vectors.vec3(0.69, 0.51, 0.84), vectors.vec3(0.02, 0.96, 0.97), vectors.vec3(0.2, 0.05, 0.04), vectors.vec3(0.27, 0.13, 0.45)}))
+                table.insert(Color.Palette, Config.loadConfig("palette"..i, {vectors.vec3(0.69, 0.51, 0.84), vectors.vec3(0.02, 0.96, 0.97), vectors.vec3(0.2, 0.05, 0.04), vectors.vec3(0.27, 0.13, 0.45), 0.75}))
                 Color.setPaletteColorSet(i, false)
             end
             textures["textures.palette"]:update()
@@ -289,10 +289,11 @@ if host:isHost() then
     --アクション1. 現在の色
     ActionWheel.PalettePage:newAction(1):title(Locale.getTranslate("action_wheel__palette__action_1")):texture(textures["textures.palette"], 0, 0, 2, 2, 8):color(0, 0.67, 0.67):hoverColor(0.33, 1, 1):onLeftClick(function ()
         local exportString = ""
-        for index, colorVector in ipairs(Color.Color) do
+        for _, colorVector in ipairs(Color.Color) do
             local color1, color2, color3 = colorVector:unpack()
-            exportString = exportString..color1..","..color2..","..color3..(index == 4 and "" or ",")
+            exportString = exportString..color1..","..color2..","..color3..","
         end
+        exportString = exportString..Color.Opacity
         host:clipboard(exportString)
         print(Locale.getTranslate("action_wheel__palette__message__export"))
     end):onRightClick(function ()
