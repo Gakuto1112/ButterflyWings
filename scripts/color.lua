@@ -1,16 +1,30 @@
 ---@class Color アバターのカスタマイズ可能な色を制御するクラス
 ---@field Color table<Vector3> 管理する色のテーブル：1. グラデーション1, 2. グラデーション2, 3. 縁, 4. 模様
+---@field Palette table<table<Vector3>> カラーパレットのテーブル（読み込みはアクションホイールで行う）
 ---@field Opacity number 羽や触角の透明度
 
 Color = {
     Color = {Config.loadConfig("color1", vectors.vec3(0.69, 0.51, 0.84)), Config.loadConfig("color2", vectors.vec3(0.02, 0.96, 0.97)), Config.loadConfig("color3", vectors.vec3(0.2, 0.05, 0.04)), Config.loadConfig("color4", vectors.vec3(0.27, 0.13, 0.45))},
+    Palette = {},
     Opacity = Config.loadConfig("opacity", 0.75),
 
-    ---現在の羽の色のカラーパレットを設定する。
+    ---現在の羽の色のカラーパレットのプレビューを設定する。
     ---@param colorIndex integer 色のインデックス（1-4）
     setPaletteColor = function (colorIndex)
         textures["textures.palette"]:setPixel((colorIndex - 1) % 2, math.ceil(colorIndex / 2) - 1, Color.Color[colorIndex])
         textures["textures.palette"]:update()
+    end,
+
+    ---カラーパレットセットのプレイヤーを設定する。
+    ---@param paletteIndex integer カラーパレットのインデックス：0. 現在のパレット, 1-6. パレット1～6（アクションホイールからカラーパレットを開くまで呼び出さない。）
+    ---@param update boolean 最後にテクスチャの適用処理を行うかどうか
+    setPaletteColorSet = function (paletteIndex, update)
+        for colorIndex, color in ipairs(paletteIndex == 0 and Color.Color or Color.Palette[paletteIndex]) do
+            textures["textures.palette"]:setPixel(paletteIndex * 2 + (colorIndex - 1) % 2, math.ceil(colorIndex / 2) - 1, color)
+        end
+        if update then
+            textures["textures.palette"]:update()
+        end
     end,
 
     ---羽のグラデーションを描画する。
@@ -58,10 +72,5 @@ Color.setFeelerTipColor()
 Color.setEdgeColor()
 Color.setPatternColor()
 Color.setOpacity()
-if host:isHost() then
-    for i = 1, 4 do
-        Color.setPaletteColor(i)
-    end
-end
 
 return Color

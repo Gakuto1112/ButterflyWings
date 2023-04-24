@@ -12,7 +12,7 @@
 	"timeline_setups": [],
 	"unhandled_root_fields": {},
 	"resolution": {
-		"width": 16,
+		"width": 14,
 		"height": 2
 	},
 	"elements": [],
@@ -36,7 +36,7 @@
 			"saved": true,
 			"uuid": "7103b5e0-5095-8d39-57e9-061a623f16c8",
 			"relative_path": "../../textures/palette.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAACCAYAAABR7VzxAAAAAXNSR0IArs4c6QAAABRJREFUGFdj/P///38GCgAjpQYAAPZrB/uKIUqMAAAAAElFTkSuQmCC"
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAACCAYAAABoiu2qAAAAAXNSR0IArs4c6QAAABNJREFUGFdj/P///38GMgAjuRoBlqMH+1bYB18AAAAASUVORK5CYII="
 		}
 	]
 }

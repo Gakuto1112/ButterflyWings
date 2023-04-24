@@ -1,11 +1,15 @@
 ---@class ActionWheel アクションホイールを制御するクラス
 ---@field MainPage Page アクションホイールのメインページ
 ---@field PalettePage Page アクションホイールのカラーパレットのページ
+---@field MainPageInit boolean メインページの初期処理を行ったかどうか
+---@field PalettePageInit boolean カラーパレットのページの初期処理を行ったかどうか
 ---@field CopiedColor Vector3|nil カラーピッカーでコピーされた色
 
 ActionWheel = {
     MainPage = action_wheel:newPage(),
     PalettePage = action_wheel:newPage(),
+    MainPageInit = false,
+    PalettePageInit = false,
     CopiedColor = nil
 }
 
@@ -179,6 +183,15 @@ if host:isHost() then
         action_wheel:setPage(colorPickerPage)
     end
 
+    events.TICK:register(function ()
+        if action_wheel:isEnabled() and not ActionWheel.MainPageInit then
+            setOpacityActionTitle()
+            setParticleDurationActionTitle()
+            Color.setPaletteColorSet(0, true)
+            ActionWheel.MainPageInit = true
+        end
+    end)
+
     --メインページのアクションの設定
     --アクション1. 色変更（グラデーション1）
     ActionWheel.MainPage:newAction(1):title(Locale.getTranslate("action_wheel__main__action_1")):texture(textures["textures.palette"], 0, 0, 1, 1, 16):color(Color.Color[1]):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function (action)
@@ -261,6 +274,14 @@ if host:isHost() then
 
     --アクション8. カラーパレット
     ActionWheel.MainPage:newAction(8):title(Locale.getTranslate("action_wheel__main__action_8")):item("book"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function ()
+        if not ActionWheel.PalettePageInit then
+            for i = 1, 6 do
+                table.insert(Color.Palette, Config.loadConfig("palette"..i, {vectors.vec3(0.69, 0.51, 0.84), vectors.vec3(0.02, 0.96, 0.97), vectors.vec3(0.2, 0.05, 0.04), vectors.vec3(0.27, 0.13, 0.45)}))
+                Color.setPaletteColorSet(i, false)
+            end
+            textures["textures.palette"]:update()
+            ActionWheel.PalettePageInit = true
+        end
         action_wheel:setPage(ActionWheel.PalettePage)
     end)
 
@@ -272,7 +293,7 @@ if host:isHost() then
 
     --アクション2～7. カラーパレット
     for i = 2, 7 do
-        ActionWheel.PalettePage:newAction(i):title(Locale.getTranslate("action_wheel__palette__action_2")..(i - 1)..Locale.getTranslate("action_wheel__palette__action_2__control")):texture(textures["textures.palette"], i * 2, 0, 2, 2, 8):color(0, 0.67, 0.67):hoverColor(0.33, 1, 1):onLeftClick(function ()
+        ActionWheel.PalettePage:newAction(i):title(Locale.getTranslate("action_wheel__palette__action_2")..(i - 1)..Locale.getTranslate("action_wheel__palette__action_2__control")):texture(textures["textures.palette"], (i - 1) * 2, 0, 2, 2, 8):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function ()
         end):onRightClick(function ()
         end)
     end
@@ -282,9 +303,6 @@ if host:isHost() then
         action_wheel:setPage(ActionWheel.MainPage)
     end)
 
-
-    setOpacityActionTitle()
-    setParticleDurationActionTitle()
     action_wheel:setPage(ActionWheel.MainPage)
 end
 
