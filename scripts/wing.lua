@@ -12,6 +12,7 @@
 ---@field ParticleDuration integer 羽のパーティクルの出現時間の長さ：0. なし, 1. 短い, 2. ふつう, 3. 長い
 ---@field Glowing boolean 羽が発光しているかどうか
 ---@field HealthConditionPrev HealthLevel 前チックのプレイヤーのHPの状態
+---@field WingSoundCount integer 羽の音のカウンター
 
 Wing = {
     SlowFallEffect = false,
@@ -22,6 +23,7 @@ Wing = {
     Glowing = true,
     ParticleDuration = Config.loadConfig("particleDuration", 2),
     HealthConditionPrev = "HIGH",
+    WingSoundCount = 0,
 
     ---羽の発光を設定する。
     ---@param glow boolean 羽の発光させるかどうか
@@ -55,22 +57,30 @@ events.TICK:register(function ()
     local flap = General.Flying or player:getPose() == "FALL_FLYING" or (Wing.SlowFallEffect and not (player:isOnGround() or player:getVehicle() ~= nil or player:isInWater() or player:isInLava()))
     Wing.WingOpened = flap or player:isCrouching()
     animations["models.butterfly"]["flap"]:setPlaying(flap)
-    if flap and Wing.ParticleDuration > 0 then
-        ---モデルの絶対位置を返す
-        ---@param modelPart ModelPart 対象のモデル
-        ---@return Vector3 modelPos モデルの基点の絶対座標
-        local function getAbsoluteModelPos(modelPart)
-            local matrix = modelPart:partToWorldMatrix()
-            return vectors.vec3(matrix[4][1], matrix[4][2], matrix[4][3])
-        end
+    if flap then
+        if Wing.ParticleDuration > 0 then
+            ---モデルの絶対位置を返す
+            ---@param modelPart ModelPart 対象のモデル
+            ---@return Vector3 modelPos モデルの基点の絶対座標
+            local function getAbsoluteModelPos(modelPart)
+                local matrix = modelPart:partToWorldMatrix()
+                return vectors.vec3(matrix[4][1], matrix[4][2], matrix[4][3])
+            end
 
-        local lifeTime = 2 ^ Wing.ParticleDuration / 4 * 60
-        for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.ParticleAnchorRT, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.ParticleAnchorLT}) do
-            particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[1]):scale(0.1):lifetime(lifeTime)
+            local lifeTime = 2 ^ Wing.ParticleDuration / 4 * 60
+            for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.ParticleAnchorRT, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.ParticleAnchorLT}) do
+                particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[1]):scale(0.1):lifetime(lifeTime)
+            end
+            for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.ParticleAnchorRB, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.ParticleAnchorLB}) do
+                particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[2]):scale(0.1):lifetime(lifeTime)
+            end
         end
-        for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.ParticleAnchorRB, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.ParticleAnchorLB}) do
-            particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[2]):scale(0.1):lifetime(lifeTime)
+        if Wing.WingSoundCount == 1 then
+            sounds:playSound("block.wool.step", player:getPos(), 0.25, 2)
         end
+        Wing.WingSoundCount = Wing.WingSoundCount == 4 and 0 or Wing.WingSoundCount + 1
+    else
+        Wing.WingSoundCount = 0
     end
     local healthPercent = (player:getHealth() + player:getAbsorptionAmount()) / player:getMaxHealth()
     local gamemode = player:getGamemode()
