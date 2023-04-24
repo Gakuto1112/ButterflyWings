@@ -1,9 +1,11 @@
 ---@class ActionWheel アクションホイールを制御するクラス
 ---@field MainPage Page アクションホイールのメインページ
----@field CopiedColor Vector3|nil カラーパレットでコピーされた色
+---@field PalettePage Page アクションホイールのカラーパレットのページ
+---@field CopiedColor Vector3|nil カラーピッカーでコピーされた色
 
 ActionWheel = {
     MainPage = action_wheel:newPage(),
+    PalettePage = action_wheel:newPage(),
     CopiedColor = nil
 }
 
@@ -58,7 +60,7 @@ end
 if host:isHost() then
     ---透明度変更アクションのタイトルを設定する。
     local function setOpacityActionTitle()
-        ActionWheel.MainPage:getAction(5):title(Locale.getTranslate("action_wheel__main__action_5")..math.round(Color.Opacity * 100)..Locale.getTranslate("action_wheel__color_picker__message_fast_scroll"))
+        ActionWheel.MainPage:getAction(5):title(Locale.getTranslate("action_wheel__main__action_5")..math.round(Color.Opacity * 100)..Locale.getTranslate("action_wheel__picker__message_fast_scroll"))
     end
 
     ---パーティクルの出現時間変更アクションのタイトルを設定する。
@@ -78,7 +80,7 @@ if host:isHost() then
         ---カラー選択アクションのタイトルを設定する。
         ---@param index integer アクションのインデックス（2-4）
         local function setColorActionTitle(index)
-            colorPickerPage:getAction(index):title(Locale.getTranslate("action_wheel__color_picker__action_"..index)..currentColorHSVInt[index - 1]..Locale.getTranslate("action_wheel__color_picker__message_fast_scroll"))
+            colorPickerPage:getAction(index):title(Locale.getTranslate("action_wheel__picker__action_"..index)..currentColorHSVInt[index - 1]..Locale.getTranslate("action_wheel__picker__message_fast_scroll"))
         end
 
         ---HSVIntをRGBに変換する。
@@ -109,7 +111,7 @@ if host:isHost() then
 
         --カラーピッカーのアクションの設定
         --アクション1. 現在の色
-        colorPickerPage:newAction(1):title(Locale.getTranslate("action_wheel__color_picker__action_1"))
+        colorPickerPage:newAction(1):title(Locale.getTranslate("action_wheel__picker__action_1"))
 
         --アクション2. H（色相）
         colorPickerPage:newAction(2):item("painting"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onScroll(function (direction)
@@ -140,20 +142,20 @@ if host:isHost() then
         end)
 
         --アクション5. コピー/貼り付け
-        colorPickerPage:newAction(5):title(Locale.getTranslate("action_wheel__color_picker__action_5")):item("book"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function ()
+        colorPickerPage:newAction(5):title(Locale.getTranslate("action_wheel__picker__action_5")):item("book"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function ()
             ActionWheel.CopiedColor = HSVInttoRGB()
-            print(Locale.getTranslate("action_wheel__color_picker__action_5__copy"))
+            print(Locale.getTranslate("action_wheel__picker__action_5__copy"))
         end):onRightClick(function ()
             if ActionWheel.CopiedColor ~= nil then
                 RGBToHSVInt(ActionWheel.CopiedColor)
-                print(Locale.getTranslate("action_wheel__color_picker__action_5__paste"))
+                print(Locale.getTranslate("action_wheel__picker__action_5__paste"))
             else
-                print(Locale.getTranslate("action_wheel__color_picker__action_5__no_paste_color"))
+                print(Locale.getTranslate("action_wheel__picker__action_5__no_paste_color"))
             end
         end)
 
         --アクション6. デフォルトにリセット
-        colorPickerPage:newAction(6):title(Locale.getTranslate("action_wheel__color_picker__action_6")):item("white_dye"):color(defaultColor):hoverColor(1, 1, 1):onLeftClick(function ()
+        colorPickerPage:newAction(6):title(Locale.getTranslate("action_wheel__picker__action_6")):item("white_dye"):color(defaultColor):hoverColor(1, 1, 1):onLeftClick(function ()
             RGBToHSVInt(defaultColor)
         end)
 
@@ -167,7 +169,7 @@ if host:isHost() then
         end
 
         --アクション7. 保存して/保存せずに終了
-        colorPickerPage:newAction(7):title(Locale.getTranslate("action_wheel__color_picker__action_7")):item("barrier"):color(0.67):hoverColor(1, 0.33, 0.33):onLeftClick(function ()
+        colorPickerPage:newAction(7):title(Locale.getTranslate("action_wheel__picker__action_7")):item("barrier"):color(0.67):hoverColor(1, 0.33, 0.33):onLeftClick(function ()
             exit(true)
         end):onRightClick(function ()
             exit(false)
@@ -183,7 +185,7 @@ if host:isHost() then
         colorPicker(Color.Color[1], vectors.vec3(0.69, 0.51, 0.84), function (newColor)
             pings.setColor1(newColor)
             Config.saveConfig("color1", newColor)
-            print(Locale.getTranslate("action_wheel__color_picker__message__done"))
+            print(Locale.getTranslate("action_wheel__picker__message__done"))
         end)
     end)
 
@@ -192,7 +194,7 @@ if host:isHost() then
         colorPicker(Color.Color[2], vectors.vec3(0.02, 0.96, 0.97), function (newColor)
             pings.setColor2(newColor)
             Config.saveConfig("color2", newColor)
-            print(Locale.getTranslate("action_wheel__color_picker__message__done"))
+            print(Locale.getTranslate("action_wheel__picker__message__done"))
         end)
     end)
 
@@ -201,7 +203,7 @@ if host:isHost() then
         colorPicker(Color.Color[3], vectors.vec3(0.2, 0.05, 0.04), function (newColor)
             pings.setColor3(newColor)
             Config.saveConfig("color3", newColor)
-            print(Locale.getTranslate("action_wheel__color_picker__message__done"))
+            print(Locale.getTranslate("action_wheel__picker__message__done"))
         end)
     end)
 
@@ -210,7 +212,7 @@ if host:isHost() then
         colorPicker(Color.Color[4], vectors.vec3(0.27, 0.13, 0.45), function (newColor)
             pings.setColor4(newColor)
             Config.saveConfig("color4", newColor)
-            print(Locale.getTranslate("action_wheel__color_picker__message__done"))
+            print(Locale.getTranslate("action_wheel__picker__message__done"))
         end)
     end)
 
@@ -246,7 +248,7 @@ if host:isHost() then
 	end
 
     --アクション7. パーティクルの出現時間
-    ActionWheel.MainPage:newAction(7):item("minecraft:glowstone_dust"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onScroll(function (direction)
+    ActionWheel.MainPage:newAction(7):item("glowstone_dust"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onScroll(function (direction)
         local addValue = direction > 0 and 1 or -1
         Wing.ParticleDuration = math.clamp(Wing.ParticleDuration + addValue, 0, 4)
         Config.saveConfig("particleDuration", Wing.ParticleDuration)
@@ -256,6 +258,30 @@ if host:isHost() then
         Config.saveConfig("particleDuration", 2)
         setParticleDurationActionTitle()
     end)
+
+    --アクション8. カラーパレット
+    ActionWheel.MainPage:newAction(8):title(Locale.getTranslate("action_wheel__main__action_8")):item("book"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function ()
+        action_wheel:setPage(ActionWheel.PalettePage)
+    end)
+
+    --カラーパレットのアクションの設定
+    --アクション1. 現在の色
+    ActionWheel.PalettePage:newAction(1):title(Locale.getTranslate("action_wheel__palette__action_1")):texture(textures["textures.palette"], 0, 0, 2, 2, 8):color(0, 0.67, 0.67):hoverColor(0.33, 1, 1):onLeftClick(function ()
+    end):onRightClick(function ()
+    end)
+
+    --アクション2～7. カラーパレット
+    for i = 2, 7 do
+        ActionWheel.PalettePage:newAction(i):title(Locale.getTranslate("action_wheel__palette__action_2")..(i - 1)..Locale.getTranslate("action_wheel__palette__action_2__control")):texture(textures["textures.palette"], i * 2, 0, 2, 2, 8):color(0, 0.67, 0.67):hoverColor(0.33, 1, 1):onLeftClick(function ()
+        end):onRightClick(function ()
+        end)
+    end
+
+    --アクション8. カラーパレットを閉じる
+    ActionWheel.PalettePage:newAction(8):title(Locale.getTranslate("action_wheel__palette__action_8")):item("barrier"):color(0.67):hoverColor(1, 0.33, 0.33):onLeftClick(function ()
+        action_wheel:setPage(ActionWheel.MainPage)
+    end)
+
 
     setOpacityActionTitle()
     setParticleDurationActionTitle()
