@@ -70,7 +70,7 @@ end
 
 events.TICK:register(function ()
 	if Config.NextSyncCount == 0 then
-		pings.syncAvatarConfig(Color.Color, Color.Opacity, Wing.Glowing, Wing.ParticleDuration, Wing.Flying, Wing.SlowFallEffect)
+		pings.syncAvatarConfig(Color.Color, Color.Opacity, Wing.Glowing, Wing.ParticleDuration, General.Flying, Wing.SlowFallEffect)
 		Config.NextSyncCount = 300
 	else
 		Config.NextSyncCount = Config.NextSyncCount - 1
