@@ -19,8 +19,6 @@ Locale = {
             action_wheel__main__action_7__long = "Long",
 			action_wheel__main__action_7__very_long = "Very long",
 			action_wheel__main__action_8 = "Color palette",
-			action_wheel__picker__message_fast_scroll = "\n§bYou can scroll quickly with holding sprint key!",
-			action_wheel__picker__message__done = "Changed target color!",
 			action_wheel__picker__action_1 = "Current color",
 			action_wheel__picker__action_2 = "Hue §7(Scroll)§r：",
 			action_wheel__picker__action_3 = "Saturation §7(Scroll)§r：",
@@ -31,10 +29,13 @@ Locale = {
 			action_wheel__picker__action_5__no_paste_color = "No color to paste!",
 			action_wheel__picker__action_6 = "Reset to default",
 			action_wheel__picker__action_7 = "Save and close §7(Left click)§r\nClose without saving §7(Right click)",
+			action_wheel__picker__message__fast_scroll = "\n§bYou can scroll quickly with holding sprint key!",
+			action_wheel__picker__message__done = "Changed target color!",
 			action_wheel__palette__action_1 = "Current palette\nExport §7(Left click)§r  Import §7(Right click)",
 			action_wheel__palette__action_2 = "Palette ",
 			action_wheel__palette__action_2__control = "\nApply palette §7(Left click)§r  Save current palette §7(Right click)",
 			action_wheel__palette__action_8 = "Close color palette",
+			action_wheel__palette__message__export = "The current palette information has been copied to the clipboard. Please save separately, etc."
 		},
 		ja_jp = {
             action_wheel__toggle_off = "§cオフ",
@@ -52,8 +53,6 @@ Locale = {
             action_wheel__main__action_7__long = "長い",
             action_wheel__main__action_7__very_long = "とても長い",
 			action_wheel__main__action_8 = "カラーパレット",
-			action_wheel__picker__message_fast_scroll = "\n§bダッシュキーを押しながら素早くスクロールできます！",
-			action_wheel__picker__message__done = "色を変更しました！",
 			action_wheel__picker__action_1 = "現在の色",
 			action_wheel__picker__action_2 = "色相§7（スクロール）§r：",
 			action_wheel__picker__action_3 = "彩度§7（スクロール）§r：",
@@ -64,10 +63,13 @@ Locale = {
 			action_wheel__picker__action_5__no_paste_color = "貼り付ける色がありません！",
 			action_wheel__picker__action_6 = "デフォルトの色にリセット",
 			action_wheel__picker__action_7 = "保存して閉じる§7（左クリック）§r\n保存せずに閉じる§7（右クリック）",
+			action_wheel__picker__message__fast_scroll = "\n§bダッシュキーを押しながら素早くスクロールできます！",
+			action_wheel__picker__message__done = "色を変更しました！",
 			action_wheel__palette__action_1 = "現在のパレット\nエクスポート§7（左クリック）§r  インポート§7（右クリック）",
 			action_wheel__palette__action_2 = "パレット",
 			action_wheel__palette__action_2__control = "\nパレットの適用§7（左クリック）§r  現在のパレットを保存§7（右クリック）",
 			action_wheel__palette__action_8 = "カラーパレットを閉じる",
+			action_wheel__palette__message__export = "現在のパレットの情報をクリップボードにコピーしました。別途保存などを行ってください。"
 		}
 	},
 

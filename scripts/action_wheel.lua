@@ -64,7 +64,7 @@ end
 if host:isHost() then
     ---透明度変更アクションのタイトルを設定する。
     local function setOpacityActionTitle()
-        ActionWheel.MainPage:getAction(5):title(Locale.getTranslate("action_wheel__main__action_5")..math.round(Color.Opacity * 100)..Locale.getTranslate("action_wheel__picker__message_fast_scroll"))
+        ActionWheel.MainPage:getAction(5):title(Locale.getTranslate("action_wheel__main__action_5")..math.round(Color.Opacity * 100)..Locale.getTranslate("action_wheel__picker__message__fast_scroll"))
     end
 
     ---パーティクルの出現時間変更アクションのタイトルを設定する。
@@ -84,7 +84,7 @@ if host:isHost() then
         ---カラー選択アクションのタイトルを設定する。
         ---@param index integer アクションのインデックス（2-4）
         local function setColorActionTitle(index)
-            colorPickerPage:getAction(index):title(Locale.getTranslate("action_wheel__picker__action_"..index)..currentColorHSVInt[index - 1]..Locale.getTranslate("action_wheel__picker__message_fast_scroll"))
+            colorPickerPage:getAction(index):title(Locale.getTranslate("action_wheel__picker__action_"..index)..currentColorHSVInt[index - 1]..Locale.getTranslate("action_wheel__picker__message__fast_scroll"))
         end
 
         ---HSVIntをRGBに変換する。
@@ -288,6 +288,13 @@ if host:isHost() then
     --カラーパレットのアクションの設定
     --アクション1. 現在の色
     ActionWheel.PalettePage:newAction(1):title(Locale.getTranslate("action_wheel__palette__action_1")):texture(textures["textures.palette"], 0, 0, 2, 2, 8):color(0, 0.67, 0.67):hoverColor(0.33, 1, 1):onLeftClick(function ()
+        local exportString = ""
+        for index, colorVector in ipairs(Color.Color) do
+            local color1, color2, color3 = colorVector:unpack()
+            exportString = exportString..color1..","..color2..","..color3..(index == 4 and "" or ",")
+        end
+        host:clipboard(exportString)
+        print(Locale.getTranslate("action_wheel__palette__message__export"))
     end):onRightClick(function ()
     end)
 
