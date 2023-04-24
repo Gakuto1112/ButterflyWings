@@ -57,7 +57,7 @@ function pings.syncAvatarConfig(colors, wingOpacity, wingGlow, particleDuration,
 			Color.setEdgeColor()
 			Color.setPatternColor()
 			Wing.setGlowing(wingGlow)
-			Wing.Flying = flyingFlag
+			General.Flying = flyingFlag
 			Wing.SlowFallEffect = slowFallFlag
 		end
 		if Color.Opacity ~= wingOpacity then

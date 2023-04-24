@@ -207,7 +207,7 @@ if host:isHost() then
 
     --メインページのアクションの設定
     --アクション1. 色変更（グラデーション1）
-    ActionWheel.MainPage:newAction(1):title(Locale.getTranslate("action_wheel__main__action_1")):texture(textures["textures.palette"], 0, 0, 1, 1, 16):color(Color.Color[1]):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function (action)
+    ActionWheel.MainPage:newAction(1):title(Locale.getTranslate("action_wheel__main__action_1")):texture(textures["textures.palette"], 0, 0, 1, 1, 16):color(Color.Color[1]):color(0.67, 0.67):hoverColor(1, 1, 0.33):onLeftClick(function (action)
         colorPicker(Color.Color[1], vectors.vec3(0.69, 0.51, 0.84), function (newColor)
             pings.setColor1(newColor)
             Color.setPaletteColor(1, newColor)
@@ -217,7 +217,7 @@ if host:isHost() then
     end)
 
     --アクション2. 色変更（グラデーション2）
-    ActionWheel.MainPage:newAction(2):title(Locale.getTranslate("action_wheel__main__action_2")):texture(textures["textures.palette"], 1, 0, 1, 1, 16):color(Color.Color[2]):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function (action)
+    ActionWheel.MainPage:newAction(2):title(Locale.getTranslate("action_wheel__main__action_2")):texture(textures["textures.palette"], 1, 0, 1, 1, 16):color(Color.Color[2]):color(0.67, 0.67):hoverColor(1, 1, 0.33):onLeftClick(function (action)
         colorPicker(Color.Color[2], vectors.vec3(0.02, 0.96, 0.97), function (newColor)
             pings.setColor2(newColor)
             Color.setPaletteColor(2, newColor)
@@ -227,7 +227,7 @@ if host:isHost() then
     end)
 
     --アクション3. 色変更（縁）
-    ActionWheel.MainPage:newAction(3):title(Locale.getTranslate("action_wheel__main__action_3")):texture(textures["textures.palette"], 0, 1, 1, 1, 16):color(Color.Color[3]):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function (action)
+    ActionWheel.MainPage:newAction(3):title(Locale.getTranslate("action_wheel__main__action_3")):texture(textures["textures.palette"], 0, 1, 1, 1, 16):color(Color.Color[3]):color(0.67, 0.67):hoverColor(1, 1, 0.33):onLeftClick(function (action)
         colorPicker(Color.Color[3], vectors.vec3(0.2, 0.05, 0.04), function (newColor)
             pings.setColor3(newColor)
             Color.setPaletteColor(3, newColor)
@@ -237,7 +237,7 @@ if host:isHost() then
     end)
 
     --アクション4. 色変更（模様）
-    ActionWheel.MainPage:newAction(4):title(Locale.getTranslate("action_wheel__main__action_4")):texture(textures["textures.palette"], 1, 1, 1, 1, 16):color(Color.Color[4]):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function (action)
+    ActionWheel.MainPage:newAction(4):title(Locale.getTranslate("action_wheel__main__action_4")):texture(textures["textures.palette"], 1, 1, 1, 1, 16):color(Color.Color[4]):color(0.67, 0.67):hoverColor(1, 1, 0.33):onLeftClick(function (action)
         colorPicker(Color.Color[4], vectors.vec3(0.27, 0.13, 0.45), function (newColor)
             pings.setColor4(newColor)
             Color.setPaletteColor(4, newColor)
@@ -290,7 +290,7 @@ if host:isHost() then
     end)
 
     --アクション8. カラーパレット
-    ActionWheel.MainPage:newAction(8):title(Locale.getTranslate("action_wheel__main__action_8")):item("book"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function ()
+    ActionWheel.MainPage:newAction(8):title(Locale.getTranslate("action_wheel__main__action_8")):item("book"):color(0, 0.67, 0.67):hoverColor(0.33, 1, 1):onLeftClick(function ()
         if not ActionWheel.PalettePageInit then
             for i = 1, 6 do
                 table.insert(Color.Palette, Config.loadConfig("palette"..i, {vectors.vec3(0.69, 0.51, 0.84), vectors.vec3(0.02, 0.96, 0.97), vectors.vec3(0.2, 0.05, 0.04), vectors.vec3(0.27, 0.13, 0.45), 0.75}))
