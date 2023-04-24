@@ -6,6 +6,13 @@ Color = {
     Color = {Config.loadConfig("color1", vectors.vec3(0.69, 0.51, 0.84)), Config.loadConfig("color2", vectors.vec3(0.02, 0.96, 0.97)), Config.loadConfig("color3", vectors.vec3(0.2, 0.05, 0.04)), Config.loadConfig("color4", vectors.vec3(0.27, 0.13, 0.45))},
     Opacity = Config.loadConfig("opacity", 0.75),
 
+    ---現在の羽の色のカラーパレットを設定する。
+    ---@param colorIndex integer 色のインデックス（1-4）
+    setPaletteColor = function (colorIndex)
+        textures["textures.palette"]:setPixel((colorIndex - 1) % 2, math.ceil(colorIndex / 2) - 1, Color.Color[colorIndex])
+        textures["textures.palette"]:update()
+    end,
+
     ---羽のグラデーションを描画する。
     drawWingGradation = function ()
         local drawArea = {{{3, 9}}, {{1, 14}}, {{0, 18}}, {{0, 20}}, {{0, 22}}, {{0, 23}}, {{0, 24}}, {{1, 24}}, {{1, 25}}, {{2, 25}}, {{2, 25}}, {{3, 25}}, {{3, 25}}, {{4, 25}}, {{4, 25}}, {{5, 25}}, {{5, 25}}, {{6, 24}}, {{6, 24}}, {{7, 23}}, {{7, 17}}, {{8, 12}}, {{9, 7}}, {{20, 6}}, {{16, 10}}, {{12, 14}}, {{8, 18}}, {{7, 19}}, {{6, 20}}, {{5, 20}}, {{5, 20}}, {{4, 20}}, {{4, 20}}, {{3, 20}}, {{3, 20}}, {{2, 20}}, {{1, 21}}, {{1, 20}}, {{2, 19}}, {{2, 18}}, {{1, 19}}, {{1, 18}}, {{2, 17}}, {{2, 16}}, {{1, 17}}, {{1, 16}}, {{2, 15}}, {{3, 13}}, {{3, 11}}, {{2, 4}, {7, 2}, {11, 2}}, {{2, 3}}, {{1, 3}}, {{1, 3}}, {{0, 3}}, {{0, 3}}, {{1, 1}}}
@@ -44,7 +51,6 @@ Color = {
             modelPart:setOpacity(Color.Opacity)
         end
     end
-
 }
 
 Color.drawWingGradation()
@@ -52,5 +58,10 @@ Color.setFeelerTipColor()
 Color.setEdgeColor()
 Color.setPatternColor()
 Color.setOpacity()
+if host:isHost() then
+    for i = 1, 4 do
+        Color.setPaletteColor(i)
+    end
+end
 
 return Color
