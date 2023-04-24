@@ -4,13 +4,15 @@
 ---@field MainPageInit boolean メインページの初期処理を行ったかどうか
 ---@field PalettePageInit boolean カラーパレットのページの初期処理を行ったかどうか
 ---@field CopiedColor Vector3|nil カラーピッカーでコピーされた色
+---@field PaletteImportMessage boolean パレットのインポートの初回メッセージを表示したかどうか
 
 ActionWheel = {
     MainPage = action_wheel:newPage(),
     PalettePage = action_wheel:newPage(),
     MainPageInit = false,
     PalettePageInit = false,
-    CopiedColor = nil
+    CopiedColor = nil,
+    PaletteImportMessage = false
 }
 
 --ping関数
@@ -20,9 +22,6 @@ function pings.setColor1(newColor)
     Color.Color[1] = newColor
     Color.drawWingGradation()
     Color.setFeelerTipColor()
-    if host:isHost() then
-        Color.setPaletteColor(1)
-    end
 end
 
 ---色2（グラデーション2）を設定する。
@@ -30,9 +29,6 @@ end
 function pings.setColor2(newColor)
     Color.Color[2] = newColor
     Color.drawWingGradation()
-    if host:isHost() then
-        Color.setPaletteColor(2)
-    end
 end
 
 ---色3（縁）を設定する。
@@ -40,9 +36,6 @@ end
 function pings.setColor3(newColor)
     Color.Color[3] = newColor
     Color.setEdgeColor()
-    if host:isHost() then
-        Color.setPaletteColor(3)
-    end
 end
 
 ---色4（模様）を設定する。
@@ -50,15 +43,28 @@ end
 function pings.setColor4(newColor)
     Color.Color[4] = newColor
     Color.setPatternColor()
-    if host:isHost() then
-        Color.setPaletteColor(4)
-    end
 end
 
 ---羽の発光を設定する。
 ---@param glow boolean 羽を発光させるかどうか
 function pings.setWingGlow(glow)
     Wing.setGlowing(glow)
+end
+
+---現在のカラーパレットを設定する。
+---@param color1 Vector3 色1（グラデーション1）
+---@param color2 Vector3 色2（グラデーション2）
+---@param color3 Vector3 色3（縁）
+---@param color4 Vector3 色4（模様）
+---@param opacity number 羽の不透明度
+function pings.setPalette(color1, color2, color3, color4, opacity)
+    Color.Color = {color1, color2, color3, color4}
+    Color.drawWingGradation()
+    Color.setFeelerTipColor()
+    Color.setEdgeColor()
+    Color.setPatternColor()
+    Color.Opacity = opacity
+    Color.setOpacity()
 end
 
 if host:isHost() then
@@ -187,7 +193,7 @@ if host:isHost() then
         if action_wheel:isEnabled() and not ActionWheel.MainPageInit then
             setOpacityActionTitle()
             setParticleDurationActionTitle()
-            Color.setPaletteColorSet(0, true)
+            Color.setPaletteColorSet(0, Color.Color, true)
             ActionWheel.MainPageInit = true
         end
     end)
@@ -197,6 +203,7 @@ if host:isHost() then
     ActionWheel.MainPage:newAction(1):title(Locale.getTranslate("action_wheel__main__action_1")):texture(textures["textures.palette"], 0, 0, 1, 1, 16):color(Color.Color[1]):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function (action)
         colorPicker(Color.Color[1], vectors.vec3(0.69, 0.51, 0.84), function (newColor)
             pings.setColor1(newColor)
+            Color.setPaletteColor(1, newColor)
             Config.saveConfig("color1", newColor)
             print(Locale.getTranslate("action_wheel__picker__message__done"))
         end)
@@ -206,6 +213,7 @@ if host:isHost() then
     ActionWheel.MainPage:newAction(2):title(Locale.getTranslate("action_wheel__main__action_2")):texture(textures["textures.palette"], 1, 0, 1, 1, 16):color(Color.Color[2]):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function (action)
         colorPicker(Color.Color[2], vectors.vec3(0.02, 0.96, 0.97), function (newColor)
             pings.setColor2(newColor)
+            Color.setPaletteColor(2, newColor)
             Config.saveConfig("color2", newColor)
             print(Locale.getTranslate("action_wheel__picker__message__done"))
         end)
@@ -215,6 +223,7 @@ if host:isHost() then
     ActionWheel.MainPage:newAction(3):title(Locale.getTranslate("action_wheel__main__action_3")):texture(textures["textures.palette"], 0, 1, 1, 1, 16):color(Color.Color[3]):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function (action)
         colorPicker(Color.Color[3], vectors.vec3(0.2, 0.05, 0.04), function (newColor)
             pings.setColor3(newColor)
+            Color.setPaletteColor(3, newColor)
             Config.saveConfig("color3", newColor)
             print(Locale.getTranslate("action_wheel__picker__message__done"))
         end)
@@ -224,6 +233,7 @@ if host:isHost() then
     ActionWheel.MainPage:newAction(4):title(Locale.getTranslate("action_wheel__main__action_4")):texture(textures["textures.palette"], 1, 1, 1, 1, 16):color(Color.Color[4]):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function (action)
         colorPicker(Color.Color[4], vectors.vec3(0.27, 0.13, 0.45), function (newColor)
             pings.setColor4(newColor)
+            Color.setPaletteColor(4, newColor)
             Config.saveConfig("color4", newColor)
             print(Locale.getTranslate("action_wheel__picker__message__done"))
         end)
@@ -277,7 +287,7 @@ if host:isHost() then
         if not ActionWheel.PalettePageInit then
             for i = 1, 6 do
                 table.insert(Color.Palette, Config.loadConfig("palette"..i, {vectors.vec3(0.69, 0.51, 0.84), vectors.vec3(0.02, 0.96, 0.97), vectors.vec3(0.2, 0.05, 0.04), vectors.vec3(0.27, 0.13, 0.45), 0.75}))
-                Color.setPaletteColorSet(i, false)
+                Color.setPaletteColorSet(i, Color.Palette[i], false)
             end
             textures["textures.palette"]:update()
             ActionWheel.PalettePageInit = true
@@ -297,6 +307,38 @@ if host:isHost() then
         host:clipboard(exportString)
         print(Locale.getTranslate("action_wheel__palette__message__export"))
     end):onRightClick(function ()
+        if ActionWheel.PaletteImportMessage then
+            local dataTable = {}
+            for chunk in host:getClipboard():gmatch("[^,]+") do
+                table.insert(dataTable, tonumber(chunk))
+            end
+            if #dataTable == 13 then
+                ---数値を色に適合するように0-1の範囲に収める。
+                ---@param value number 収める値
+                ---@return number clampedValue 収めた値
+                local function clampColor(value)
+                    return math.clamp(value, 0, 1)
+                end
+
+                local color = {}
+                for i = 1, 4 do
+                    table.insert(color, vectors.vec3(clampColor(dataTable[i * 3 - 2]), clampColor(dataTable[i * 3 - 1]), clampColor(dataTable[i * 3])))
+                end
+                local opacity = clampColor(dataTable[13])
+                pings.setPalette(color[1], color[2], color[3], color[4], opacity)
+                Color.setPaletteColorSet(0, color, true)
+                for i = 1, 4 do
+                    Config.saveConfig("color"..i, color[i])
+                end
+                Config.saveConfig("opacity", opacity)
+                print(Locale.getTranslate("action_wheel__palette__message__import"))
+            else
+                print(Locale.getTranslate("action_wheel__palette__message__import_invalid"))
+            end
+        else
+            print(Locale.getTranslate("action_wheel__palette__message__import_init"))
+            ActionWheel.PaletteImportMessage = true
+        end
     end)
 
     --アクション2～7. カラーパレット

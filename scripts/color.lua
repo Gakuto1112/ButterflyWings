@@ -10,19 +10,19 @@ Color = {
 
     ---現在の羽の色のカラーパレットのプレビューを設定する。
     ---@param colorIndex integer 色のインデックス（1-4）
-    setPaletteColor = function (colorIndex)
-        textures["textures.palette"]:setPixel((colorIndex - 1) % 2, math.ceil(colorIndex / 2) - 1, Color.Color[colorIndex])
+    ---@param newColor Vector3 設定する色
+    setPaletteColor = function (colorIndex, newColor)
+        textures["textures.palette"]:setPixel((colorIndex - 1) % 2, math.ceil(colorIndex / 2) - 1, newColor)
         textures["textures.palette"]:update()
     end,
 
     ---カラーパレットセットのプレイヤーを設定する。
     ---@param paletteIndex integer カラーパレットのインデックス：0. 現在のパレット, 1-6. パレット1～6（アクションホイールからカラーパレットを開くまで呼び出さない。）
+    ---@param newPalette table<Vector3> 設定するパレット
     ---@param update boolean 最後にテクスチャの適用処理を行うかどうか
-    setPaletteColorSet = function (paletteIndex, update)
-        for colorIndex, color in ipairs(paletteIndex == 0 and Color.Color or Color.Palette[paletteIndex]) do
-            if colorIndex <= 4 then
-                textures["textures.palette"]:setPixel(paletteIndex * 2 + (colorIndex - 1) % 2, math.ceil(colorIndex / 2) - 1, color)
-            end
+    setPaletteColorSet = function (paletteIndex, newPalette, update)
+        for i = 1, 4 do
+            textures["textures.palette"]:setPixel(paletteIndex * 2 + (i - 1) % 2, math.ceil(i / 2) - 1, newPalette[i])
         end
         if update then
             textures["textures.palette"]:update()
