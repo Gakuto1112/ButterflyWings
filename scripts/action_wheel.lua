@@ -52,18 +52,14 @@ function pings.setWingGlow(glow)
 end
 
 ---現在のカラーパレットを設定する。
----@param color1 Vector3 色1（グラデーション1）
----@param color2 Vector3 色2（グラデーション2）
----@param color3 Vector3 色3（縁）
----@param color4 Vector3 色4（模様）
----@param opacity number 羽の不透明度
-function pings.setPalette(color1, color2, color3, color4, opacity)
-    Color.Color = {color1, color2, color3, color4}
+---@param palette table<Vector3|number> パレット情報
+function pings.setPalette(palette)
+    Color.Color = {palette[1], palette[2], palette[3], palette[4]}
     Color.drawWingGradation()
     Color.setFeelerTipColor()
     Color.setEdgeColor()
     Color.setPatternColor()
-    Color.Opacity = opacity
+    Color.Opacity = palette[5]
     Color.setOpacity()
 end
 
@@ -187,6 +183,17 @@ if host:isHost() then
 
         RGBToHSVInt(currentColor)
         action_wheel:setPage(colorPickerPage)
+    end
+
+    ---現在のカラーパレットを設定する。
+    ---@param palette table<Vector3|number> 設定するパレット
+    local function setCurrentPalette(palette)
+        pings.setPalette(palette)
+        Color.setPaletteColorSet(0, palette, true)
+        for i = 1, 4 do
+            Config.saveConfig("color"..i, palette[i])
+        end
+        Config.saveConfig("opacity", palette[5])
     end
 
     events.TICK:register(function ()
@@ -320,17 +327,12 @@ if host:isHost() then
                     return math.clamp(value, 0, 1)
                 end
 
-                local color = {}
+                local palette = {}
                 for i = 1, 4 do
-                    table.insert(color, vectors.vec3(clampColor(dataTable[i * 3 - 2]), clampColor(dataTable[i * 3 - 1]), clampColor(dataTable[i * 3])))
+                    table.insert(palette, vectors.vec3(clampColor(dataTable[i * 3 - 2]), clampColor(dataTable[i * 3 - 1]), clampColor(dataTable[i * 3])))
                 end
-                local opacity = clampColor(dataTable[13])
-                pings.setPalette(color[1], color[2], color[3], color[4], opacity)
-                Color.setPaletteColorSet(0, color, true)
-                for i = 1, 4 do
-                    Config.saveConfig("color"..i, color[i])
-                end
-                Config.saveConfig("opacity", opacity)
+                table.insert(palette, clampColor(dataTable[13]))
+                setCurrentPalette(palette)
                 print(Locale.getTranslate("action_wheel__palette__message__import"))
             else
                 print(Locale.getTranslate("action_wheel__palette__message__import_invalid"))
@@ -344,7 +346,15 @@ if host:isHost() then
     --アクション2～7. カラーパレット
     for i = 2, 7 do
         ActionWheel.PalettePage:newAction(i):title(Locale.getTranslate("action_wheel__palette__action_2")..(i - 1)..Locale.getTranslate("action_wheel__palette__action_2__control")):texture(textures["textures.palette"], (i - 1) * 2, 0, 2, 2, 8):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onLeftClick(function ()
-        end):onRightClick(function ()
+            setCurrentPalette(Color.Palette[i - 1])
+            print(Locale.getTranslate("action_wheel__palette__message__get_palette"))
+    end):onRightClick(function ()
+            local palette = Color.Color
+            table.insert(palette, Color.Opacity)
+            Color.Palette[i - 1] = palette
+            Color.setPaletteColorSet(i - 1, Color.Palette[i - 1], true)
+            Config.saveConfig("palette"..(i - 1), Color.Palette[i - 1])
+            print(Locale.getTranslate("action_wheel__palette__message__set_palette"))
         end)
     end
 

@@ -38,7 +38,9 @@ Locale = {
 			action_wheel__palette__message__export = "The current palette data has been copied to the clipboard. Please save it separately, etc.",
 			action_wheel__palette__message__import = "Applied palette data from clipboard.",
 			action_wheel__palette__message__import_init = "This avatar will read palette data from the clipboard. Please copy the palette data and right-click again.\n§7(This message will not appear again until this avatar is reloaded.)",
-			action_wheel__palette__message__import_invalid = "§cClipboard text is not palette information."
+			action_wheel__palette__message__import_invalid = "§cClipboard text is not palette information.",
+			action_wheel__palette__message__get_palette = "Applied palette.",
+			action_wheel__palette__message__set_palette = "Saved current palette."
 		},
 		ja_jp = {
             action_wheel__toggle_off = "§cオフ",
@@ -75,7 +77,9 @@ Locale = {
 			action_wheel__palette__message__export = "現在のパレット情報をクリップボードにコピーしました。別途保存などを行ってください。",
 			action_wheel__palette__message__import = "クリップボードのパレット情報を適用しました。",
 			action_wheel__palette__message__import_init = "パレット情報をクリップボードから読み込みます。パレット情報をクリップボードにコピーして、もう一度右クリックして下さい。\n§7（このメッセージはアバターが再読み込みされるまで再び表示されません。）",
-			action_wheel__palette__message__import_invalid = "§cクリップボードのテキストはパレット情報ではありません。"
+			action_wheel__palette__message__import_invalid = "§cクリップボードのテキストはパレット情報ではありません。",
+			action_wheel__palette__message__get_palette = "パレットを適用しました。",
+			action_wheel__palette__message__set_palette = "現在のパレットを保存しました。"
 		}
 	},
 

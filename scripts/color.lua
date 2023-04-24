@@ -18,7 +18,7 @@ Color = {
 
     ---カラーパレットセットのプレイヤーを設定する。
     ---@param paletteIndex integer カラーパレットのインデックス：0. 現在のパレット, 1-6. パレット1～6（アクションホイールからカラーパレットを開くまで呼び出さない。）
-    ---@param newPalette table<Vector3> 設定するパレット
+    ---@param newPalette table<Vector3|number> 設定するパレット
     ---@param update boolean 最後にテクスチャの適用処理を行うかどうか
     setPaletteColorSet = function (paletteIndex, newPalette, update)
         for i = 1, 4 do
