@@ -341,7 +341,10 @@ if host:isHost() then
             setCurrentPalette(Color.Palette[i - 1])
             print(Locale.getTranslate("action_wheel__palette__message__get_palette"))
     end):onRightClick(function ()
-            local palette = Color.Color
+            local palette = {}
+            for _, colorVector in ipairs(Color.Color) do
+                table.insert(palette, colorVector)
+            end
             table.insert(palette, Color.Opacity)
             Color.Palette[i - 1] = palette
             Color.setPaletteColorSet(i - 1, Color.Palette[i - 1], true)
