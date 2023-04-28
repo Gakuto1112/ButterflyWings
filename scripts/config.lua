@@ -1,12 +1,8 @@
 ---@class Config アバター設定を管理するクラス
 ---@field Config.DefaultValues table 読み込んだ値のデフォルト値を保持するテーブル
----@field Config.IsSynced boolean アバターの設定がホストと同期されたかどうか
----@field Config.NextSyncCount integer 次の同期pingまでのカウンター
 
 Config = {
 	DefaultValues = {},
-	IsSynced = host:isHost(),
-	NextSyncCount = 0,
 
 	---設定を読み出す
 	---@param keyName string 読み出す設定の名前
@@ -40,6 +36,9 @@ Config = {
 	end
 }
 
+local isSynced = host:isHost() --アバターの設定がホストと同期されたかどうか
+local nextSyncCount = 0 --次の同期pingまでのカウンター
+
 --ping関数
 ---アバター設定を他Figuraクライアントと同期する。
 ---@param colors table<Vector3> 色設定のテーブル
@@ -50,7 +49,7 @@ Config = {
 ---@param slowFallFlag boolean 低速落下のバフのフラグ
 function pings.syncAvatarConfig(colors, wingOpacity, wingGlow, particleDuration, flyingFlag, slowFallFlag)
 	if host:isHost() then
-		if not Config.IsSynced then
+		if not isSynced then
 			Color.Color = colors
 			Color.drawWingGradation()
 			Color.setFeelerTipColor()
@@ -69,11 +68,11 @@ function pings.syncAvatarConfig(colors, wingOpacity, wingGlow, particleDuration,
 end
 
 events.TICK:register(function ()
-	if Config.NextSyncCount == 0 then
+	if nextSyncCount == 0 then
 		pings.syncAvatarConfig(Color.Color, Color.Opacity, Wing.Glowing, Wing.ParticleDuration, General.Flying, Wing.SlowFallEffect)
-		Config.NextSyncCount = 300
+		nextSyncCount = 300
 	else
-		Config.NextSyncCount = Config.NextSyncCount - 1
+		nextSyncCount = nextSyncCount - 1
 	end
 end)
 

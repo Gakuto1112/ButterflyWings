@@ -1,73 +1,71 @@
 ---@class Player バニラやアバタープレイヤーモデルを制御するクラス
----@field FlyAnimationCount number クリエイティブ飛行のアニメーションのカウンター
----@field FlyIdle boolean クリエイティブ飛行時に止まっているかどうか（垂直方向は考慮しない）
----@field UnlockArms boolean 移動中に腕を振らせるかどうか
----@field FlyIdleAnimationCount number クリエイティブ飛行時の止まっている時のアニメーションのカウンター
----@field HeldItemCorrection  table<boolean> 手にアイテムを持っている為に、腕の角度を補正するかどうか
----@field HasChargedCrossbow boolean 装填済みのクロスボウを持っているかどうか
 
-Player = {
-    FlyAnimationCount = 0,
-    FlyIdle = false,
-    UnlockArms = true,
-    FlyIdleAnimationCount = 0,
-    HeldItemCorrection = {false, false},
-    HasChargedCrossbow = false
-}
+local flyAnimationCount = 0 --クリエイティブ飛行のアニメーションのカウンター
+local flyIdle = false --クリエイティブ飛行時に止まっているかどうか（垂直方向は考慮しない）
+local unlockArms = true --移動中に腕を振らせるかどうか
+local flyIdleAnimationCount = 0 --クリエイティブ飛行時の止まっている時のアニメーションのカウンター
+local heldItemCorrection = {false, false} --手にアイテムを持っている為に、腕の角度を補正するかどうか
+local hasChargedCrossbow = false --装填済みのクロスボウを持っているかどうか
 
 events.TICK:register(function ()
     if General.Flying then
         local velocity = player:getVelocity()
-        Player.FlyIdle = math.sqrt(velocity.x ^ 2 + velocity.z ^ 2) < 0.001
+        flyIdle = math.sqrt(velocity.x ^ 2 + velocity.z ^ 2) < 0.001
     else
-        Player.FlyAnimationCount = 0
-        Player.FlyIdle = false
+        flyAnimationCount = 0
+        flyIdle = false
     end
-    if General.Flying and not Player.FlyIdle then
+    if host:isHost() and renderer:isFirstPerson() and not client:hasIrisShader() and not General.RenderPaperdollPrev then
+        flyIdleAnimationCount = flyIdle and 1 or 0
+    end
+    if General.Flying and not flyIdle then
         local leftHanded = player:isLeftHanded()
         local heldItems = {player:getHeldItem(leftHanded), player:getHeldItem(not leftHanded)}
-        Player.hasChargedCrossbow = false
+        hasChargedCrossbow = false
         for i = 1, 2 do
             if heldItems[i].id == "minecraft:crossbow" and heldItems[i].tag["Charged"] == 1 then
-                Player.HasChargedCrossbow = true
+                hasChargedCrossbow = true
                 break
             end
         end
-        Player.UnlockArms = player:getActiveItem().id ~= "minecraft:air" or Player.HasChargedCrossbow
+        unlockArms = player:getActiveItem().id ~= "minecraft:air" or hasChargedCrossbow
         for _, modelPart in ipairs({models.models.main.Player.RightLeg, models.models.main.Player.LeftLeg}) do
             modelPart:setParentType("None")
         end
         for i = 1, 2 do
-            Player.HeldItemCorrection[i] = heldItems[i].id ~= "minecraft:air" and not Player.UnlockArms
+            heldItemCorrection[i] = heldItems[i].id ~= "minecraft:air" and not unlockArms
         end
     else
-        Player.UnlockArms = true
+        unlockArms = true
         models.models.main.Player.RightLeg:setParentType("RightLeg")
         models.models.main.Player.LeftLeg:setParentType("LeftLeg")
     end
 end)
 
-events.RENDER:register(function (delta, context)
-    local FPS = client:getFPS()
-    if General.Flying then
-        Player.FlyAnimationCount = Player.FlyAnimationCount + 0.33 / FPS
-        Player.FlyAnimationCount = Player.FlyAnimationCount >= 1 and Player.FlyAnimationCount - 1 or Player.FlyAnimationCount
-    end
-    if Player.FlyIdle then
-        if Player.FlyIdleAnimationCount < 1 then
-            Player.FlyIdleAnimationCount = math.min(Player.FlyIdleAnimationCount + 4 / FPS, 1)
-        end
-    else
-        if Player.FlyIdleAnimationCount > 0 then
-            Player.FlyIdleAnimationCount = math.max(Player.FlyIdleAnimationCount - 4 / FPS, 0)
-        end
-    end
+events.RENDER:register(function (_, context)
     local armSwing = player:isSwingingArm()
     local firstPerson = context == "FIRST_PERSON"
     local leftHanded = player:isLeftHanded()
-    models.models.main.Player.Body.RightArm:setParentType((Player.UnlockArms or ((armSwing or firstPerson) and not leftHanded)) and "RightArm" or "None")
-    models.models.main.Player.Body.LeftArm:setParentType((Player.UnlockArms or ((armSwing or firstPerson) and leftHanded)) and "LeftArm" or "None")
-    if context ~= "FIRST_PERSON" then
+    models.models.main.Player.Body.RightArm:setParentType((unlockArms or ((armSwing or firstPerson) and not leftHanded)) and "RightArm" or "None")
+    models.models.main.Player.Body.LeftArm:setParentType((unlockArms or ((armSwing or firstPerson) and leftHanded)) and "LeftArm" or "None")
+end)
+
+events.WORLD_RENDER:register(function ()
+    if not renderer:isFirstPerson() or client:hasIrisShader() or General.RenderPaperdollPrev then
+        local FPS = client:getFPS()
+        if General.Flying then
+            flyAnimationCount = flyAnimationCount + 0.33 / FPS
+            flyAnimationCount = flyAnimationCount >= 1 and flyAnimationCount - 1 or flyAnimationCount
+        end
+        if flyIdle then
+            if flyIdleAnimationCount < 1 then
+                flyIdleAnimationCount = math.min(flyIdleAnimationCount + 4 / FPS, 1)
+            end
+        else
+            if flyIdleAnimationCount > 0 then
+                flyIdleAnimationCount = math.max(flyIdleAnimationCount - 4 / FPS, 0)
+            end
+        end
         local crouching = player:isCrouching()
         if crouching then
             models.models.main.Player.Body.RightArm:setPos(0, 3)
@@ -76,19 +74,19 @@ events.RENDER:register(function (delta, context)
             models.models.main.Player.Body.RightArm:setPos()
             models.models.main.Player.Body.LeftArm:setPos()
         end
-        local FlyAnimationCountSin = math.sin(Player.FlyAnimationCount * math.pi * 2)
+        local FlyAnimationCountSin = math.sin(flyAnimationCount * math.pi * 2)
         models.models.main:setPos(0, FlyAnimationCountSin, 0)
 
         ---クリエイティブ飛行のアイドル時のベクトルのスケール処理
         ---@param vectorToScale Vector3 スケール処理をするベクトル
         ---@return Vector3 scaledVector スケール処理をしたベクトル
         local function flyIdleAnimationScale(vectorToScale)
-            return vectorToScale:scale(0.95 - FlyAnimationCountSin * 0.1):scale(Player.FlyIdleAnimationCount)
+            return vectorToScale:scale(0.95 - FlyAnimationCountSin * 0.1):scale(flyIdleAnimationCount)
         end
 
-        models.models.main.Player.Body.RightArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, 6.25, -13.65)):add((crouching and 30 or 0) + (Player.HeldItemCorrection[1] and 20 or 0)))
-        models.models.main.Player.Body.LeftArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, -6.28, 13.65)):add((crouching and 30 or 0) + (Player.HeldItemCorrection[2] and 20 or 0)))
-        if General.Flying and Player.FlyIdle then
+        models.models.main.Player.Body.RightArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, 6.25, -13.65)):add((crouching and 30 or 0) + (heldItemCorrection[1] and 20 or 0)))
+        models.models.main.Player.Body.LeftArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, -6.28, 13.65)):add((crouching and 30 or 0) + (heldItemCorrection[2] and 20 or 0)))
+        if General.Flying and flyIdle then
             models.models.main.Player.RightLeg:setRot(flyIdleAnimationScale(vectors.vec3(59.62, -8.65, 5.04)))
             models.models.main.Player.LeftLeg:setRot(flyIdleAnimationScale(vectors.vec3(59.62, 8.65, -5.04)))
         else
@@ -109,5 +107,3 @@ end
 for _, vanillaModel in ipairs({vanilla_model.PLAYER, vanilla_model.ARMOR, vanilla_model.ELYTRA}) do
     vanillaModel:setVisible(false)
 end
-
-return Player

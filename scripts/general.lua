@@ -1,8 +1,12 @@
 ---@class General 他の複数クラスから参照されるデータの管理を行うクラス
 ---@field Flying boolean クリエイティブ飛行をしているかどうか
+---@field RenderPaperdoll boolean ペーパードールが描画されているかどうか
+---@field RenderPaperdollPrev boolean 前レンダーにペーパードールが描画されていたかどうか
 
 General = {
-    Flying = false
+    Flying = false,
+    RenderPaperdoll = false,
+    RenderPaperdollPrev = false
 }
 
 --ping関数
@@ -20,6 +24,17 @@ events.TICK:register(function ()
             pings.setFlying(flying)
         end
     end
+end)
+
+events.RENDER:register(function (_, context)
+    if context == "PAPERDOLL" then
+        General.RenderPaperdoll = true
+    end
+end)
+
+events.WORLD_RENDER:register(function ()
+    General.RenderPaperdollPrev = General.RenderPaperdoll
+    General.RenderPaperdoll = false
 end)
 
 return General

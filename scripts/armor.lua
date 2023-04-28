@@ -1,11 +1,6 @@
 ---@class Armor 防具の表示を制御するクラス
----@field Armor.ArmorSlotItemsPrev table 前チックの防具スロットのアイテム
----@field Armor.ArmorVisible table 各防具の部位（ヘルメット、チェストプイート、レギンス、ブーツ）が可視状態かどうか。
 
-Armor = {
-	ArmorSlotItemsPrev = {world.newItem("minecraft:air"), world.newItem("minecraft:air"), world.newItem("minecraft:air"), world.newItem("minecraft:air")},
-	ArmorVisible = {false, false, false, false}
-}
+local armorSlotItemsPrev = {world.newItem("minecraft:air"), world.newItem("minecraft:air"), world.newItem("minecraft:air"), world.newItem("minecraft:air")} --前チックの防具スロットのアイテム
 
 events.TICK:register(function ()
 	---防具の色を取得する。
@@ -29,12 +24,11 @@ events.TICK:register(function ()
 
 	local armorSlotItems = {player:getItem(6), player:getItem(5), player:getItem(4), player:getItem(3)}
 	for index, armorSlotItem in ipairs(armorSlotItems) do
-		if armorSlotItem.id ~= Armor.ArmorSlotItemsPrev[index].id then
+		if armorSlotItem.id ~= armorSlotItemsPrev[index].id then
 			--防具変更
 			if index == 1 then
 				local helmetFound = armorSlotItems[1].id:find("^minecraft:.+_helmet$") == 1
 				models.models.main.Player.Head.ArmorH.Helmet:setVisible(helmetFound)
-				Armor.ArmorVisible[1] = helmetFound
 				if helmetFound then
 					local material = armorSlotItems[1].id:match("^minecraft:(%a+)_helmet$")
 					models.models.main.Player.Head.ArmorH.Helmet.Helmet:setPrimaryTexture("RESOURCE", "minecraft:textures/models/armor/"..(material == "golden" and "gold" or material).."_layer_1.png")
@@ -45,7 +39,6 @@ events.TICK:register(function ()
 				for _, armorPart in ipairs({models.models.main.Player.Body.ArmorB.Chestplate, models.models.main.Player.Body.RightArm.ArmorRA.RightChestplate, models.models.main.Player.Body.LeftArm.ArmorLA.LeftChestplate}) do
 					armorPart:setVisible(chestplateFound)
 				end
-				Armor.ArmorVisible[2] = chestplateFound
 				if chestplateFound then
 					local material = armorSlotItems[2].id:match("^minecraft:(%a+)_chestplate$")
 					for _, armorPart in ipairs({models.models.main.Player.Body.ArmorB.Chestplate.Chestplate, models.models.main.Player.Body.RightArm.ArmorRA.RightChestplate.RightChestplate, models.models.main.Player.Body.LeftArm.ArmorLA.LeftChestplate.LeftChestplate}) do
@@ -62,7 +55,6 @@ events.TICK:register(function ()
 				for _, armorPart in ipairs({models.models.main.Player.Body.ArmorB.Leggings, models.models.main.Player.RightLeg.ArmorRL.RightLeggings, models.models.main.Player.LeftLeg.ArmorLL.LeftLeggings}) do
 					armorPart:setVisible(leggingsFound)
 				end
-				Armor.ArmorVisible[3] = leggingsFound
 				if leggingsFound then
 					local material = armorSlotItems[3].id:match("^minecraft:(%a+)_leggings$")
 					for _, armorPart in ipairs({models.models.main.Player.Body.ArmorB.Leggings.Leggings, models.models.main.Player.RightLeg.ArmorRL.RightLeggings.RightLeggings, models.models.main.Player.LeftLeg.ArmorLL.LeftLeggings.LeftLeggings}) do
@@ -78,7 +70,6 @@ events.TICK:register(function ()
 				for _, armorPart in ipairs({models.models.main.Player.RightLeg.ArmorRL.RightBoots, models.models.main.Player.LeftLeg.ArmorLL.LeftBoots}) do
 					armorPart:setVisible(bootsFound)
 				end
-				Armor.ArmorVisible[4] = bootsFound
 				if bootsFound then
 					local material = armorSlotItems[4].id:match("^minecraft:(%a+)_boots$")
 					for _, armorPart in ipairs({models.models.main.Player.RightLeg.ArmorRL.RightBoots.RightBoots, models.models.main.Player.LeftLeg.ArmorLL.LeftBoots.LeftBoots}) do
@@ -92,7 +83,7 @@ events.TICK:register(function ()
 			end
 		end
 		local glint = armorSlotItem:hasGlint()
-		if glint ~= Armor.ArmorSlotItemsPrev[index]:hasGlint() then
+		if glint ~= armorSlotItemsPrev[index]:hasGlint() then
 			--エンチャント変更
 			local renderType = glint and "GLINT" or "NONE"
 			if index == 1 then
@@ -112,7 +103,7 @@ events.TICK:register(function ()
 			end
 		end
 		local armorColor = getArmorColor(armorSlotItem)
-		if armorColor ~= getArmorColor(Armor.ArmorSlotItemsPrev[index]) then
+		if armorColor ~= getArmorColor(armorSlotItemsPrev[index]) then
 			--色変更
 			local colorVector = vectors.intToRGB(armorColor)
 			if index == 1 then
@@ -132,7 +123,7 @@ events.TICK:register(function ()
 			end
 		end
 	end
-	Armor.ArmorSlotItemsPrev = armorSlotItems
+	armorSlotItemsPrev = armorSlotItems
 end)
 
 for _, overlayPart in ipairs({models.models.main.Player.Head.ArmorH.Helmet.HelmetOverlay, models.models.main.Player.Body.ArmorB.Chestplate.ChestplateOverlay, models.models.main.Player.Body.RightArm.ArmorRA.RightChestplate.RightChestplateOverlay, models.models.main.Player.Body.LeftArm.ArmorLA.LeftChestplate.LeftChestplateOverlay, models.models.main.Player.RightLeg.ArmorRL.RightBoots.RightBootsOverlay, models.models.main.Player.LeftLeg.ArmorLL.LeftBoots.LeftBootsOverlay}) do
@@ -141,5 +132,3 @@ end
 for _, overlayPart in ipairs({models.models.main.Player.Body.ArmorB.Leggings.LeggingsOverlay, models.models.main.Player.RightLeg.ArmorRL.RightLeggings.RightLeggingsOverlay, models.models.main.Player.LeftLeg.ArmorLL.LeftLeggings.LeftLeggingsOverlay}) do
 	overlayPart:setPrimaryTexture("RESOURCE", "minecraft:textures/models/armor/leather_layer_2_overlay.png")
 end
-
-return Armor
