@@ -262,9 +262,10 @@ if host:isHost() then
         Config.saveConfig("wingGlow", false)
         action:hoverColor(1, 0.33, 0.33)
     end)
-    if Config.loadConfig("wingGlow", true) then
+    local wingGlow = Config.loadConfig("wingGlow", true)
+    Wing.setGlowing(wingGlow)
+    if wingGlow then
 		local action = mainPage:getAction(6)
-        Wing.setGlowing(true)
 		action:toggled(true)
 		action:hoverColor(0.33, 1, 0.33)
 	end

@@ -11,3 +11,5 @@ events.ENTITY_INIT:register(function ()
     require("scripts.feeler")
     require("scripts.action_wheel")
 end)
+
+require("scripts.skull")
