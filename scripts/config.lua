@@ -52,6 +52,7 @@ function pings.syncAvatarConfig(colors, wingOpacity, wingGlow, particleDuration,
 		if not isSynced then
 			Color.Color = colors
 			Color.drawAllTexture()
+			Color.setFeelerBaseColor()
 			Color.setFeelerTipColor()
 			Wing.setGlowing(wingGlow)
 			General.Flying = flyingFlag

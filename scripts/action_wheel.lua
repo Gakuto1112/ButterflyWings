@@ -28,6 +28,7 @@ end
 function pings.setColor3(newColor)
     Color.Color[3] = newColor
     Color.drawEdgeTexture()
+    Color.setFeelerBaseColor()
 end
 
 ---色4（模様）を設定する。
@@ -48,6 +49,7 @@ end
 function pings.setPalette(palette)
     Color.Color = {palette[1], palette[2], palette[3], palette[4]}
     Color.drawAllTexture()
+    Color.setFeelerBaseColor()
     Color.setFeelerTipColor()
     Color.Opacity = palette[5]
     Color.setOpacity()

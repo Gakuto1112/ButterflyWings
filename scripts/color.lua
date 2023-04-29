@@ -113,6 +113,13 @@ Color = {
         textures["pattern"]:update()
     end,
 
+    ---触角の基本色を設定する。
+    setFeelerBaseColor = function ()
+        for _, modelPart in ipairs({models.models.main.Player.Head.ButterflyH.RightFeeler1.RightFeeler1, models.models.main.Player.Head.ButterflyH.RightFeeler1.RightFeeler2.RightFeeler2, models.models.main.Player.Head.ButterflyH.RightFeeler1.RightFeeler2.RightFeelerTip.RightFeelerTip, models.models.main.Player.Head.ButterflyH.LeftFeeler1.LeftFeeler1, models.models.main.Player.Head.ButterflyH.LeftFeeler1.LeftFeeler2.LeftFeeler2, models.models.main.Player.Head.ButterflyH.LeftFeeler1.LeftFeeler2.LeftFeelerTip.LeftFeelerTip}) do
+            modelPart:setColor(Color.Color[3])
+        end
+    end,
+
     ---触角の先の色を設定する。
     setFeelerTipColor = function ()
         for _, modelPart in ipairs({models.models.main.Player.Head.ButterflyH.RightFeeler1.RightFeeler2.RightFeelerTip.RightColoredTip, models.models.main.Player.Head.ButterflyH.LeftFeeler1.LeftFeeler2.LeftFeelerTip.LeftColoredTip}) do
@@ -208,6 +215,7 @@ for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.
 end
 
 Color.drawAllTexture()
+Color.setFeelerBaseColor()
 Color.setFeelerTipColor()
 Color.setOpacity()
 
