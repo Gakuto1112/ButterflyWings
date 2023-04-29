@@ -109,7 +109,6 @@ events.RENDER:register(function ()
         models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing:setRot(0, 0, wingCrouchRatio * -10)
         models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing:setRot(0, 0, wingCrouchRatio * 20)
         models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing:setRot(0, 0, wingCrouchRatio * 10)
-        wingOpenedPrev = wingOpened
     end
     if not renderProcessed then
         local FPS = client:getFPS()
@@ -130,6 +129,7 @@ events.RENDER:register(function ()
                 wingCrouchRatio = 1 - math.pow(1 - closeStep, 4)
             end
         end
+        wingOpenedPrev = wingOpened
         renderProcessed = true
     end
 end)
