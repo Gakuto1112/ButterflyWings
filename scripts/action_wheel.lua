@@ -47,9 +47,7 @@ end
 ---@param palette table<Vector3|number> パレット情報
 function pings.setPalette(palette)
     Color.Color = {palette[1], palette[2], palette[3], palette[4]}
-    Color.drawBaseTexture()
-    Color.drawEdgeTexture()
-    Color.drawPatternTexture()
+    Color.drawAllTexture()
     Color.setFeelerTipColor()
     Color.Opacity = palette[5]
     Color.setOpacity()

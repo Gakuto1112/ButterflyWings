@@ -6,6 +6,7 @@
 ---@class Color アバターのカスタマイズ可能な色を制御するクラス
 ---@field Color table<Vector3> 管理する色のテーブル：1. グラデーション1, 2. グラデーション2, 3. 縁, 4. 模様
 ---@field Palette table<table<Vector3|number>> カラーパレットのテーブル（読み込みはアクションホイールで行う）
+---@field DrawQueueCount integer 描画キューのカウンター
 ---@field Opacity number 羽や触角の透明度
 ---@field TatterState TatterLevel 羽のボロボロの度合い
 ---@field SoftTatterDrawData table<table<table<integer>>> 羽が少しボロボロになっている状態の描画データ
@@ -14,6 +15,7 @@
 Color = {
     Color = {Config.loadConfig("color1", vectors.vec3(0.69, 0.51, 0.84)), Config.loadConfig("color2", vectors.vec3(0.02, 0.96, 0.97)), Config.loadConfig("color3", vectors.vec3(0.2, 0.05, 0.04)), Config.loadConfig("color4", vectors.vec3(0.27, 0.13, 0.45))},
     Palette = {},
+    DrawQueueCount = 0,
     Opacity = Config.loadConfig("opacity", 0.75),
     TatterState = "NONE",
     SoftTatterDrawData = {{{3, 1}}, {{1, 4}}, {{2, 2}, {15, 3}}, {{16, 2}}, {}, {{49, 2}}, {{36, 1}, {48, 4}}, {{35, 3}, {49, 2}}, {{24, 2}, {35, 2}}, {{2, 2}, {25, 2}}, {{2, 3}}, {{3, 1}}, {{32, 1}}, {{31, 3}}, {{31, 2}}, {{53, 1}}, {{52, 3}}, {{7, 1}, {52, 2}}, {{6, 3}, {53, 1}}, {{7, 2}, {37, 1}}, {{7, 1}, {36, 3}}, {}, {}, {{34, 2}}, {{35, 5}}, {{36, 3}}, {{12, 2}, {45, 3}}, {{11, 3}, {46, 3}}, {{12, 1}, {47, 3}}, {{48, 1}}, {{27, 2}}, {{26, 2}}, {{27, 1}}, {{7, 1}, {33, 1}}, {{7, 2}, {33, 2}}, {{6, 2}, {34, 1}, {52, 2}}, {{53, 2}}, {{52, 3}}, {{52, 2}}, {{53, 1}}, {{54, 1}}, {}, {{6, 1}}, {{6, 2}}, {{5, 2}, {20, 2}}, {{19, 2}}, {{20, 1}, {39, 2}}, {{13, 1}, {40, 2}}, {{12, 3}}, {{12, 1}, {15, 1}}, {}, {}, {}, {}, {}, {}},
@@ -37,6 +39,17 @@ Color = {
         end
         if update then
             textures["textures.palette"]:update()
+        end
+    end,
+
+    ---全てのテクスチャを描画する。チックの命令数上限に触れにくいように考慮されている。
+    drawAllTexture = function ()
+        if avatar:getMaxTickCount() >= 34000 then
+            Color.drawBaseTexture()
+            Color.drawEdgeTexture()
+            Color.drawPatternTexture()
+        else
+            Color.DrawQueueCount = 3
         end
     end,
 
@@ -167,6 +180,19 @@ Color = {
     end
 }
 
+events.TICK:register(function ()
+    if Color.DrawQueueCount > 0 and Color.DrawQueueCount <= 3 then
+        if Color.DrawQueueCount == 3 then
+            Color.drawBaseTexture()
+        elseif Color.DrawQueueCount == 2 then
+            Color.drawEdgeTexture()
+        else
+            Color.drawPatternTexture()
+        end
+        Color.DrawQueueCount = Color.DrawQueueCount - 1
+    end
+end)
+
 for _, textureName in ipairs({"base", "edge", "pattern"}) do
     textures:newTexture(textureName, 60, 56)
     textures[textureName]:fill(0, 0, 60, 56, 0, 0, 0, 0)
@@ -181,9 +207,7 @@ for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.
     modelPart:setPrimaryTexture("CUSTOM", textures["pattern"])
 end
 
-Color.drawBaseTexture()
-Color.drawEdgeTexture()
-Color.drawPatternTexture()
+Color.drawAllTexture()
 Color.setFeelerTipColor()
 Color.setOpacity()
 
