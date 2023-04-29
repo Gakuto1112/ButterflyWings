@@ -6,6 +6,7 @@ local unlockArms = true --移動中に腕を振らせるかどうか
 local flyIdleAnimationCount = 0 --クリエイティブ飛行時の止まっている時のアニメーションのカウンター
 local heldItemCorrection = {false, false} --手にアイテムを持っている為に、腕の角度を補正するかどうか
 local hasChargedCrossbow = false --装填済みのクロスボウを持っているかどうか
+local renderProcessed = false --このレンダーで処理を行ったかどうか
 
 events.TICK:register(function ()
     if General.Flying then
@@ -48,24 +49,7 @@ events.RENDER:register(function (_, context)
     local leftHanded = player:isLeftHanded()
     models.models.main.Player.Body.RightArm:setParentType((unlockArms or ((armSwing or firstPerson) and not leftHanded)) and "RightArm" or "None")
     models.models.main.Player.Body.LeftArm:setParentType((unlockArms or ((armSwing or firstPerson) and leftHanded)) and "LeftArm" or "None")
-end)
-
-events.WORLD_RENDER:register(function ()
     if not renderer:isFirstPerson() or client:hasIrisShader() or General.RenderPaperdollPrev then
-        local FPS = client:getFPS()
-        if General.Flying then
-            flyAnimationCount = flyAnimationCount + 0.33 / FPS
-            flyAnimationCount = flyAnimationCount >= 1 and flyAnimationCount - 1 or flyAnimationCount
-        end
-        if flyIdle then
-            if flyIdleAnimationCount < 1 then
-                flyIdleAnimationCount = math.min(flyIdleAnimationCount + 4 / FPS, 1)
-            end
-        else
-            if flyIdleAnimationCount > 0 then
-                flyIdleAnimationCount = math.max(flyIdleAnimationCount - 4 / FPS, 0)
-            end
-        end
         local crouching = player:isCrouching()
         if crouching then
             models.models.main.Player.Body.RightArm:setPos(0, 3)
@@ -96,6 +80,27 @@ events.WORLD_RENDER:register(function ()
             models.models.main.Player.LeftLeg:setRot(flyIdleAnimationScale(vectors.vec3(59.62, 8.65, -5.04)):add(legsNS, 0, legsEW))
         end
     end
+    if not renderProcessed then
+        local FPS = client:getFPS()
+        if General.Flying then
+            flyAnimationCount = flyAnimationCount + 0.33 / FPS
+            flyAnimationCount = flyAnimationCount >= 1 and flyAnimationCount - 1 or flyAnimationCount
+        end
+        if flyIdle then
+            if flyIdleAnimationCount < 1 then
+                flyIdleAnimationCount = math.min(flyIdleAnimationCount + 4 / FPS, 1)
+            end
+        else
+            if flyIdleAnimationCount > 0 then
+                flyIdleAnimationCount = math.max(flyIdleAnimationCount - 4 / FPS, 0)
+            end
+        end
+        renderProcessed = true
+    end
+end)
+
+events.WORLD_RENDER:register(function ()
+    renderProcessed = false
 end)
 
 for _, modelPart in ipairs({models.models.main.Player.Head.Head, models.models.main.Player.Head.HeadLayer, models.models.main.Player.Body.Body, models.models.main.Player.Body.BodyLayer, models.models.main.Player.Body.RightArm, models.models.main.Player.Body.LeftArm, models.models.main.Player.RightLeg, models.models.main.Player.LeftLeg}) do

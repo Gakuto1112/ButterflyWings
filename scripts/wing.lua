@@ -30,6 +30,7 @@ local closeStep = 0 --羽の開閉のアニメーションの進行度：0. 開�
 local wingCrouchRatio = 0 --スニークによる羽の開閉がどれぐらいの割合で影響を及ぼすかの変数（0-1）
 local healthConditionPrev = "HIGH" --前チックのプレイヤーのHPの状態
 local wingSoundCount = 0 --羽の音のカウンター
+local renderProcessed = false --このレンダーで処理を行ったかどうか
 
 ---低速落下のバフのフラグを設定する。
 ---@param value boolean 低速落下のバフを受けているかどうか
@@ -105,8 +106,18 @@ events.TICK:register(function ()
     end
 end)
 
-events.WORLD_RENDER:register(function ()
+events.RENDER:register(function ()
     if not renderer:isFirstPerson() or client:hasIrisShader() or General.RenderPaperdollPrev then
+        local rightLegRotX = player:getVehicle() == nil and vanilla_model.RIGHT_LEG:getOriginRot().x or 0
+        models.models.main.Player.Body.ButterflyB.RightWing:setRot(0, rightLegRotX * 0.1 - (wingCrouchRatio * 60 + 10))
+        models.models.main.Player.Body.ButterflyB.LeftWing:setRot(0, rightLegRotX * -0.1 + (wingCrouchRatio * 60 + 10))
+        models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing:setRot(0, 0, wingCrouchRatio * -20)
+        models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing:setRot(0, 0, wingCrouchRatio * -10)
+        models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing:setRot(0, 0, wingCrouchRatio * 20)
+        models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing:setRot(0, 0, wingCrouchRatio * 10)
+        wingOpenedPrev = wingOpened
+    end
+    if not renderProcessed then
         local FPS = client:getFPS()
         if wingOpened then
             if closeStep > 0 then
@@ -125,15 +136,12 @@ events.WORLD_RENDER:register(function ()
                 wingCrouchRatio = 1 - math.pow(1 - closeStep, 4)
             end
         end
-        local rightLegRotX = player:getVehicle() == nil and vanilla_model.RIGHT_LEG:getOriginRot().x or 0
-        models.models.main.Player.Body.ButterflyB.RightWing:setRot(0, rightLegRotX * 0.1 - (wingCrouchRatio * 60 + 10))
-        models.models.main.Player.Body.ButterflyB.LeftWing:setRot(0, rightLegRotX * -0.1 + (wingCrouchRatio * 60 + 10))
-        models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing:setRot(0, 0, wingCrouchRatio * -20)
-        models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing:setRot(0, 0, wingCrouchRatio * -10)
-        models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing:setRot(0, 0, wingCrouchRatio * 20)
-        models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing:setRot(0, 0, wingCrouchRatio * 10)
-        wingOpenedPrev = wingOpened
+        renderProcessed = true
     end
+end)
+
+events.WORLD_RENDER:register(function ()
+    renderProcessed = false
 end)
 
 for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.TatteredLayerRT, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.TatteredLayerRB, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.TatteredLayerLT, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.TatteredLayerLB}) do
