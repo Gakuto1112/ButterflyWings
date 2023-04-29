@@ -1,11 +1,18 @@
 ---@class Player バニラやアバタープレイヤーモデルを制御するクラス
 
+---@type number
 local flyAnimationCount = 0 --クリエイティブ飛行のアニメーションのカウンター
+---@type boolean
 local flyIdle = false --クリエイティブ飛行時に止まっているかどうか（垂直方向は考慮しない）
+---@type boolean
 local unlockArms = true --移動中に腕を振らせるかどうか
+---@type number
 local flyIdleAnimationCount = 0 --クリエイティブ飛行時の止まっている時のアニメーションのカウンター
+---@type table<boolean>
 local heldItemCorrection = {false, false} --手にアイテムを持っている為に、腕の角度を補正するかどうか
+---@type boolean
 local hasChargedCrossbow = false --装填済みのクロスボウを持っているかどうか
+---@type boolean
 local renderProcessed = false --このレンダーで処理を行ったかどうか
 
 events.TICK:register(function ()

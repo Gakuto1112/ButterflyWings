@@ -2,7 +2,6 @@
 ---@field Flying boolean クリエイティブ飛行をしているかどうか
 ---@field RenderPaperdoll boolean ペーパードールが描画されているかどうか
 ---@field RenderPaperdollPrev boolean 前レンダーにペーパードールが描画されていたかどうか
-
 General = {
     Flying = false,
     RenderPaperdoll = false,

@@ -11,7 +11,6 @@
 ---@field TatterState TatterLevel 羽のボロボロの度合い
 ---@field SoftTatterDrawData table<table<table<integer>>> 羽が少しボロボロになっている状態の描画データ
 ---@field HardTatterDrawData table<table<table<integer>>> 羽が酷くボロボロになっている状態の描画データ
-
 Color = {
     Color = {Config.loadConfig("color1", vectors.vec3(0.69, 0.51, 0.84)), Config.loadConfig("color2", vectors.vec3(0.02, 0.96, 0.97)), Config.loadConfig("color3", vectors.vec3(0.2, 0.05, 0.04)), Config.loadConfig("color4", vectors.vec3(0.27, 0.13, 0.45))},
     Palette = {},

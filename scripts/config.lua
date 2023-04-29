@@ -1,6 +1,5 @@
 ---@class Config アバター設定を管理するクラス
 ---@field Config.DefaultValues table 読み込んだ値のデフォルト値を保持するテーブル
-
 Config = {
 	DefaultValues = {},
 
@@ -36,7 +35,9 @@ Config = {
 	end
 }
 
+---@type boolean
 local isSynced = host:isHost() --アバターの設定がホストと同期されたかどうか
+---@type number
 local nextSyncCount = 0 --次の同期pingまでのカウンター
 
 --ping関数

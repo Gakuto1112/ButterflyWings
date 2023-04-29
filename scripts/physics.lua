@@ -1,11 +1,12 @@
 ---@class Physics 物理演算の計算を行うクラス
----@field VelocityAverage table 速度の平均値：1. 頭前後, 2. 頭上下, 4. 体左右
-
+---@field VelocityAverage table<number> 速度の平均値：1. 頭前後, 2. 頭上下, 4. 体左右
 Physics = {
 	VelocityAverage = {0, 0, 0, 0}
 }
 
+---@type table<table<number>>
 local velocityData = {{}, {}, {}, {}} --速度データ：1. 頭前後, 2. 頭上下, 3. 体前後, 4. 体左右
+---@type boolean
 local renderProcessed = false --このレンダーで処理を行ったかどうか
 
 events.RENDER:register(function ()

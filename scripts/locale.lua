@@ -1,6 +1,5 @@
 ---@class Locale アバターのテキストの言語を制御するクラス
----@field LocaleData table<string, table<string, string>> 言語データ
-
+---@field LocaleData { [string]: { [string]: string } } 言語データ
 Locale = {
 	LocaleData = {
 		en_us = {

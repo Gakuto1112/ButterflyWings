@@ -5,12 +5,10 @@
 
 ---@class Wing 蝶の羽を制御するクラス
 ---@field SlowFallEffect boolean 低速落下のバフを受けているかどうか
----@field ParticleDuration integer 羽のパーティクルの出現時間の長さ：0. なし, 1. 短い, 2. ふつう, 3. 長い
 ---@field Glowing boolean 羽が発光しているかどうか
-
+---@field ParticleDuration integer 羽のパーティクルの出現時間の長さ：0. なし, 1. 短い, 2. ふつう, 3. 長い
 Wing = {
     SlowFallEffect = false,
-    WingCrouchRatio = 1,
     Glowing = true,
     ParticleDuration = Config.loadConfig("particleDuration", 2),
 
@@ -24,12 +22,19 @@ Wing = {
     end
 }
 
+---@type boolean
 local wingOpened = false --羽を開く条件を満たしているかどうか
+---@type boolean
 local wingOpenedPrev = false --前レンダーに羽を開く条件を満たしていたかどうか
+---@type number
 local closeStep = 0 --羽の開閉のアニメーションの進行度：0. 開いている ～ 1. 閉じている
+---@type number
 local wingCrouchRatio = 0 --スニークによる羽の開閉がどれぐらいの割合で影響を及ぼすかの変数（0-1）
+---@type HealthLevel
 local healthConditionPrev = "HIGH" --前チックのプレイヤーのHPの状態
+---@type integer
 local wingSoundCount = 0 --羽の音のカウンター
+---@type boolean
 local renderProcessed = false --このレンダーで処理を行ったかどうか
 
 ---低速落下のバフのフラグを設定する。

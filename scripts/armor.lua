@@ -1,5 +1,6 @@
 ---@class Armor 防具の表示を制御するクラス
 
+---@type table<ItemStack>
 local armorSlotItemsPrev = {world.newItem("minecraft:air"), world.newItem("minecraft:air"), world.newItem("minecraft:air"), world.newItem("minecraft:air")} --前チックの防具スロットのアイテム
 
 events.TICK:register(function ()

@@ -1,10 +1,16 @@
 ---@class ActionWheel アクションホイールを制御するクラス
 
+---@type Page
 local mainPage = action_wheel:newPage() --アクションホイールのメインページ
+---@type Page
 local palettePage = action_wheel:newPage() --アクションホイールのカラーパレットのページ
+---@type boolean
 local mainPageInit = false --メインページの初期処理を行ったかどうか
+---@type boolean
 local palettePageInit = false --カラーパレットのページの初期処理を行ったかどうか
+---@type Vector3|nil
 local copiedColor = nil --カラーピッカーでコピーされた色
+---@type boolean
 local paletteImportMessage = false --パレットのインポートの初回メッセージを表示したかどうか
 
 --ping関数
