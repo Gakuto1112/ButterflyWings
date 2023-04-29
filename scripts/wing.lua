@@ -92,16 +92,7 @@ events.TICK:register(function ()
     local gamemode = player:getGamemode()
     local healthCondition = (healthPercent > 0.5 or gamemode == "CREATIVE" or gamemode == "SPECTATOR") and "HIGH" or (healthPercent > 0.2 and "MEDIUM" or "LOW")
     if healthCondition ~= healthConditionPrev then
-        if healthCondition ~= "HIGH" then
-            for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.TatteredLayerRT, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.TatteredLayerRB, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.TatteredLayerLT, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.TatteredLayerLB}) do
-                modelPart:setVisible(true)
-                modelPart:setUVPixels(healthCondition == "LOW" and 60 or 0,0)
-            end
-        else
-            for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.TatteredLayerRT, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.TatteredLayerRB, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.TatteredLayerLT, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.TatteredLayerLB}) do
-                modelPart:setVisible(false)
-            end
-        end
+        Color.TatterLevel = "HIGH" and "NONE" or ("MEDIUM" and "SOFT" or "HARD")
         healthConditionPrev = healthCondition
     end
 end)
@@ -143,9 +134,5 @@ end)
 events.WORLD_RENDER:register(function ()
     renderProcessed = false
 end)
-
-for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.TatteredLayerRT, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.TatteredLayerRB, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.TatteredLayerLT, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.TatteredLayerLB}) do
-    modelPart:setOpacity(0)
-end
 
 return Wing

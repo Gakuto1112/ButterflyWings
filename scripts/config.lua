@@ -51,7 +51,7 @@ function pings.syncAvatarConfig(colors, wingOpacity, wingGlow, particleDuration,
 	if host:isHost() then
 		if not isSynced then
 			Color.Color = colors
-			Color.drawWingGradation()
+			Color.drawBaseTexture()
 			Color.setFeelerTipColor()
 			Color.setEdgeColor()
 			Color.setPatternColor()

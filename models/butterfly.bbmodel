@@ -923,8 +923,8 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA4CAYAAAChbZtkAAAAAXNSR0IArs4c6QAAAlVJREFUaEPtWVtyhDAMW+5/aDp0mk7G64dkG8qW9LMkimTZjmG318P+tofpfS3B/93x5fByGIjAvu/7tm2nZkvXGW0kuwhp8e3EfhOcBc/uAxLolcXW9qkOewcczzSSR0pniXmiB6Z3LpMVpmCLRFSrnaIRLCsQB3+NK+3wmSk4YyNikcyQa8ymddaBVwTM4+52aUR0d01na3YEMuIMC2abxkzAqieZwsy6t1T9mQPKggdw1KyiVB0BkzjW/yM8+Xw2xOMaDh5RxDLEBqEzsc1bBiGcIYZcF8gahN+xBuUYOhyBZWs7EsLitgoeoq0JKyLf+ZwNBHwPM+NapyAWC3X2t/kyB7DgDHZ2LcsJquEsmTvuW4Lv6Eonp8sdnmuOrb8O4ZcI9sY+dCTsEPs9q7NA0hV5L85jIzuHa+It/GggKo2WTFDYlwR2PcNFHZRYAKvuqsQz+zM9gE5pOWZ6H+/QBoWsG2uqNZ8SPGeF5zj7JXMWpb3TZhwtzdJycySWbSyM02wp0rO01p09FxDyVqawTjPOUyntXRHSTYaElzkaTsTDc58S7NWuRYz9FobgVIJJC56vD9kx0bT3HLAwtLO+JyfyV0tYsLwntRqtRN4KglbP8mxGOCQ4SjO2QaEd1sKN+JRqGAG/WrB13SEZBjmc6aJsbSF3fEdgacEdjQlN6SgIiKPlSetRgv9S7HCqyoFK6eph2VRmB55Sl7Yiy74YdIitdGf65SFqIF2CEJxMsyoLRojdcQ1Vw3cUwHJagtmIfdr65fCnOcbyXQ6zEfu09Y9z+AudwNhXXpmRcAAAAABJRU5ErkJggg=="
 		},
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\ButterflyWings\\ButterflyWings\\textures\\tatters_soft.png",
-			"name": "tatters_soft.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\ButterflyWings\\ButterflyWings\\textures\\tatter_soft.png",
+			"name": "tatter_soft.png",
 			"folder": "",
 			"namespace": "",
 			"id": "4",
@@ -939,12 +939,12 @@
 			"mode": "bitmap",
 			"saved": true,
 			"uuid": "fd06a65d-b745-27e9-fce0-51899d33349c",
-			"relative_path": "../../textures/tatters_soft.png",
+			"relative_path": "../../textures/tatter_soft.png",
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA4CAYAAAChbZtkAAAAAXNSR0IArs4c6QAAAbNJREFUaEPtmNsSwjAIRM3/f3QdnYkTqw1dLgvG+tSxTeHABmjabfht27a11tr432rXT7gH6Ai2MvQrmx0agR0DhazLVI1ZvppA/TRwpvMa2+YMa4x6r0FUVg4Y7RRowS0FrC2CpTKMOIM8q90WprZ01igD5KwvH8CPhb/SU89Cvg1VfzlaaiLltQatyla7qVVaW5Ut0CWAmTUjFdiSqdna2TZZDljaJlNgdkHxyLjU8w+BpUh5OBf1DrWkpWhlOGy1WU7S0cparmhJCriApQhF3WfVi1IZ3p9eRHy5lQLen5FHjJwwMEt60ujY76NBgYCjWwZSH7S+QMBdcmhUERDkWQ00DIw4xHgWnfepwBX2Pw24AuyzzTFk122g8ovwrcTHAzMQInDEtLPPHFPu4gEAqwV5ZVkKHnUPR+zJb++cQS8HLA0jywIfbcXlgKXxd0ngGfSywEcFctqWWC2JVb2no6XUz5hOetr6mmELrGWtJxgsaY3x6rAhX0teI+J4oOdZS1RV2hNKUpK3amBgaXSTALLvq4C7xJiZ9goUDOxlOOs9F3BW5Fl2rwyzIp1l5+8yfAeYzAhIl2d/RAAAAABJRU5ErkJggg=="
 		},
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\ButterflyWings\\ButterflyWings\\textures\\tatters_hard.png",
-			"name": "tatters_hard.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\ButterflyWings\\ButterflyWings\\textures\\tatter_hard.png",
+			"name": "tatter_hard.png",
 			"folder": "",
 			"namespace": "",
 			"id": "5",
@@ -959,7 +959,7 @@
 			"mode": "bitmap",
 			"saved": true,
 			"uuid": "acf05997-b437-4cd1-4e03-932660d2cba6",
-			"relative_path": "../../textures/tatters_hard.png",
+			"relative_path": "../../textures/tatter_hard.png",
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA4CAYAAAChbZtkAAAAAXNSR0IArs4c6QAAAqFJREFUaEPlmNtOxDAMROn/f3RRVyoKaeK52Ol2gSdEk8ZnPLZTtq/mZ9/3fdu2rf3bJ/5+cLRxt0wvuGjBJwKPmI6/HeA/2Tyh2Qw/TaSZOy9xuhl8EnAbS5+wMuDWNqwrXHFn+1pXRv3nlyBKEE9qan3mzhrteewMR7ZRRENrFVEZ6BLgmZozdVnLO6KiPf3zXzM36tROk0LBZAVi+0jLdRlLUfbU0dXPQzbTyPbncycJQ2DWsmxgK9ep0LSlVwXtuCZTChfgatshodQ6R+9Dz9/6ocCMFQQweh655s8Bo5p+K3CbHeXCEWUdlcgUuKKZOHbM7kkDnwHc3cxccJQomGF3JrNfMow9VbGj8ghrGF01j0Bma5C1GNB+jQo+OgMCzw5B3RBZawY8GlXt2iy01aURrFt/0UztS8sVNA2cVdwRJyO4BewEifa4GUPvvfQBdQNaX92sqh1UmuGKu3FGMJSMVx9gFvVXwGg2rw74ODtzhgScOUgVFq13Y6GBM52xzUpVTbrx2MDKldMNTskyGw8NnKmdDHB0L3ZsLQEjxZnromJpBkj9jn4M8CjwjDNm4tsfD2q2XWtWQ0NgthmoAoxm++ysymsn9Q+AO6GVGo++rmbvGQJXXBHVjKvNJ3p/5Agqw1nVVfjMetTZl3XpyowpAqB6XwKMVFYAnLWR2Mu6NFLaAVH2zKCpGr6jSytjSgHv11LATtPK1HD1ZaOFpoCVDFdZeVUfoOawkuEnAFtzGA32kQhVsOfZzvuQM+SxhF6Yqd1eZAWYrfty4EwHde7G/T8mUL95PDAqrdHzqOdYwOcLK+3rOKO1/DJLO4HdtQf1l5fd7wrmrnMQ9HQOK7P3LhjmHBkYbWAOffeaiOGS4X8HfM61T7V0e0sbMXwD7NWAQ/jZ/doAAAAASUVORK5CYII="
 		},
 		{

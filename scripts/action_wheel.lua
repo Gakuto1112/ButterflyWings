@@ -12,7 +12,7 @@ local paletteImportMessage = false --パレットのインポートの初回メ�
 ---@param newColor Vector3 新しい色
 function pings.setColor1(newColor)
     Color.Color[1] = newColor
-    Color.drawWingGradation()
+    Color.drawBaseTexture()
     Color.setFeelerTipColor()
 end
 
@@ -20,21 +20,21 @@ end
 ---@param newColor Vector3 新しい色
 function pings.setColor2(newColor)
     Color.Color[2] = newColor
-    Color.drawWingGradation()
+    Color.drawBaseTexture()
 end
 
 ---色3（縁）を設定する。
 ---@param newColor Vector3 新しい色
 function pings.setColor3(newColor)
     Color.Color[3] = newColor
-    Color.setEdgeColor()
+    Color.drawAdditionTexture()
 end
 
 ---色4（模様）を設定する。
 ---@param newColor Vector3 新しい色
 function pings.setColor4(newColor)
     Color.Color[4] = newColor
-    Color.setPatternColor()
+    Color.drawAdditionTexture()
 end
 
 ---羽の発光を設定する。
@@ -47,10 +47,9 @@ end
 ---@param palette table<Vector3|number> パレット情報
 function pings.setPalette(palette)
     Color.Color = {palette[1], palette[2], palette[3], palette[4]}
-    Color.drawWingGradation()
+    Color.drawBaseTexture()
+    Color.drawAdditionTexture()
     Color.setFeelerTipColor()
-    Color.setEdgeColor()
-    Color.setPatternColor()
     Color.Opacity = palette[5]
     Color.setOpacity()
 end
