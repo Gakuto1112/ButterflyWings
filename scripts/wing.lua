@@ -94,7 +94,8 @@ events.TICK:register(function ()
     if healthCondition ~= healthConditionPrev then
         Color.TatterState = healthCondition == "HIGH" and "NONE" or (healthCondition == "MEDIUM" and "SOFT" or "HARD")
         Color.drawBaseTexture()
-        Color.drawAdditionTexture()
+        Color.drawEdgeTexture()
+        Color.drawPatternTexture()
         healthConditionPrev = healthCondition
     end
 end)

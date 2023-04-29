@@ -60,28 +60,44 @@ Color = {
         textures["base"]:update()
     end,
 
-    ---羽の追加テクスチャを描画する。
-    drawAdditionTexture = function()
+    ---羽の縁テクスチャを描画する。
+    drawEdgeTexture = function()
         local edgeDrawData = {{{3, 9}, {48, 9}}, {{1, 14}, {45, 14}}, {{0, 3}, {4, 4}, {12, 6}, {42, 6}, {52, 4}, {57, 3}}, {{0, 4}, {8, 4}, {15, 5}, {40, 5}, {48, 4}, {56, 4}}, {{0, 2}, {4, 3}, {12, 3}, {16, 1}, {18, 4}, {38, 4}, {43, 1}, {45, 3}, {53, 3}, {58, 2}}, {{0, 4}, {7, 13}, {22, 1}, {37, 1}, {40, 13}, {56, 4}}, {{0, 2}, {4, 6}, {23, 1}, {36, 1}, {50, 6}, {58, 2}}, {{1, 3}, {24, 1}, {35, 1}, {56, 3}}, {{1, 2}, {25, 1}, {34, 1}, {57, 2}}, {{2, 2}, {26, 1}, {33, 1}, {56, 2}}, {{2, 2}, {26, 1}, {33, 1}, {56, 2}}, {{3, 2}, {27, 1}, {32, 1}, {55, 2}}, {{3, 2}, {27, 1}, {32, 1}, {55, 2}}, {{4, 2}, {28, 1}, {31, 1}, {54, 2}}, {{4, 2}, {28, 1}, {31, 1}, {54, 2}}, {{5, 2}, {29, 2}, {53, 2}}, {{5, 2}, {29, 2}, {53, 2}}, {{6, 2}, {29, 2}, {52, 2}}, {{6, 2}, {29, 2}, {52, 2}}, {{7, 2}, {24, 12}, {51, 2}}, {{7, 3}, {20, 4}, {36, 4}, {50, 3}}, {{8, 2}, {16, 4}, {40, 4}, {50, 2}}, {{9, 7}, {44, 7}}, {{24, 12}}, {{20, 4}, {29, 2}, {36, 4}}, {{16, 4}, {29, 2}, {40, 4}}, {{12, 4}, {29, 2}, {44, 4}}, {{11, 2}, {29, 2}, {47, 2}}, {{10, 2}, {29, 2}, {48, 2}}, {{9, 3}, {28, 1}, {31, 1}, {48, 3}}, {{9, 2}, {28, 1}, {31, 1}, {49, 2}}, {{8, 2}, {27, 1}, {32, 1}, {50, 2}}, {{8, 2}, {27, 1}, {32, 1}, {50, 2}}, {{7, 3}, {26, 1}, {33, 1}, {50, 3}}, {{7, 3}, {26, 1}, {33, 1}, {50, 3}}, {{6, 2}, {25, 1}, {34, 1}, {52, 2}}, {{5, 3}, {25, 1}, {34, 1}, {52, 3}}, {{5, 3}, {24, 1}, {35, 1}, {52, 3}}, {{6, 2}, {24, 1}, {35, 1}, {52, 2}}, {{6, 2}, {23, 1}, {36, 1}, {52, 2}}, {{5, 3}, {23, 1}, {36, 1}, {52, 3}}, {{5, 3}, {22, 1}, {37, 1}, {52, 3}}, {{6, 2}, {22, 1}, {37, 1}, {52, 2}}, {{6, 2}, {21, 1}, {38, 1}, {52, 2}}, {{5, 4}, {21, 1}, {38, 1}, {51, 4}}, {{5, 4}, {20, 1}, {39, 1}, {51, 4}}, {{6, 5}, {18, 3}, {39, 3}, {49, 5}}, {{7, 13}, {40, 13}}, {{7, 11}, {42, 11}}, {{6, 1}, {8, 2}, {11, 2}, {15, 2}, {43, 2}, {47, 2}, {50, 2}, {53, 1}}, {{6, 3}, {51, 3}}, {{5, 1}, {7, 1}, {52, 1}, {54, 1}}, {{5, 3}, {52, 3}}, {{4, 1}, {6, 1}, {53, 1}, {55, 1}}, {{4, 3}, {53, 3}}, {{5, 1}, {54, 1}}}
-        local patternDrawData = {{}, {}, {}, {}, {}, {}, {{17, 1}, {42, 1}}, {{18, 1}, {41, 1}}, {{4, 1}, {18, 1}, {41, 1}, {55, 1}}, {{5, 1}, {12, 6}, {19, 1}, {40, 1}, {42, 6}, {54, 1}}, {{5, 7}, {20, 1}, {39, 1}, {48, 7}}, {{5, 1}, {21, 1}, {38, 1}, {54, 1}}, {{6, 1}, {22, 1}, {37, 1}, {53, 1}}, {{7, 1}, {16, 6}, {23, 1}, {36, 1}, {38, 6}, {52, 1}}, {{7, 1}, {10, 6}, {24, 2}, {34, 2}, {44, 6}, {52, 1}}, {{7, 3}, {26, 2}, {32, 2}, {50, 3}}, {{8, 1}, {28, 1}, {31, 1}, {51, 1}}, {{9, 1}, {22, 7}, {31, 7}, {50, 1}}, {{9, 1}, {16, 6}, {38, 6}, {50, 1}}, {{10, 6}, {44, 6}}, {{11, 1}, {48, 1}}, {{11, 1}, {48, 1}}, {}, {}, {}, {{28, 1}, {31, 1}}, {{25, 3}, {32, 3}}, {{12, 1}, {16, 4}, {22, 3}, {35, 3}, {40, 4}, {47, 1}}, {{20, 2}, {26, 2}, {32, 2}, {38, 2}}, {{12, 1}, {18, 2}, {24, 2}, {34, 2}, {40, 2}, {47, 1}}, {{13, 3}, {17, 1}, {23, 1}, {26, 1}, {33, 1}, {36, 1}, {42, 1}, {44, 3}}, {{16, 1}, {22, 1}, {24, 1}, {35, 1}, {37, 1}, {43, 1}}, {{15, 1}, {21, 1}, {24, 1}, {35, 1}, {38, 1}, {44, 1}}, {{10, 1}, {14, 1}, {20, 1}, {22, 1}, {25, 1}, {34, 1}, {37, 1}, {39, 1}, {45, 1}, {49, 1}}, {{11, 4}, {19, 1}, {22, 1}, {37, 1}, {40, 1}, {45, 4}}, {{14, 1}, {18, 1}, {23, 1}, {36, 1}, {41, 1}, {45, 1}}, {{12, 2}, {15, 3}, {19, 1}, {23, 1}, {36, 1}, {40, 1}, {42, 3}, {46, 2}}, {{10, 2}, {14, 1}, {17, 1}, {19, 1}, {40, 1}, {42, 1}, {45, 1}, {48, 2}}, {{9, 1}, {14, 1}, {17, 1}, {20, 1}, {39, 1}, {42, 1}, {45, 1}, {50, 1}}, {{8, 1}, {13, 1}, {17, 1}, {20, 1}, {39, 1}, {42, 1}, {46, 1}, {51, 1}}, {{13, 1}, {16, 1}, {21, 1}, {38, 1}, {43, 1}, {46, 1}}, {{12, 1}, {16, 1}, {43, 1}, {47, 1}}, {{12, 1}, {16, 1}, {43, 1}, {47, 1}}, {{11, 1}, {15, 1}, {44, 1}, {48, 1}}, {{11, 1}, {15, 1}, {44, 1}, {48, 1}}, {{10, 1}, {15, 1}, {44, 1}, {49, 1}}, {{14, 1}, {45, 1}}, {}, {}, {}, {}, {}, {}, {}, {}, {}}
         for y = 1, 56 do
             for _, chunk in ipairs(edgeDrawData[y]) do
-                textures["addition"]:fill(chunk[1], y - 1, chunk[2], 1, Color.Color[3])
-            end
-            for _, chunk in ipairs(patternDrawData[y]) do
-                textures["addition"]:fill(chunk[1], y - 1, chunk[2], 1, Color.Color[4])
+                textures["edge"]:fill(chunk[1], y - 1, chunk[2], 1, Color.Color[3])
             end
             if Color.TatterState == "SOFT" then
                 for _, chunk in ipairs(Color.SoftTatterDrawData[y]) do
-                    textures["addition"]:fill(chunk[1], y - 1, chunk[2], 1, 0, 0, 0, 0)
+                    textures["edge"]:fill(chunk[1], y - 1, chunk[2], 1, 0, 0, 0, 0)
                 end
             elseif Color.TatterState == "HARD" then
                 for _, chunk in ipairs(Color.HardTatterDrawData[y]) do
-                    textures["addition"]:fill(chunk[1], y - 1, chunk[2], 1, 0, 0, 0, 0)
+                    textures["edge"]:fill(chunk[1], y - 1, chunk[2], 1, 0, 0, 0, 0)
                 end
             end
         end
-        textures["addition"]:update()
+        textures["edge"]:update()
+    end,
+
+    ---羽の模様テクスチャを描画する。
+    drawPatternTexture = function()
+        local patternDrawData = {{}, {}, {}, {}, {}, {}, {{17, 1}, {42, 1}}, {{18, 1}, {41, 1}}, {{4, 1}, {18, 1}, {41, 1}, {55, 1}}, {{5, 1}, {12, 6}, {19, 1}, {40, 1}, {42, 6}, {54, 1}}, {{5, 7}, {20, 1}, {39, 1}, {48, 7}}, {{5, 1}, {21, 1}, {38, 1}, {54, 1}}, {{6, 1}, {22, 1}, {37, 1}, {53, 1}}, {{7, 1}, {16, 6}, {23, 1}, {36, 1}, {38, 6}, {52, 1}}, {{7, 1}, {10, 6}, {24, 2}, {34, 2}, {44, 6}, {52, 1}}, {{7, 3}, {26, 2}, {32, 2}, {50, 3}}, {{8, 1}, {28, 1}, {31, 1}, {51, 1}}, {{9, 1}, {22, 7}, {31, 7}, {50, 1}}, {{9, 1}, {16, 6}, {38, 6}, {50, 1}}, {{10, 6}, {44, 6}}, {{11, 1}, {48, 1}}, {{11, 1}, {48, 1}}, {}, {}, {}, {{28, 1}, {31, 1}}, {{25, 3}, {32, 3}}, {{12, 1}, {16, 4}, {22, 3}, {35, 3}, {40, 4}, {47, 1}}, {{20, 2}, {26, 2}, {32, 2}, {38, 2}}, {{12, 1}, {18, 2}, {24, 2}, {34, 2}, {40, 2}, {47, 1}}, {{13, 3}, {17, 1}, {23, 1}, {26, 1}, {33, 1}, {36, 1}, {42, 1}, {44, 3}}, {{16, 1}, {22, 1}, {24, 1}, {35, 1}, {37, 1}, {43, 1}}, {{15, 1}, {21, 1}, {24, 1}, {35, 1}, {38, 1}, {44, 1}}, {{10, 1}, {14, 1}, {20, 1}, {22, 1}, {25, 1}, {34, 1}, {37, 1}, {39, 1}, {45, 1}, {49, 1}}, {{11, 4}, {19, 1}, {22, 1}, {37, 1}, {40, 1}, {45, 4}}, {{14, 1}, {18, 1}, {23, 1}, {36, 1}, {41, 1}, {45, 1}}, {{12, 2}, {15, 3}, {19, 1}, {23, 1}, {36, 1}, {40, 1}, {42, 3}, {46, 2}}, {{10, 2}, {14, 1}, {17, 1}, {19, 1}, {40, 1}, {42, 1}, {45, 1}, {48, 2}}, {{9, 1}, {14, 1}, {17, 1}, {20, 1}, {39, 1}, {42, 1}, {45, 1}, {50, 1}}, {{8, 1}, {13, 1}, {17, 1}, {20, 1}, {39, 1}, {42, 1}, {46, 1}, {51, 1}}, {{13, 1}, {16, 1}, {21, 1}, {38, 1}, {43, 1}, {46, 1}}, {{12, 1}, {16, 1}, {43, 1}, {47, 1}}, {{12, 1}, {16, 1}, {43, 1}, {47, 1}}, {{11, 1}, {15, 1}, {44, 1}, {48, 1}}, {{11, 1}, {15, 1}, {44, 1}, {48, 1}}, {{10, 1}, {15, 1}, {44, 1}, {49, 1}}, {{14, 1}, {45, 1}}, {}, {}, {}, {}, {}, {}, {}, {}, {}}
+        for y = 1, 56 do
+            for _, chunk in ipairs(patternDrawData[y]) do
+                textures["pattern"]:fill(chunk[1], y - 1, chunk[2], 1, Color.Color[4])
+            end
+            if Color.TatterState == "SOFT" then
+                for _, chunk in ipairs(Color.SoftTatterDrawData[y]) do
+                    textures["pattern"]:fill(chunk[1], y - 1, chunk[2], 1, 0, 0, 0, 0)
+                end
+            elseif Color.TatterState == "HARD" then
+                for _, chunk in ipairs(Color.HardTatterDrawData[y]) do
+                    textures["pattern"]:fill(chunk[1], y - 1, chunk[2], 1, 0, 0, 0, 0)
+                end
+            end
+        end
+        textures["pattern"]:update()
     end,
 
     ---触角の先の色を設定する。
@@ -151,19 +167,23 @@ Color = {
     end
 }
 
-for _, textureName in ipairs({"base", "addition"}) do
+for _, textureName in ipairs({"base", "edge", "pattern"}) do
     textures:newTexture(textureName, 60, 56)
     textures[textureName]:fill(0, 0, 60, 56, 0, 0, 0, 0)
 end
 for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.Base, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.Base, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.Base, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.Base}) do
     modelPart:setPrimaryTexture("CUSTOM", textures["base"])
 end
-for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.Addition, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.Addition, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.Addition, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.Addition}) do
-    modelPart:setPrimaryTexture("CUSTOM", textures["addition"])
+for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.Edge, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.Edge, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.Edge, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.Edge}) do
+    modelPart:setPrimaryTexture("CUSTOM", textures["edge"])
+end
+for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.Pattern, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.Pattern, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.Pattern, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.Pattern}) do
+    modelPart:setPrimaryTexture("CUSTOM", textures["pattern"])
 end
 
 Color.drawBaseTexture()
-Color.drawAdditionTexture()
+Color.drawEdgeTexture()
+Color.drawPatternTexture()
 Color.setFeelerTipColor()
 Color.setOpacity()
 

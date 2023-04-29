@@ -27,14 +27,14 @@ end
 ---@param newColor Vector3 新しい色
 function pings.setColor3(newColor)
     Color.Color[3] = newColor
-    Color.drawAdditionTexture()
+    Color.drawEdgeTexture()
 end
 
 ---色4（模様）を設定する。
 ---@param newColor Vector3 新しい色
 function pings.setColor4(newColor)
     Color.Color[4] = newColor
-    Color.drawAdditionTexture()
+    Color.drawPatternTexture()
 end
 
 ---羽の発光を設定する。
@@ -48,7 +48,8 @@ end
 function pings.setPalette(palette)
     Color.Color = {palette[1], palette[2], palette[3], palette[4]}
     Color.drawBaseTexture()
-    Color.drawAdditionTexture()
+    Color.drawEdgeTexture()
+    Color.drawPatternTexture()
     Color.setFeelerTipColor()
     Color.Opacity = palette[5]
     Color.setOpacity()
