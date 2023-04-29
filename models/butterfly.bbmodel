@@ -12,12 +12,12 @@
 	"timeline_setups": [],
 	"unhandled_root_fields": {},
 	"resolution": {
-		"width": 120,
-		"height": 112
+		"width": 60,
+		"height": 56
 	},
 	"elements": [
 		{
-			"name": "Base",
+			"name": "RightTopWing",
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
@@ -26,10 +26,10 @@
 			"autouv": 0,
 			"color": 0,
 			"inflate": 0.001,
-			"origin": [0, 18, 2.25],
+			"origin": [0, 17.5, 2.25],
 			"faces": {
 				"north": {
-					"uv": [0, 0, 30, 23],
+					"uv": [60, 0, 30, 23],
 					"texture": 0
 				},
 				"east": {
@@ -37,7 +37,7 @@
 					"texture": null
 				},
 				"south": {
-					"uv": [30, 0, 0, 23],
+					"uv": [30, 0, 60, 23],
 					"texture": 0
 				},
 				"west": {
@@ -57,7 +57,7 @@
 			"uuid": "9f8eaa4f-d37c-6cba-6105-a4984d9cb39b"
 		},
 		{
-			"name": "Base",
+			"name": "RightBottomWing",
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
@@ -66,10 +66,10 @@
 			"autouv": 0,
 			"color": 0,
 			"inflate": 0.001,
-			"origin": [0, 17, 2.25],
+			"origin": [0, 17.5, 2.25],
 			"faces": {
 				"north": {
-					"uv": [0, 23, 26, 56],
+					"uv": [56, 23, 30, 56],
 					"texture": 0
 				},
 				"east": {
@@ -77,7 +77,7 @@
 					"texture": null
 				},
 				"south": {
-					"uv": [26, 23, 0, 56],
+					"uv": [30, 23, 56, 56],
 					"texture": 0
 				},
 				"west": {
@@ -97,7 +97,7 @@
 			"uuid": "ecffcb53-431b-a9e4-dbfa-90527126456d"
 		},
 		{
-			"name": "Base",
+			"name": "LeftTopWing",
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
@@ -106,7 +106,7 @@
 			"autouv": 0,
 			"color": 0,
 			"inflate": 0.001,
-			"origin": [0, 18, 2.25],
+			"origin": [0, 17.5, 2.25],
 			"faces": {
 				"north": {
 					"uv": [30, 0, 0, 23],
@@ -137,7 +137,7 @@
 			"uuid": "35181a54-e814-f729-b774-7efe99e8dd76"
 		},
 		{
-			"name": "Base",
+			"name": "LeftBottomWing",
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
@@ -146,10 +146,10 @@
 			"autouv": 0,
 			"color": 0,
 			"inflate": 0.001,
-			"origin": [0, 17, 2.25],
+			"origin": [0, 17.5, 2.25],
 			"faces": {
 				"north": {
-					"uv": [26, 23, 0, 56],
+					"uv": [30, 23, 4, 56],
 					"texture": 0
 				},
 				"east": {
@@ -157,7 +157,7 @@
 					"texture": null
 				},
 				"south": {
-					"uv": [0, 23, 26, 56],
+					"uv": [4, 23, 30, 56],
 					"texture": 0
 				},
 				"west": {
@@ -189,27 +189,27 @@
 			"origin": [0, 0, 0],
 			"faces": {
 				"north": {
-					"uv": [0, 0, 0, 4],
+					"uv": [0, 0, 0, 2],
 					"texture": null
 				},
 				"east": {
-					"uv": [26, 23, 27, 31],
-					"texture": 0
+					"uv": [0, 0, 20, 11.2],
+					"texture": 5
 				},
 				"south": {
-					"uv": [0, 0, 0, 4],
+					"uv": [0, 0, 0, 2],
 					"texture": null
 				},
 				"west": {
-					"uv": [26, 23, 27, 31],
-					"texture": 0
+					"uv": [0, 0, 20, 11.2],
+					"texture": 5
 				},
 				"up": {
-					"uv": [0, 0, 0, 0.5],
+					"uv": [0, 0, 0, 0.25],
 					"texture": null
 				},
 				"down": {
-					"uv": [0, 0, 0, 0.5],
+					"uv": [0, 0, 0, 0.25],
 					"texture": null
 				}
 			},
@@ -233,16 +233,16 @@
 					"texture": null
 				},
 				"east": {
-					"uv": [26, 23, 27, 31],
-					"texture": 0
+					"uv": [0, 0, 20, 11.2],
+					"texture": 5
 				},
 				"south": {
 					"uv": [0, 0, 0, 0],
 					"texture": null
 				},
 				"west": {
-					"uv": [26, 23, 27, 31],
-					"texture": 0
+					"uv": [0, 0, 20, 11.2],
+					"texture": 5
 				},
 				"up": {
 					"uv": [0, 0, 0, 0],
@@ -273,16 +273,16 @@
 					"texture": null
 				},
 				"east": {
-					"uv": [27, 23, 30, 27],
-					"texture": 0
+					"uv": [0, 11.2, 60, 56],
+					"texture": 5
 				},
 				"south": {
 					"uv": [0, 0, 0, 0],
 					"texture": null
 				},
 				"west": {
-					"uv": [27, 23, 30, 27],
-					"texture": 0
+					"uv": [0, 11.2, 60, 56],
+					"texture": 5
 				},
 				"up": {
 					"uv": [0, 0, 0, 0],
@@ -309,27 +309,27 @@
 			"origin": [2, 0, 0],
 			"faces": {
 				"north": {
-					"uv": [0, 0, 0, 4],
+					"uv": [0, 0, 0, 2],
 					"texture": null
 				},
 				"east": {
-					"uv": [26, 23, 27, 31],
-					"texture": 0
+					"uv": [0, 0, 20, 11.2],
+					"texture": 5
 				},
 				"south": {
-					"uv": [0, 0, 0, 4],
+					"uv": [0, 0, 0, 2],
 					"texture": null
 				},
 				"west": {
-					"uv": [26, 23, 27, 31],
-					"texture": 0
+					"uv": [0, 0, 20, 11.2],
+					"texture": 5
 				},
 				"up": {
-					"uv": [0, 0, 0, 0.5],
+					"uv": [0, 0, 0, 0.25],
 					"texture": null
 				},
 				"down": {
-					"uv": [0, 0, 0, 0.5],
+					"uv": [0, 0, 0, 0.25],
 					"texture": null
 				}
 			},
@@ -353,16 +353,16 @@
 					"texture": null
 				},
 				"east": {
-					"uv": [26, 23, 27, 31],
-					"texture": 0
+					"uv": [0, 0, 20, 11.2],
+					"texture": 5
 				},
 				"south": {
 					"uv": [0, 0, 0, 0],
 					"texture": null
 				},
 				"west": {
-					"uv": [26, 23, 27, 31],
-					"texture": 0
+					"uv": [0, 0, 20, 11.2],
+					"texture": 5
 				},
 				"up": {
 					"uv": [0, 0, 0, 0],
@@ -393,16 +393,16 @@
 					"texture": null
 				},
 				"east": {
-					"uv": [27, 23, 30, 27],
-					"texture": 0
+					"uv": [0, 11.2, 60, 56],
+					"texture": 5
 				},
 				"south": {
 					"uv": [0, 0, 0, 0],
 					"texture": null
 				},
 				"west": {
-					"uv": [27, 23, 30, 27],
-					"texture": 0
+					"uv": [0, 11.2, 60, 56],
+					"texture": 5
 				},
 				"up": {
 					"uv": [0, 0, 0, 0],
@@ -433,16 +433,16 @@
 					"texture": null
 				},
 				"east": {
-					"uv": [27, 27, 28, 29],
-					"texture": 0
+					"uv": [20, 0, 40, 11.2],
+					"texture": 5
 				},
 				"south": {
 					"uv": [0, 0, 0, 0],
 					"texture": null
 				},
 				"west": {
-					"uv": [27, 27, 28, 29],
-					"texture": 0
+					"uv": [20, 0, 40, 11.2],
+					"texture": 5
 				},
 				"up": {
 					"uv": [0, 0, 0, 0],
@@ -473,16 +473,16 @@
 					"texture": null
 				},
 				"east": {
-					"uv": [27, 27, 28, 29],
-					"texture": 0
+					"uv": [20, 0, 40, 11.2],
+					"texture": 5
 				},
 				"south": {
 					"uv": [0, 0, 0, 0],
 					"texture": null
 				},
 				"west": {
-					"uv": [27, 27, 28, 29],
-					"texture": 0
+					"uv": [20, 0, 40, 11.2],
+					"texture": 5
 				},
 				"up": {
 					"uv": [0, 0, 0, 0],
@@ -495,644 +495,6 @@
 			},
 			"type": "cube",
 			"uuid": "c5aff13e-b591-98df-d3a9-7b670d5f7fef"
-		},
-		{
-			"name": "Edge",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-15, 16, 2.26],
-			"to": [0, 27, 2.26],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.001,
-			"origin": [0, 18, 2.25],
-			"faces": {
-				"north": {
-					"uv": [60, 0, 30, 23],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [30, 0, 60, 23],
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "0052f57b-8d5f-b323-5e4a-c0e44381c237"
-		},
-		{
-			"name": "Pattern",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-15, 16, 2.26],
-			"to": [0, 27, 2.26],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.001,
-			"origin": [0, 18, 2.25],
-			"faces": {
-				"north": {
-					"uv": [90, 0, 60, 23],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [60, 0, 90, 23],
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "a6ad3248-9fcf-e4e7-5795-603351cfe518"
-		},
-		{
-			"name": "Edge",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-13, 2, 2.25],
-			"to": [0, 18, 2.25],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.001,
-			"origin": [0, 17, 2.25],
-			"faces": {
-				"north": {
-					"uv": [56, 23, 30, 56],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [30, 23, 56, 56],
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "16dccc56-ffc2-5f51-449a-2de8c2cac187"
-		},
-		{
-			"name": "Pattern",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-13, 2, 2.25],
-			"to": [0, 18, 2.25],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.001,
-			"origin": [0, 17, 2.25],
-			"faces": {
-				"north": {
-					"uv": [86, 23, 60, 56],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [60, 23, 86, 56],
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "ea4648db-ed45-af12-2827-5ac980001f11"
-		},
-		{
-			"name": "Edge",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [0, 16, 2.26],
-			"to": [15, 27, 2.26],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.001,
-			"origin": [0, 18, 2.25],
-			"faces": {
-				"north": {
-					"uv": [30, 0, 60, 23],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [60, 0, 30, 23],
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "e05cb4ee-6828-639a-f15c-07c313325397"
-		},
-		{
-			"name": "Pattern",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [0, 16, 2.26],
-			"to": [15, 27, 2.26],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.001,
-			"origin": [0, 18, 2.25],
-			"faces": {
-				"north": {
-					"uv": [60, 0, 90, 23],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [90, 0, 60, 23],
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "63245ecb-e11a-a39b-5904-d90c8eae5fc7"
-		},
-		{
-			"name": "Edge",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [0, 2, 2.25],
-			"to": [13, 18, 2.25],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.001,
-			"origin": [0, 17, 2.25],
-			"faces": {
-				"north": {
-					"uv": [30, 23, 56, 56],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [56, 23, 30, 56],
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "3a169ae2-d7bd-a746-0147-1f6e58e0ba70"
-		},
-		{
-			"name": "Pattern",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [0, 2, 2.25],
-			"to": [13, 18, 2.25],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.001,
-			"origin": [0, 17, 2.25],
-			"faces": {
-				"north": {
-					"uv": [60, 23, 86, 56],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [86, 23, 60, 56],
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "e494f026-52f3-c331-01e4-6d1986780143"
-		},
-		{
-			"name": "FrontTatteredLayer",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [0, 16, 2.25],
-			"to": [15, 27, 2.25],
-			"autouv": 0,
-			"color": 0,
-			"origin": [0, 18, 2.25],
-			"faces": {
-				"north": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [30, 56, 60, 79],
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "26ba444c-da04-1207-5401-a1b533f3a4a4"
-		},
-		{
-			"name": "BackTatteredLayer",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [0, 16, 2.27],
-			"to": [15, 27, 2.27],
-			"autouv": 0,
-			"color": 0,
-			"origin": [0, 18, 2.25],
-			"faces": {
-				"north": {
-					"uv": [60, 56, 30, 79],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "3ad89381-e61e-6313-d0d5-e2faa4740c1e"
-		},
-		{
-			"name": "FrontTatteredLayer",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [0, 2, 2.24],
-			"to": [13, 18, 2.24],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.001,
-			"origin": [0, 17, 2.25],
-			"faces": {
-				"north": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [30, 79, 56, 112],
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "c726ccd7-c7dc-b4fd-eb45-7dd0b4681697"
-		},
-		{
-			"name": "BackTatteredLayer",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [0, 2, 2.26],
-			"to": [13, 18, 2.26],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.001,
-			"origin": [0, 17, 2.25],
-			"faces": {
-				"north": {
-					"uv": [56, 79, 30, 112],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "72f56d39-3224-e950-4556-76a63b5c578a"
-		},
-		{
-			"name": "FrontTatteredLayerLT",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-15, 16, 2.25],
-			"to": [0, 27, 2.25],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.001,
-			"origin": [0, 18, 2.25],
-			"faces": {
-				"north": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [0, 56, 30, 79],
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "4a41f4c8-7846-4428-bcdc-d0619611bdab"
-		},
-		{
-			"name": "BackTatteredLayerLT",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-15, 16, 2.27],
-			"to": [0, 27, 2.27],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.001,
-			"origin": [0, 18, 2.25],
-			"faces": {
-				"north": {
-					"uv": [30, 56, 0, 79],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "5cd117c2-06da-066e-a9c1-1915ba1464b2"
-		},
-		{
-			"name": "FrontTatteredLayerLB",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-13, 2, 2.24],
-			"to": [0, 18, 2.24],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.001,
-			"origin": [0, 17, 2.25],
-			"faces": {
-				"north": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [4, 79, 30, 112],
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "6a67d418-1d76-6ae2-2098-003658f87784"
-		},
-		{
-			"name": "BackTatteredLayerLB",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-13, 2, 2.26],
-			"to": [0, 18, 2.26],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.001,
-			"origin": [0, 17, 2.25],
-			"faces": {
-				"north": {
-					"uv": [30, 79, 4, 112],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "8fca90c3-6a23-91ee-b46c-b511e8e8d3c8"
 		}
 	],
 	"outliner": [
@@ -1143,7 +505,7 @@
 			"uuid": "5a334dab-f3b0-5fc4-cf68-d8c4fc31d48d",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": false,
+			"isOpen": true,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -1266,94 +628,7 @@
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
-					"children": [
-						{
-							"name": "RightTopWing",
-							"origin": [0, 17.5, 2.25],
-							"color": 0,
-							"uuid": "5c94cca6-9da9-7a7b-ffab-2d59e7475f23",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": true,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": [
-								{
-									"name": "TatteredLayerRT",
-									"origin": [0, 18, 2.25],
-									"color": 0,
-									"uuid": "dcaf75dd-768e-fc94-c18b-256067101742",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": false,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": ["26ba444c-da04-1207-5401-a1b533f3a4a4", "3ad89381-e61e-6313-d0d5-e2faa4740c1e"]
-								},
-								"9f8eaa4f-d37c-6cba-6105-a4984d9cb39b",
-								"e05cb4ee-6828-639a-f15c-07c313325397",
-								"63245ecb-e11a-a39b-5904-d90c8eae5fc7",
-								{
-									"name": "ParticleAnchorRT",
-									"origin": [15, 25, 2.25],
-									"color": 0,
-									"uuid": "56cf6937-fb43-302b-e2db-3f4bcb8e9cd2",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": []
-								}
-							]
-						},
-						{
-							"name": "RightBottomWing",
-							"origin": [0, 17.5, 2.25],
-							"color": 0,
-							"uuid": "2bafb88d-7eeb-2314-10f1-8bc2f793410e",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": true,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": [
-								{
-									"name": "TatteredLayerRB",
-									"origin": [0, 17.5, 2.25],
-									"color": 0,
-									"uuid": "f2365c5e-7899-be78-a7ef-5961e627dcdb",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": false,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": ["c726ccd7-c7dc-b4fd-eb45-7dd0b4681697", "72f56d39-3224-e950-4556-76a63b5c578a"]
-								},
-								"ecffcb53-431b-a9e4-dbfa-90527126456d",
-								"3a169ae2-d7bd-a746-0147-1f6e58e0ba70",
-								"e494f026-52f3-c331-01e4-6d1986780143",
-								{
-									"name": "ParticleAnchorRB",
-									"origin": [12.5, 9.25, 2.25],
-									"color": 0,
-									"uuid": "67ae0e60-0833-6567-4fc3-a591466952b2",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": false,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": []
-								}
-							]
-						}
-					]
+					"children": ["9f8eaa4f-d37c-6cba-6105-a4984d9cb39b", "ecffcb53-431b-a9e4-dbfa-90527126456d"]
 				},
 				{
 					"name": "LeftWing",
@@ -1367,102 +642,35 @@
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
-					"children": [
-						{
-							"name": "LeftTopWing",
-							"origin": [0, 17.5, 2.25],
-							"color": 0,
-							"uuid": "de804801-e38f-fb07-486d-f017f4dd1db5",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": true,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": [
-								{
-									"name": "TatteredLayerLT",
-									"origin": [0, 17.5, 2.25],
-									"color": 0,
-									"uuid": "48eaaf96-847c-a4af-6836-f5abe014992f",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": false,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": ["4a41f4c8-7846-4428-bcdc-d0619611bdab", "5cd117c2-06da-066e-a9c1-1915ba1464b2"]
-								},
-								"35181a54-e814-f729-b774-7efe99e8dd76",
-								"0052f57b-8d5f-b323-5e4a-c0e44381c237",
-								"a6ad3248-9fcf-e4e7-5795-603351cfe518",
-								{
-									"name": "ParticleAnchorLT",
-									"origin": [-15, 25, 2.25],
-									"color": 0,
-									"uuid": "451b2709-57ff-d414-a747-4d0731b63ea0",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": false,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": []
-								}
-							]
-						},
-						{
-							"name": "LeftBottomWing",
-							"origin": [0, 17.5, 2.25],
-							"color": 0,
-							"uuid": "b63be274-ef83-77ed-d8ac-af7344b44ac8",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": true,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": [
-								{
-									"name": "TatteredLayerLB",
-									"origin": [0, 17.5, 2.25],
-									"color": 0,
-									"uuid": "68c3bfa9-e584-8cc5-004f-8dfdd66f986e",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": false,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": ["6a67d418-1d76-6ae2-2098-003658f87784", "8fca90c3-6a23-91ee-b46c-b511e8e8d3c8"]
-								},
-								"0bd5fc0e-ca32-0131-d6ac-79c5b5ba46b4",
-								"16dccc56-ffc2-5f51-449a-2de8c2cac187",
-								"ea4648db-ed45-af12-2827-5ac980001f11",
-								{
-									"name": "ParticleAnchorLB",
-									"origin": [-12.5, 9.25, 2.25],
-									"color": 0,
-									"uuid": "b76de584-5940-f254-4ebe-e86f52fa6fc7",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": false,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": []
-								}
-							]
-						}
-					]
+					"children": ["35181a54-e814-f729-b774-7efe99e8dd76", "0bd5fc0e-ca32-0131-d6ac-79c5b5ba46b4"]
 				}
 			]
 		}
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\ButterflyWings\\textures\\main.png",
-			"name": "main.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\ButterflyWings\\ButterflyWings\\textures\\base.png",
+			"name": "base.png",
+			"folder": "",
+			"namespace": "",
+			"id": "0",
+			"particle": false,
+			"render_mode": "default",
+			"render_sides": "auto",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"mode": "bitmap",
+			"saved": true,
+			"uuid": "f0c67310-938e-2cca-db84-7100b24210df",
+			"relative_path": "../../textures/base.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA4CAYAAAChbZtkAAAAAXNSR0IArs4c6QAAAylJREFUaEPtWtGOwjAMY///0ZyGVBSyOHbSjh2Ce+LY2sax42QT2+3L/rYvw3t7AXy/3+/bth2+s0nx169O2B5zFp/HdGBY2WAccBV4G2OVoCfgsYndwIPfgfrr+/+RMlYzP87wZykx2rhThjsMRonrgJ/ZJ1NAyrANNMqklTbLdAU02ovFEJ3hE0drWA10SNvfX1VJB2wWoz8/dOksk2hzBNjXfRYcOjfbm4GVXLoTvDWVKAjGNAOL1lfXhZLOgmPsd6XdlTKLNZW0alKsrqugu2CZnEOlIWfr1k3m3KosV50dnQdnaVaTbNpC65XJKBtk1JJCyZUBq+ygtoQGCf+9Aoj12yxh8tMSC0Sp6/0eG4z/zPbo1OyBANYXZ+uJDSKzibT7K3M9ZVitZQasyl41EQrYxxDEAmGAO7U91szMxlGCs9p9miwD7OvO38+YYBPWqv0UsBLDIyDGNGtTSmIz90XrVSmXGLYse0arDHaB28RXjerl/tkAPm09Na1PA8TiPR0wejAYZbK6nb0dcNW1q/czQOz6NMMs4EcrMO+60WiJGF+tgBZgCxI9/XiQ3lkjgNGa7Omq0yHKgBmjaIqy36PPSlJmGS8DZmaD+nT38TAbQ09nOAo6m8DskxaaiPz67PWQHx9REjPjkhlGUlYCZIHZ62oCu9KeAszADoeuAvbrolHydMC+dhlYL2fWH+3+Vv5ocMk6xTJJqy/gIoaYwXgAXuaRg9sHCrb/uJdKWq3diPHqoxuqX783UpcfciKmy4CjHjrkiAJTsx8BjpLmp7WM/UOts9ryhhNJLas5FayVZ2RSUYuzjDJjLEk6k2vkxF1DyYwRAX4CEX+JQCWNZl7FZKrsepYzkIgEplgKmLWFFWblg1TMK2uLU20pmo0RuxXzYEywRKPhhKmqzLDaItjBHwH4XWCRY6OBpmKSlOFo5PPOeOh17td8jE10vSprRVUyYNaabBK6AKN1zEMs68sARxKL5L0SaOTcSFkKUHnwOBPEFXtLkr4isLPOTAH7VypnBbFyXxbzj2FrUBUzWMnS7F4Zyz+Gx6Dxqewyhf4Ynq2f/77+Dw71MHX84DphAAAAAElFTkSuQmCC"
+		},
+		{
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\ButterflyWings\\ButterflyWings\\textures\\edge.png",
+			"name": "edge.png",
 			"folder": "",
 			"namespace": "",
 			"id": "1",
@@ -1476,9 +684,89 @@
 			"visible": true,
 			"mode": "bitmap",
 			"saved": true,
-			"uuid": "4dbd4ce9-a112-d40c-207c-90bf9044184f",
-			"relative_path": "../../textures/main.png",
-			"source": "data:image/png;base64,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"
+			"uuid": "426d0d6c-bbd0-927b-ef96-ca93f2f3184b",
+			"relative_path": "../../textures/edge.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA4CAYAAAChbZtkAAAAAXNSR0IArs4c6QAAAqNJREFUaEPtmdtuxCAMRJv//+hUqZTIyxrPjDEkq22fWgXwHN+4dPsxP/u+7/Zv7/dt2zY0ZuV3VfOfeGbSk+BH9G528hG9drE2oj1jsyPP2vX0vzCqgBbME1ENjmzI+s8Jp9A24m0qexnBZIZa171ItbY8B3sMF2fkoUytWMdlo33Y9QLAOi3KwqtmkYGMeCucFZuZEzXeluutS2fAIhgFQBmrOPAce7C9AFfDnoYYEGYMC9nrOxewTYk7oFfBHpzXqant1llv9uZFULcA3xXllbAvEf5K4NXQq6P7FuGvBF4F/eftSVfNqAG7d9sVHftRwLOjPNOhaO3u6wWaOLJP37l2+FxTIUy9cY3UNaOXAlbqDV3IUWZk56N7/HWBYAX0PJ8ViOzai4cdi3SgDKFeIKO0RAZYMHbcqBYKmBXjjVtZw4zOcmAmxaPmwsxnwHpjhoEzApluqtYw6wQZOAMYvUCwQqscIAErkYlA7lyHBq4SWX1sVXVRwOymzqSnvQNX3IdVbRJwxZ5bDaxmDARWUwbVrvfPuSpHMkfgf2AbIbU+1OjarWY0yqzW8ttSDzpqUCub15IHAAaIGcPuAlEth29aTBNgRaCUrQbuaZ8OrIAoY6PSOb95Tp6e0gqEMhYB9zJqKnAGIDPH21kkYLbFo/rNiM/MUbbSaTU8Inx07i01PCoadfVH1fAI7OjpC539YUpn9uK7gG3vSe/DKnAFbDbKaWB7x7S1EtVVVWdXOm7vnUs+WkYLoa0o22xQE0J22cDQtyVksBq0tdema6Qn0hKetI6Jtuu1HRB1ROQk9Xtkv9UpnbTaGp4dPRWcSX8J+Oy0lR23Cgqtg7TDffhTous1Wup6iDyEPPyE7xHDW4Rn7KernRAxdFP601LZ28Y8hl/aGExSMv8o1gAAAABJRU5ErkJggg=="
+		},
+		{
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\ButterflyWings\\ButterflyWings\\textures\\pattern.png",
+			"name": "pattern.png",
+			"folder": "",
+			"namespace": "",
+			"id": "2",
+			"particle": false,
+			"render_mode": "default",
+			"render_sides": "auto",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"mode": "bitmap",
+			"saved": true,
+			"uuid": "ad7885ca-bdb0-e3e5-9805-e95100436ca9",
+			"relative_path": "../../textures/pattern.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA4CAYAAAChbZtkAAAAAXNSR0IArs4c6QAAAlVJREFUaEPtWVtyhDAMW+5/aDp0mk7G64dkG8qW9LMkimTZjmG318P+tofpfS3B/93x5fByGIjAvu/7tm2nZkvXGW0kuwhp8e3EfhOcBc/uAxLolcXW9qkOewcczzSSR0pniXmiB6Z3LpMVpmCLRFSrnaIRLCsQB3+NK+3wmSk4YyNikcyQa8ymddaBVwTM4+52aUR0d01na3YEMuIMC2abxkzAqieZwsy6t1T9mQPKggdw1KyiVB0BkzjW/yM8+Xw2xOMaDh5RxDLEBqEzsc1bBiGcIYZcF8gahN+xBuUYOhyBZWs7EsLitgoeoq0JKyLf+ZwNBHwPM+NapyAWC3X2t/kyB7DgDHZ2LcsJquEsmTvuW4Lv6Eonp8sdnmuOrb8O4ZcI9sY+dCTsEPs9q7NA0hV5L85jIzuHa+It/GggKo2WTFDYlwR2PcNFHZRYAKvuqsQz+zM9gE5pOWZ6H+/QBoWsG2uqNZ8SPGeF5zj7JXMWpb3TZhwtzdJycySWbSyM02wp0rO01p09FxDyVqawTjPOUyntXRHSTYaElzkaTsTDc58S7NWuRYz9FobgVIJJC56vD9kx0bT3HLAwtLO+JyfyV0tYsLwntRqtRN4KglbP8mxGOCQ4SjO2QaEd1sKN+JRqGAG/WrB13SEZBjmc6aJsbSF3fEdgacEdjQlN6SgIiKPlSetRgv9S7HCqyoFK6eph2VRmB55Sl7Yiy74YdIitdGf65SFqIF2CEJxMsyoLRojdcQ1Vw3cUwHJagtmIfdr65fCnOcbyXQ6zEfu09Y9z+AudwNhXXpmRcAAAAABJRU5ErkJggg=="
+		},
+		{
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\ButterflyWings\\ButterflyWings\\textures\\tatters_soft.png",
+			"name": "tatters_soft.png",
+			"folder": "",
+			"namespace": "",
+			"id": "4",
+			"particle": false,
+			"render_mode": "default",
+			"render_sides": "auto",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"mode": "bitmap",
+			"saved": true,
+			"uuid": "fd06a65d-b745-27e9-fce0-51899d33349c",
+			"relative_path": "../../textures/tatters_soft.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA4CAYAAAChbZtkAAAAAXNSR0IArs4c6QAAAbNJREFUaEPtmNsSwjAIRM3/f3QdnYkTqw1dLgvG+tSxTeHABmjabfht27a11tr432rXT7gH6Ai2MvQrmx0agR0DhazLVI1ZvppA/TRwpvMa2+YMa4x6r0FUVg4Y7RRowS0FrC2CpTKMOIM8q90WprZ01igD5KwvH8CPhb/SU89Cvg1VfzlaaiLltQatyla7qVVaW5Ut0CWAmTUjFdiSqdna2TZZDljaJlNgdkHxyLjU8w+BpUh5OBf1DrWkpWhlOGy1WU7S0cparmhJCriApQhF3WfVi1IZ3p9eRHy5lQLen5FHjJwwMEt60ujY76NBgYCjWwZSH7S+QMBdcmhUERDkWQ00DIw4xHgWnfepwBX2Pw24AuyzzTFk122g8ovwrcTHAzMQInDEtLPPHFPu4gEAqwV5ZVkKHnUPR+zJb++cQS8HLA0jywIfbcXlgKXxd0ngGfSywEcFctqWWC2JVb2no6XUz5hOetr6mmELrGWtJxgsaY3x6rAhX0teI+J4oOdZS1RV2hNKUpK3amBgaXSTALLvq4C7xJiZ9goUDOxlOOs9F3BW5Fl2rwyzIp1l5+8yfAeYzAhIl2d/RAAAAABJRU5ErkJggg=="
+		},
+		{
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\ButterflyWings\\ButterflyWings\\textures\\tatters_hard.png",
+			"name": "tatters_hard.png",
+			"folder": "",
+			"namespace": "",
+			"id": "5",
+			"particle": false,
+			"render_mode": "default",
+			"render_sides": "auto",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"mode": "bitmap",
+			"saved": true,
+			"uuid": "acf05997-b437-4cd1-4e03-932660d2cba6",
+			"relative_path": "../../textures/tatters_hard.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA4CAYAAAChbZtkAAAAAXNSR0IArs4c6QAAAqFJREFUaEPlmNtOxDAMROn/f3RRVyoKaeK52Ol2gSdEk8ZnPLZTtq/mZ9/3fdu2rf3bJ/5+cLRxt0wvuGjBJwKPmI6/HeA/2Tyh2Qw/TaSZOy9xuhl8EnAbS5+wMuDWNqwrXHFn+1pXRv3nlyBKEE9qan3mzhrteewMR7ZRRENrFVEZ6BLgmZozdVnLO6KiPf3zXzM36tROk0LBZAVi+0jLdRlLUfbU0dXPQzbTyPbncycJQ2DWsmxgK9ep0LSlVwXtuCZTChfgatshodQ6R+9Dz9/6ocCMFQQweh655s8Bo5p+K3CbHeXCEWUdlcgUuKKZOHbM7kkDnwHc3cxccJQomGF3JrNfMow9VbGj8ghrGF01j0Bma5C1GNB+jQo+OgMCzw5B3RBZawY8GlXt2iy01aURrFt/0UztS8sVNA2cVdwRJyO4BewEifa4GUPvvfQBdQNaX92sqh1UmuGKu3FGMJSMVx9gFvVXwGg2rw74ODtzhgScOUgVFq13Y6GBM52xzUpVTbrx2MDKldMNTskyGw8NnKmdDHB0L3ZsLQEjxZnromJpBkj9jn4M8CjwjDNm4tsfD2q2XWtWQ0NgthmoAoxm++ysymsn9Q+AO6GVGo++rmbvGQJXXBHVjKvNJ3p/5Agqw1nVVfjMetTZl3XpyowpAqB6XwKMVFYAnLWR2Mu6NFLaAVH2zKCpGr6jSytjSgHv11LATtPK1HD1ZaOFpoCVDFdZeVUfoOawkuEnAFtzGA32kQhVsOfZzvuQM+SxhF6Yqd1eZAWYrfty4EwHde7G/T8mUL95PDAqrdHzqOdYwOcLK+3rOKO1/DJLO4HdtQf1l5fd7wrmrnMQ9HQOK7P3LhjmHBkYbWAOffeaiOGS4X8HfM61T7V0e0sbMXwD7NWAQ/jZ/doAAAAASUVORK5CYII="
+		},
+		{
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\ButterflyWings\\ButterflyWings\\textures\\feeler.png",
+			"name": "feeler.png",
+			"folder": "",
+			"namespace": "",
+			"id": "6",
+			"particle": false,
+			"render_mode": "default",
+			"render_sides": "auto",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"mode": "bitmap",
+			"saved": true,
+			"uuid": "1e5e555f-fd9d-ae67-84b5-96612155a777",
+			"relative_path": "../../textures/feeler.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAAXNSR0IArs4c6QAAACBJREFUGFdj/P///38GBgYGRhAAMUACYA6MAaZROMjKAGohG/4MSfVnAAAAAElFTkSuQmCC"
 		}
 	],
 	"animations": [
@@ -1489,7 +777,7 @@
 			"override": false,
 			"length": 0.25,
 			"snapping": 24,
-			"selected": false,
+			"selected": true,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
