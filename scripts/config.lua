@@ -48,7 +48,7 @@ local nextSyncCount = 0 --次の同期pingまでのカウンター
 ---@param flyingFlag boolean クリエイティブ飛行のフラグ
 ---@param slowFallFlag boolean 低速落下のバフのフラグ
 function pings.syncAvatarConfig(colors, wingOpacity, wingGlow, particleDuration, flyingFlag, slowFallFlag)
-	if host:isHost() then
+	if not host:isHost() then
 		if not isSynced then
 			Color.Color = colors
 			Color.drawBaseTexture()
