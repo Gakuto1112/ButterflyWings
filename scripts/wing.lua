@@ -39,101 +39,107 @@ function pings.setSlowFallEffect(value)
 end
 
 events.TICK:register(function ()
-    if host:isHost() then
-        local slowFallEffect = false
-        for _, effect in ipairs(host:getStatusEffects()) do
-            if effect.name == "effect.minecraft.slow_falling" then
-                slowFallEffect = true
-                break
+    if not client:isPaused() then
+        if host:isHost() then
+            local slowFallEffect = false
+            for _, effect in ipairs(host:getStatusEffects()) do
+                if effect.name == "effect.minecraft.slow_falling" then
+                    slowFallEffect = true
+                    break
+                end
+            end
+            if slowFallEffect ~= Wing.SlowFallEffect then
+                pings.setSlowFallEffect(slowFallEffect)
+            end
+            if renderer:isFirstPerson() and not client:hasIrisShader() and not General.RenderPaperdollPrev then
+                if wingOpened then
+                    closeStep = 0
+                    wingCrouchRatio = 0
+                else
+                    closeStep = 1
+                    wingCrouchRatio = 1
+                end
             end
         end
-        if slowFallEffect ~= Wing.SlowFallEffect then
-            pings.setSlowFallEffect(slowFallEffect)
-        end
-        if renderer:isFirstPerson() and not client:hasIrisShader() and not General.RenderPaperdollPrev then
-            if wingOpened then
-                closeStep = 0
-                wingCrouchRatio = 0
-            else
-                closeStep = 1
-                wingCrouchRatio = 1
-            end
-        end
-    end
-    local flap = General.Flying or player:getPose() == "FALL_FLYING" or (Wing.SlowFallEffect and not (player:isOnGround() or player:getVehicle() ~= nil or player:isInWater() or player:isInLava()))
-    wingOpened = flap or player:isCrouching()
-    animations["models.butterfly"]["flap"]:setPlaying(flap)
-    if flap then
-        if Wing.ParticleDuration > 0 then
-            ---モデルの絶対位置を返す
-            ---@param modelPart ModelPart 対象のモデル
-            ---@return Vector3 modelPos モデルの基点の絶対座標
-            local function getAbsoluteModelPos(modelPart)
-                local matrix = modelPart:partToWorldMatrix()
-                return vectors.vec3(matrix[4][1], matrix[4][2], matrix[4][3])
-            end
+        local flap = General.Flying or player:getPose() == "FALL_FLYING" or (Wing.SlowFallEffect and not (player:isOnGround() or player:getVehicle() ~= nil or player:isInWater() or player:isInLava()))
+        wingOpened = flap or player:isCrouching()
+        animations["models.butterfly"]["flap"]:setPlaying(flap)
+        if flap then
+            if Wing.ParticleDuration > 0 then
+                ---モデルの絶対位置を返す
+                ---@param modelPart ModelPart 対象のモデル
+                ---@return Vector3 modelPos モデルの基点の絶対座標
+                local function getAbsoluteModelPos(modelPart)
+                    local matrix = modelPart:partToWorldMatrix()
+                    return vectors.vec3(matrix[4][1], matrix[4][2], matrix[4][3])
+                end
 
-            local lifeTime = 2 ^ Wing.ParticleDuration / 4 * 60
-            for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.ParticleAnchorRT, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.ParticleAnchorLT}) do
-                particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[1]):scale(0.1):lifetime(lifeTime)
+                local lifeTime = 2 ^ Wing.ParticleDuration / 4 * 60
+                for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.ParticleAnchorRT, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.ParticleAnchorLT}) do
+                    particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[1]):scale(0.1):lifetime(lifeTime)
+                end
+                for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.ParticleAnchorRB, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.ParticleAnchorLB}) do
+                    particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[2]):scale(0.1):lifetime(lifeTime)
+                end
             end
-            for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.ParticleAnchorRB, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.ParticleAnchorLB}) do
-                particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[2]):scale(0.1):lifetime(lifeTime)
+            if wingSoundCount == 1 then
+                sounds:playSound("block.wool.step", player:getPos(), 0.25, 2)
             end
+            wingSoundCount = wingSoundCount == 4 and 0 or wingSoundCount + 1
+        else
+            wingSoundCount = 0
         end
-        if wingSoundCount == 1 then
-            sounds:playSound("block.wool.step", player:getPos(), 0.25, 2)
+        local healthPercent = (player:getHealth() + player:getAbsorptionAmount()) / player:getMaxHealth()
+        local gamemode = player:getGamemode()
+        local healthCondition = (healthPercent > 0.5 or gamemode == "CREATIVE" or gamemode == "SPECTATOR") and "HIGH" or (healthPercent > 0.2 and "MEDIUM" or "LOW")
+        if healthCondition ~= healthConditionPrev then
+            Color.TatterState = healthCondition == "HIGH" and "NONE" or (healthCondition == "MEDIUM" and "SOFT" or "HARD")
+            Color.drawAllTexture()
+            healthConditionPrev = healthCondition
         end
-        wingSoundCount = wingSoundCount == 4 and 0 or wingSoundCount + 1
-    else
-        wingSoundCount = 0
-    end
-    local healthPercent = (player:getHealth() + player:getAbsorptionAmount()) / player:getMaxHealth()
-    local gamemode = player:getGamemode()
-    local healthCondition = (healthPercent > 0.5 or gamemode == "CREATIVE" or gamemode == "SPECTATOR") and "HIGH" or (healthPercent > 0.2 and "MEDIUM" or "LOW")
-    if healthCondition ~= healthConditionPrev then
-        Color.TatterState = healthCondition == "HIGH" and "NONE" or (healthCondition == "MEDIUM" and "SOFT" or "HARD")
-        Color.drawAllTexture()
-        healthConditionPrev = healthCondition
     end
 end)
 
 events.RENDER:register(function ()
-    if not renderer:isFirstPerson() or client:hasIrisShader() or General.RenderPaperdollPrev then
-        local rightLegRotX = player:getVehicle() == nil and vanilla_model.RIGHT_LEG:getOriginRot().x or 0
-        models.models.main.Player.Body.ButterflyB.RightWing:setRot(0, rightLegRotX * 0.1 - (wingCrouchRatio * 60 + 10))
-        models.models.main.Player.Body.ButterflyB.LeftWing:setRot(0, rightLegRotX * -0.1 + (wingCrouchRatio * 60 + 10))
-        models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing:setRot(0, 0, wingCrouchRatio * -20)
-        models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing:setRot(0, 0, wingCrouchRatio * -10)
-        models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing:setRot(0, 0, wingCrouchRatio * 20)
-        models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing:setRot(0, 0, wingCrouchRatio * 10)
-    end
-    if not renderProcessed then
-        local FPS = client:getFPS()
-        if wingOpened then
-            if closeStep > 0 then
-                closeStep = math.max(closeStep - 1 / FPS, 0)
-                if not wingOpenedPrev then
-                    closeStep = math.pow(wingCrouchRatio, 0.25)
-                end
-                wingCrouchRatio = math.pow(closeStep, 4)
-            end
-        else
-            if closeStep < 1 then
-                closeStep = math.min(closeStep + 1 / FPS, 1)
-                if wingOpenedPrev then
-                    closeStep = 1 - math.pow(1 - wingCrouchRatio, 0.25)
-                end
-                wingCrouchRatio = 1 - math.pow(1 - closeStep, 4)
-            end
+    if not client:isPaused() then
+        if not renderer:isFirstPerson() or client:hasIrisShader() or General.RenderPaperdollPrev then
+            local rightLegRotX = player:getVehicle() == nil and vanilla_model.RIGHT_LEG:getOriginRot().x or 0
+            models.models.main.Player.Body.ButterflyB.RightWing:setRot(0, rightLegRotX * 0.1 - (wingCrouchRatio * 60 + 10))
+            models.models.main.Player.Body.ButterflyB.LeftWing:setRot(0, rightLegRotX * -0.1 + (wingCrouchRatio * 60 + 10))
+            models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing:setRot(0, 0, wingCrouchRatio * -20)
+            models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing:setRot(0, 0, wingCrouchRatio * -10)
+            models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing:setRot(0, 0, wingCrouchRatio * 20)
+            models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing:setRot(0, 0, wingCrouchRatio * 10)
         end
-        wingOpenedPrev = wingOpened
-        renderProcessed = true
+        if not renderProcessed then
+            local FPS = client:getFPS()
+            if wingOpened then
+                if closeStep > 0 then
+                    closeStep = math.max(closeStep - 1 / FPS, 0)
+                    if not wingOpenedPrev then
+                        closeStep = math.pow(wingCrouchRatio, 0.25)
+                    end
+                    wingCrouchRatio = math.pow(closeStep, 4)
+                end
+            else
+                if closeStep < 1 then
+                    closeStep = math.min(closeStep + 1 / FPS, 1)
+                    if wingOpenedPrev then
+                        closeStep = 1 - math.pow(1 - wingCrouchRatio, 0.25)
+                    end
+                    wingCrouchRatio = 1 - math.pow(1 - closeStep, 4)
+                end
+            end
+            wingOpenedPrev = wingOpened
+            renderProcessed = true
+        end
     end
 end)
 
 events.WORLD_RENDER:register(function ()
-    renderProcessed = false
+    if not client:isPaused() then
+        renderProcessed = false
+    end
 end)
 
 return Wing

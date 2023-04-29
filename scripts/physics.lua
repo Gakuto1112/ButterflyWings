@@ -9,7 +9,7 @@ local velocityData = {{}, {}, {}, {}} --速度データ：1. 頭前後, 2. 頭�
 local renderProcessed = false --このレンダーで処理を行ったかどうか
 
 events.RENDER:register(function ()
-    if not renderProcessed then
+    if not (client:isPaused() or renderProcessed) then
         --平均速度の計算
         local velocity = player:getVelocity()
         local velocityRot = math.atan2(velocity.z, velocity.x)
@@ -44,7 +44,9 @@ events.RENDER:register(function ()
 end)
 
 events.WORLD_RENDER:register(function ()
-    renderProcessed = false
+    if not client:isPaused() then
+        renderProcessed = false
+    end
 end)
 
 return Physics
