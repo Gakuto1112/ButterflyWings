@@ -29,7 +29,7 @@ events.TICK:register(function ()
 			--防具変更
 			if index == 1 then
 				local helmetFound = armorSlotItems[1].id:find("^minecraft:.+_helmet$") == 1
-				models.models.main.Player.Head.ArmorH.Helmet:setVisible(helmetFound)
+				models.models.main.Player.Head.ArmorH:setVisible(helmetFound)
 				if helmetFound then
 					local material = armorSlotItems[1].id:match("^minecraft:(%a+)_helmet$")
 					models.models.main.Player.Head.ArmorH.Helmet.Helmet:setPrimaryTexture("RESOURCE", "minecraft:textures/models/armor/"..(material == "golden" and "gold" or material).."_layer_1.png")
@@ -37,7 +37,7 @@ events.TICK:register(function ()
 				models.models.main.Player.Head.ArmorH.Helmet.HelmetOverlay:setVisible(armorSlotItems[1].id == "minecraft:leather_helmet")
 			elseif index == 2 then
 				local chestplateFound = armorSlotItems[2].id:find("^minecraft:.+_chestplate$") == 1
-				for _, armorPart in ipairs({models.models.main.Player.Torso.Body.ArmorB.Chestplate, models.models.main.Player.Torso.RightArm.ArmorRA.RightChestplate, models.models.main.Player.Torso.LeftArm.ArmorLA.LeftChestplate}) do
+				for _, armorPart in ipairs({models.models.main.Player.Torso.Body.ArmorB.Chestplate, models.models.main.Player.Torso.RightArm.ArmorRA, models.models.main.Player.Torso.LeftArm.ArmorLA}) do
 					armorPart:setVisible(chestplateFound)
 				end
 				if chestplateFound then
@@ -88,9 +88,9 @@ events.TICK:register(function ()
 			--エンチャント変更
 			local renderType = glint and "GLINT" or "NONE"
 			if index == 1 then
-				models.models.main.Player.Head.ArmorH.Helmet:setSecondaryRenderType(renderType)
+				models.models.main.Player.Head.ArmorH:setSecondaryRenderType(renderType)
 			elseif index == 2 then
-				for _, armorPart in ipairs({models.models.main.Player.Torso.Body.ArmorB.Chestplate, models.models.main.Player.Torso.RightArm.ArmorRA.RightChestplate, models.models.main.Player.Torso.LeftArm.ArmorLA.LeftChestplate}) do
+				for _, armorPart in ipairs({models.models.main.Player.Torso.Body.ArmorB.Chestplate, models.models.main.Player.Torso.RightArm.ArmorRA, models.models.main.Player.Torso.LeftArm.ArmorLA}) do
 					armorPart:setSecondaryRenderType(renderType)
 				end
 			elseif index == 3 then

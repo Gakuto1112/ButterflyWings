@@ -46,7 +46,12 @@
 			"visible": false
 		},
 		"models.armor.ArmorB": {
-			"moveTo": "models.main.Player.Torso.Body",
+			"moveTo": "models.main.Player.Torso.Body"
+		},
+		"models.armor.ArmorB.Chestplate": {
+			"visible": false
+		},
+		"models.armor.ArmorB.Leggings": {
 			"visible": false
 		},
 		"models.armor.ArmorRA": {
@@ -58,18 +63,24 @@
 			"visible": false
 		},
 		"models.armor.ArmorRL": {
-			"moveTo": "models.main.Player.RightLeg",
-			"visible": false
+			"moveTo": "models.main.Player.RightLeg"
 		},
 		"models.armor.ArmorRL.RightLeggings": {
+			"visible": false,
 			"parentType": "None"
 		},
-		"models.armor.ArmorLL": {
-			"moveTo": "models.main.Player.LeftLeg",
+		"models.armor.ArmorRL.RightBoots": {
 			"visible": false
 		},
+		"models.armor.ArmorLL": {
+			"moveTo": "models.main.Player.LeftLeg"
+		},
 		"models.armor.ArmorLL.LeftLeggings": {
+			"visible": false,
 			"parentType": "None"
+		},
+		"models.armor.ArmorLL.LeftBoots": {
+			"visible": false
 		}
 	}
 }
