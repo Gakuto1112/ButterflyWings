@@ -57,17 +57,9 @@ events.RENDER:register(function (_, context)
         local armSwing = player:isSwingingArm()
         local firstPerson = context == "FIRST_PERSON"
         local leftHanded = player:isLeftHanded()
-        models.models.main.Player.Body.RightArm:setParentType((unlockArms or ((armSwing or firstPerson) and not leftHanded)) and "RightArm" or "None")
-        models.models.main.Player.Body.LeftArm:setParentType((unlockArms or ((armSwing or firstPerson) and leftHanded)) and "LeftArm" or "None")
+        models.models.main.Player.Torso.RightArm:setParentType((unlockArms or ((armSwing or firstPerson) and not leftHanded)) and "RightArm" or "None")
+        models.models.main.Player.Torso.LeftArm:setParentType((unlockArms or ((armSwing or firstPerson) and leftHanded)) and "LeftArm" or "None")
         if not renderer:isFirstPerson() or client:hasIrisShader() or General.RenderPaperdollPrev then
-            local crouching = player:isCrouching()
-            if crouching then
-                models.models.main.Player.Body.RightArm:setPos(0, 3)
-                models.models.main.Player.Body.LeftArm:setPos(0, 3)
-            else
-                models.models.main.Player.Body.RightArm:setPos()
-                models.models.main.Player.Body.LeftArm:setPos()
-            end
             local FlyAnimationCountSin = math.sin(flyAnimationCount * math.pi * 2)
             models.models.main:setPos(0, FlyAnimationCountSin, 0)
 
@@ -78,8 +70,8 @@ events.RENDER:register(function (_, context)
                 return vectorToScale:scale(0.95 - FlyAnimationCountSin * 0.1):scale(flyIdleAnimationCount)
             end
 
-            models.models.main.Player.Body.RightArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, 6.25, -13.65)):add((crouching and 30 or 0) + (heldItemCorrection[1] and 20 or 0)))
-            models.models.main.Player.Body.LeftArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, -6.28, 13.65)):add((crouching and 30 or 0) + (heldItemCorrection[2] and 20 or 0)))
+            models.models.main.Player.Torso.RightArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, 6.25, -13.65)):add(heldItemCorrection[1] and 20 or 0))
+            models.models.main.Player.Torso.LeftArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, -6.28, 13.65)):add(heldItemCorrection[2] and 20 or 0))
             if General.Flying and flyIdle then
                 models.models.main.Player.RightLeg:setRot(flyIdleAnimationScale(vectors.vec3(59.62, -8.65, 5.04)))
                 models.models.main.Player.LeftLeg:setRot(flyIdleAnimationScale(vectors.vec3(59.62, 8.65, -5.04)))
@@ -116,10 +108,10 @@ events.WORLD_RENDER:register(function ()
     end
 end)
 
-for _, modelPart in ipairs({models.models.main.Player.Head.Head, models.models.main.Player.Head.HeadLayer, models.models.main.Player.Body.Body, models.models.main.Player.Body.BodyLayer, models.models.main.Player.Body.RightArm, models.models.main.Player.Body.LeftArm, models.models.main.Player.RightLeg, models.models.main.Player.LeftLeg}) do
+for _, modelPart in ipairs({models.models.main.Player.Head.Head, models.models.main.Player.Head.HeadLayer, models.models.main.Player.Torso.Body.Body, models.models.main.Player.Torso.Body.BodyLayer, models.models.main.Player.Torso.RightArm, models.models.main.Player.Torso.LeftArm, models.models.main.Player.RightLeg, models.models.main.Player.LeftLeg}) do
     modelPart:setPrimaryTexture("SKIN")
 end
-for _, modelPart in ipairs(player:getModelType() == "DEFAULT" and {models.models.main.Player.Body.RightArm.RightArmSlim, models.models.main.Player.Body.LeftArm.LeftArmSlim} or {models.models.main.Player.Body.RightArm.RightArmClassic, models.models.main.Player.Body.LeftArm.LeftArmClassic}) do
+for _, modelPart in ipairs(player:getModelType() == "DEFAULT" and {models.models.main.Player.Torso.RightArm.RightArmSlim, models.models.main.Player.Torso.LeftArm.LeftArmSlim} or {models.models.main.Player.Torso.RightArm.RightArmClassic, models.models.main.Player.Torso.LeftArm.LeftArmClassic}) do
 	modelPart:setVisible(false)
 end
 for _, vanillaModel in ipairs({vanilla_model.PLAYER, vanilla_model.ARMOR, vanilla_model.ELYTRA}) do

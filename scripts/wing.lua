@@ -15,7 +15,7 @@ Wing = {
     ---羽の発光を設定する。
     ---@param glow boolean 羽の発光させるかどうか
     setGlowing = function (glow)
-        for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.Base, models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.Pattern, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.Base, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.Pattern, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.Base, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.Pattern, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.Base, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.Pattern, models.models.main.Player.Head.ButterflyH.RightFeeler1.RightFeeler2.RightFeelerTip.RightColoredTip, models.models.main.Player.Head.ButterflyH.LeftFeeler1.LeftFeeler2.LeftFeelerTip.LeftColoredTip}) do
+        for _, modelPart in ipairs({models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightTopWing.Base, models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightTopWing.Pattern, models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightBottomWing.Base, models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightBottomWing.Pattern, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftTopWing.Base, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftTopWing.Pattern, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftBottomWing.Base, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftBottomWing.Pattern, models.models.main.Player.Head.ButterflyH.RightFeeler1.RightFeeler2.RightFeelerTip.RightColoredTip, models.models.main.Player.Head.ButterflyH.LeftFeeler1.LeftFeeler2.LeftFeelerTip.LeftColoredTip}) do
             modelPart:light(glow and 15 or nil)
         end
         Wing.Glowing = glow
@@ -80,10 +80,10 @@ events.TICK:register(function ()
                 end
 
                 local lifeTime = 2 ^ Wing.ParticleDuration / 4 * 60
-                for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.ParticleAnchorRT, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.ParticleAnchorLT}) do
+                for _, modelPart in ipairs({models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightTopWing.ParticleAnchorRT, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftTopWing.ParticleAnchorLT}) do
                     particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[1]):scale(0.1):lifetime(lifeTime)
                 end
-                for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.ParticleAnchorRB, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.ParticleAnchorLB}) do
+                for _, modelPart in ipairs({models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightBottomWing.ParticleAnchorRB, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftBottomWing.ParticleAnchorLB}) do
                     particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[2]):scale(0.1):lifetime(lifeTime)
                 end
             end
@@ -109,12 +109,12 @@ events.RENDER:register(function ()
     if not client:isPaused() then
         if not renderer:isFirstPerson() or client:hasIrisShader() or General.RenderPaperdollPrev then
             local rightLegRotX = player:getVehicle() == nil and vanilla_model.RIGHT_LEG:getOriginRot().x or 0
-            models.models.main.Player.Body.ButterflyB.RightWing:setRot(0, rightLegRotX * 0.1 - (wingCrouchRatio * 60 + 10))
-            models.models.main.Player.Body.ButterflyB.LeftWing:setRot(0, rightLegRotX * -0.1 + (wingCrouchRatio * 60 + 10))
-            models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing:setRot(0, 0, wingCrouchRatio * -20)
-            models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing:setRot(0, 0, wingCrouchRatio * -10)
-            models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing:setRot(0, 0, wingCrouchRatio * 20)
-            models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing:setRot(0, 0, wingCrouchRatio * 10)
+            models.models.main.Player.Torso.Body.ButterflyB.RightWing:setRot(0, rightLegRotX * 0.1 - (wingCrouchRatio * 60 + 10))
+            models.models.main.Player.Torso.Body.ButterflyB.LeftWing:setRot(0, rightLegRotX * -0.1 + (wingCrouchRatio * 60 + 10))
+            models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightTopWing:setRot(0, 0, wingCrouchRatio * -20)
+            models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightBottomWing:setRot(0, 0, wingCrouchRatio * -10)
+            models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftTopWing:setRot(0, 0, wingCrouchRatio * 20)
+            models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftBottomWing:setRot(0, 0, wingCrouchRatio * 10)
         end
         if not renderProcessed then
             local FPS = client:getFPS()

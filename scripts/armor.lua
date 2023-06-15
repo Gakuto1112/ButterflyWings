@@ -37,33 +37,33 @@ events.TICK:register(function ()
 				models.models.main.Player.Head.ArmorH.Helmet.HelmetOverlay:setVisible(armorSlotItems[1].id == "minecraft:leather_helmet")
 			elseif index == 2 then
 				local chestplateFound = armorSlotItems[2].id:find("^minecraft:.+_chestplate$") == 1
-				for _, armorPart in ipairs({models.models.main.Player.Body.ArmorB.Chestplate, models.models.main.Player.Body.RightArm.ArmorRA.RightChestplate, models.models.main.Player.Body.LeftArm.ArmorLA.LeftChestplate}) do
+				for _, armorPart in ipairs({models.models.main.Player.Torso.Body.ArmorB.Chestplate, models.models.main.Player.Torso.RightArm.ArmorRA.RightChestplate, models.models.main.Player.Torso.LeftArm.ArmorLA.LeftChestplate}) do
 					armorPart:setVisible(chestplateFound)
 				end
 				if chestplateFound then
 					local material = armorSlotItems[2].id:match("^minecraft:(%a+)_chestplate$")
-					for _, armorPart in ipairs({models.models.main.Player.Body.ArmorB.Chestplate.Chestplate, models.models.main.Player.Body.RightArm.ArmorRA.RightChestplate.RightChestplate, models.models.main.Player.Body.LeftArm.ArmorLA.LeftChestplate.LeftChestplate}) do
+					for _, armorPart in ipairs({models.models.main.Player.Torso.Body.ArmorB.Chestplate.Chestplate, models.models.main.Player.Torso.RightArm.ArmorRA.RightChestplate.RightChestplate, models.models.main.Player.Torso.LeftArm.ArmorLA.LeftChestplate.LeftChestplate}) do
 						armorPart:setPrimaryTexture("RESOURCE", "minecraft:textures/models/armor/"..(material == "golden" and "gold" or material).."_layer_1.png")
 					end
 				end
-                models.models.main.Player.Body.ButterflyB:setPos(0, 0, chestplateFound and 1 or 0)
+                models.models.main.Player.Torso.Body.ButterflyB:setPos(0, 0, chestplateFound and 1 or 0)
 				local overlayVisible = armorSlotItems[2].id == "minecraft:leather_chestplate"
-				for _, armorPart in ipairs({models.models.main.Player.Body.ArmorB.Chestplate.ChestplateOverlay, models.models.main.Player.Body.RightArm.ArmorRA.RightChestplate.RightChestplateOverlay, models.models.main.Player.Body.LeftArm.ArmorLA.LeftChestplate.LeftChestplateOverlay}) do
+				for _, armorPart in ipairs({models.models.main.Player.Torso.Body.ArmorB.Chestplate.ChestplateOverlay, models.models.main.Player.Torso.RightArm.ArmorRA.RightChestplate.RightChestplateOverlay, models.models.main.Player.Torso.LeftArm.ArmorLA.LeftChestplate.LeftChestplateOverlay}) do
 					armorPart:setVisible(overlayVisible)
 				end
 			elseif index == 3 then
 				local leggingsFound = armorSlotItems[3].id:find("^minecraft:.+_leggings$") == 1
-				for _, armorPart in ipairs({models.models.main.Player.Body.ArmorB.Leggings, models.models.main.Player.RightLeg.ArmorRL.RightLeggings, models.models.main.Player.LeftLeg.ArmorLL.LeftLeggings}) do
+				for _, armorPart in ipairs({models.models.main.Player.Torso.Body.ArmorB.Leggings, models.models.main.Player.RightLeg.ArmorRL.RightLeggings, models.models.main.Player.LeftLeg.ArmorLL.LeftLeggings}) do
 					armorPart:setVisible(leggingsFound)
 				end
 				if leggingsFound then
 					local material = armorSlotItems[3].id:match("^minecraft:(%a+)_leggings$")
-					for _, armorPart in ipairs({models.models.main.Player.Body.ArmorB.Leggings.Leggings, models.models.main.Player.RightLeg.ArmorRL.RightLeggings.RightLeggings, models.models.main.Player.LeftLeg.ArmorLL.LeftLeggings.LeftLeggings}) do
+					for _, armorPart in ipairs({models.models.main.Player.Torso.Body.ArmorB.Leggings.Leggings, models.models.main.Player.RightLeg.ArmorRL.RightLeggings.RightLeggings, models.models.main.Player.LeftLeg.ArmorLL.LeftLeggings.LeftLeggings}) do
 						armorPart:setPrimaryTexture("RESOURCE", "minecraft:textures/models/armor/"..(material == "golden" and "gold" or material).."_layer_2.png")
 					end
 				end
 				local overlayVisible = armorSlotItems[3].id == "minecraft:leather_leggings"
-				for _, armorPart in ipairs({models.models.main.Player.Body.ArmorB.Leggings.LeggingsOverlay, models.models.main.Player.RightLeg.ArmorRL.RightLeggings.RightLeggingsOverlay, models.models.main.Player.LeftLeg.ArmorLL.LeftLeggings.LeftLeggingsOverlay}) do
+				for _, armorPart in ipairs({models.models.main.Player.Torso.Body.ArmorB.Leggings.LeggingsOverlay, models.models.main.Player.RightLeg.ArmorRL.RightLeggings.RightLeggingsOverlay, models.models.main.Player.LeftLeg.ArmorLL.LeftLeggings.LeftLeggingsOverlay}) do
 					armorPart:setVisible(overlayVisible)
 				end
 			else
@@ -90,11 +90,11 @@ events.TICK:register(function ()
 			if index == 1 then
 				models.models.main.Player.Head.ArmorH.Helmet:setSecondaryRenderType(renderType)
 			elseif index == 2 then
-				for _, armorPart in ipairs({models.models.main.Player.Body.ArmorB.Chestplate, models.models.main.Player.Body.RightArm.ArmorRA.RightChestplate, models.models.main.Player.Body.LeftArm.ArmorLA.LeftChestplate}) do
+				for _, armorPart in ipairs({models.models.main.Player.Torso.Body.ArmorB.Chestplate, models.models.main.Player.Torso.RightArm.ArmorRA.RightChestplate, models.models.main.Player.Torso.LeftArm.ArmorLA.LeftChestplate}) do
 					armorPart:setSecondaryRenderType(renderType)
 				end
 			elseif index == 3 then
-				for _, armorPart in ipairs({models.models.main.Player.Body.ArmorB.Leggings, models.models.main.Player.RightLeg.ArmorRL.RightLeggings, models.models.main.Player.LeftLeg.ArmorLL.LeftLeggings}) do
+				for _, armorPart in ipairs({models.models.main.Player.Torso.Body.ArmorB.Leggings, models.models.main.Player.RightLeg.ArmorRL.RightLeggings, models.models.main.Player.LeftLeg.ArmorLL.LeftLeggings}) do
 					armorPart:setSecondaryRenderType(renderType)
 				end
 			else
@@ -110,11 +110,11 @@ events.TICK:register(function ()
 			if index == 1 then
                 models.models.main.Player.Head.ArmorH.Helmet.Helmet:setColor(colorVector)
 			elseif index == 2 then
-				for _, armorPart in ipairs({models.models.main.Player.Body.ArmorB.Chestplate.Chestplate, models.models.main.Player.Body.RightArm.ArmorRA.RightChestplate.RightChestplate, models.models.main.Player.Body.LeftArm.ArmorLA.LeftChestplate.LeftChestplate}) do
+				for _, armorPart in ipairs({models.models.main.Player.Torso.Body.ArmorB.Chestplate.Chestplate, models.models.main.Player.Torso.RightArm.ArmorRA.RightChestplate.RightChestplate, models.models.main.Player.Torso.LeftArm.ArmorLA.LeftChestplate.LeftChestplate}) do
 					armorPart:setColor(colorVector)
 				end
 			elseif index == 3 then
-				for _, armorPart in ipairs({models.models.main.Player.Body.ArmorB.Leggings.Leggings, models.models.main.Player.RightLeg.ArmorRL.RightLeggings.RightLeggings, models.models.main.Player.LeftLeg.ArmorLL.LeftLeggings.LeftLeggings}) do
+				for _, armorPart in ipairs({models.models.main.Player.Torso.Body.ArmorB.Leggings.Leggings, models.models.main.Player.RightLeg.ArmorRL.RightLeggings.RightLeggings, models.models.main.Player.LeftLeg.ArmorLL.LeftLeggings.LeftLeggings}) do
 					armorPart:setColor(colorVector)
 				end
 			else
@@ -127,9 +127,9 @@ events.TICK:register(function ()
 	armorSlotItemsPrev = armorSlotItems
 end)
 
-for _, overlayPart in ipairs({models.models.main.Player.Head.ArmorH.Helmet.HelmetOverlay, models.models.main.Player.Body.ArmorB.Chestplate.ChestplateOverlay, models.models.main.Player.Body.RightArm.ArmorRA.RightChestplate.RightChestplateOverlay, models.models.main.Player.Body.LeftArm.ArmorLA.LeftChestplate.LeftChestplateOverlay, models.models.main.Player.RightLeg.ArmorRL.RightBoots.RightBootsOverlay, models.models.main.Player.LeftLeg.ArmorLL.LeftBoots.LeftBootsOverlay}) do
+for _, overlayPart in ipairs({models.models.main.Player.Head.ArmorH.Helmet.HelmetOverlay, models.models.main.Player.Torso.Body.ArmorB.Chestplate.ChestplateOverlay, models.models.main.Player.Torso.RightArm.ArmorRA.RightChestplate.RightChestplateOverlay, models.models.main.Player.Torso.LeftArm.ArmorLA.LeftChestplate.LeftChestplateOverlay, models.models.main.Player.RightLeg.ArmorRL.RightBoots.RightBootsOverlay, models.models.main.Player.LeftLeg.ArmorLL.LeftBoots.LeftBootsOverlay}) do
 	overlayPart:setPrimaryTexture("RESOURCE", "minecraft:textures/models/armor/leather_layer_1_overlay.png")
 end
-for _, overlayPart in ipairs({models.models.main.Player.Body.ArmorB.Leggings.LeggingsOverlay, models.models.main.Player.RightLeg.ArmorRL.RightLeggings.RightLeggingsOverlay, models.models.main.Player.LeftLeg.ArmorLL.LeftLeggings.LeftLeggingsOverlay}) do
+for _, overlayPart in ipairs({models.models.main.Player.Torso.Body.ArmorB.Leggings.LeggingsOverlay, models.models.main.Player.RightLeg.ArmorRL.RightLeggings.RightLeggingsOverlay, models.models.main.Player.LeftLeg.ArmorLL.LeftLeggings.LeftLeggingsOverlay}) do
 	overlayPart:setPrimaryTexture("RESOURCE", "minecraft:textures/models/armor/leather_layer_2_overlay.png")
 end

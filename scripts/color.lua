@@ -128,7 +128,7 @@ Color = {
 
     ---羽や触角の透明度を設定する。
     setOpacity = function ()
-        for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.Base, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.Base, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.Base, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.Base, models.models.main.Player.Head.ButterflyH.RightFeeler1.RightFeeler2.RightFeelerTip.RightColoredTip, models.models.main.Player.Head.ButterflyH.LeftFeeler1.LeftFeeler2.LeftFeelerTip.LeftColoredTip}) do
+        for _, modelPart in ipairs({models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightTopWing.Base, models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightBottomWing.Base, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftTopWing.Base, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftBottomWing.Base, models.models.main.Player.Head.ButterflyH.RightFeeler1.RightFeeler2.RightFeelerTip.RightColoredTip, models.models.main.Player.Head.ButterflyH.LeftFeeler1.LeftFeeler2.LeftFeelerTip.LeftColoredTip}) do
             modelPart:setOpacity(Color.Opacity)
         end
     end,
@@ -203,13 +203,13 @@ for _, textureName in ipairs({"base", "edge", "pattern"}) do
     textures:newTexture(textureName, 60, 56)
     textures[textureName]:fill(0, 0, 60, 56, 0, 0, 0, 0)
 end
-for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.Base, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.Base, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.Base, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.Base}) do
+for _, modelPart in ipairs({models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightTopWing.Base, models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightBottomWing.Base, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftTopWing.Base, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftBottomWing.Base}) do
     modelPart:setPrimaryTexture("CUSTOM", textures["base"])
 end
-for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.Edge, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.Edge, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.Edge, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.Edge}) do
+for _, modelPart in ipairs({models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightTopWing.Edge, models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightBottomWing.Edge, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftTopWing.Edge, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftBottomWing.Edge}) do
     modelPart:setPrimaryTexture("CUSTOM", textures["edge"])
 end
-for _, modelPart in ipairs({models.models.main.Player.Body.ButterflyB.RightWing.RightTopWing.Pattern, models.models.main.Player.Body.ButterflyB.RightWing.RightBottomWing.Pattern, models.models.main.Player.Body.ButterflyB.LeftWing.LeftTopWing.Pattern, models.models.main.Player.Body.ButterflyB.LeftWing.LeftBottomWing.Pattern}) do
+for _, modelPart in ipairs({models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightTopWing.Pattern, models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightBottomWing.Pattern, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftTopWing.Pattern, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftBottomWing.Pattern}) do
     modelPart:setPrimaryTexture("CUSTOM", textures["pattern"])
 end
 

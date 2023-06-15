@@ -21,16 +21,16 @@
 		"models.main": {
 			"primaryRenderType": "CUTOUT"
 		},
-		"models.main.Player.Body.RightArm.RightArmClassic": {
+		"models.main.Player.Torso.RightArm.RightArmClassic": {
 			"parentType": "None"
 		},
-		"models.main.Player.Body.RightArm.RightArmSlim": {
+		"models.main.Player.Torso.RightArm.RightArmSlim": {
 			"parentType": "None"
 		},
-		"models.main.Player.Body.LeftArm.LeftArmClassic": {
+		"models.main.Player.Torso.LeftArm.LeftArmClassic": {
 			"parentType": "None"
 		},
-		"models.main.Player.Body.LeftArm.LeftArmSlim": {
+		"models.main.Player.Torso.LeftArm.LeftArmSlim": {
 			"parentType": "None"
 		},
 		"models.butterfly.ButterflyH": {
@@ -38,7 +38,7 @@
 			"primaryRenderType": "TRANSLUCENT_CULL"
 		},
 		"models.butterfly.ButterflyB": {
-			"moveTo": "models.main.Player.Body",
+			"moveTo": "models.main.Player.Torso.Body",
 			"primaryRenderType": "TRANSLUCENT_CULL"
 		},
 		"models.armor.ArmorH": {
@@ -46,15 +46,15 @@
 			"visible": false
 		},
 		"models.armor.ArmorB": {
-			"moveTo": "models.main.Player.Body",
+			"moveTo": "models.main.Player.Torso.Body",
 			"visible": false
 		},
 		"models.armor.ArmorRA": {
-			"moveTo": "models.main.Player.Body.RightArm",
+			"moveTo": "models.main.Player.Torso.RightArm",
 			"visible": false
 		},
 		"models.armor.ArmorLA": {
-			"moveTo": "models.main.Player.Body.LeftArm",
+			"moveTo": "models.main.Player.Torso.LeftArm",
 			"visible": false
 		},
 		"models.armor.ArmorRL": {
