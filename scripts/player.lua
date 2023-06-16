@@ -48,6 +48,7 @@ events.TICK:register(function ()
             unlockArms = true
             models.models.main.Player.RightLeg:setParentType("RightLeg")
             models.models.main.Player.LeftLeg:setParentType("LeftLeg")
+            heldItemCorrection = {false, false}
         end
     end
 end)
