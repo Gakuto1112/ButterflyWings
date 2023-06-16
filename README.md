@@ -1,7 +1,7 @@
 # ButterflyWings
 プレイヤーに蝶の羽と触角を追加する、スキンMod「[Figura](https://www.curseforge.com/minecraft/mc-mods/figura)」向けスキンです。
 
-ターゲットFiguraバージョン：[0.1.0-rc.14](https://www.curseforge.com/minecraft/mc-mods/figura/files/4438657)
+ターゲットFiguraバージョン：[0.1.0](https://modrinth.com/mod/figura/version/0.1.0+1.20)
 
 ![メイン](README_images/メイン.jpg)
 
@@ -117,7 +117,7 @@ Figuraには、アクションホイールキー（デフォルトは「B」キ�
 カラーパレットを閉じます。
 
 ## 使用方法
-1. マインクラフトに[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.0-rc.14](https://www.curseforge.com/minecraft/mc-mods/figura/files/4438657)を追加します。各Modの依存関係にご注意ください。
+1. マインクラフトに[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.0](https://modrinth.com/mod/figura/version/0.1.0+1.20)を追加します。各Modの依存関係にご注意ください。
 2. ページ上部の緑色のボタン「**Code**」から「**Download ZIP**」からこのレポジトリのファイルをダウンロードします。（または、このレポジトリをクローンします。）
 3. 圧縮ファイルの場合は展開します。
    - 以下のファイル、フォルダはアバターの動作には不要なので削除しても構いません。
@@ -132,7 +132,7 @@ Figuraには、アクションホイールキー（デフォルトは「B」キ�
 
 ## 推奨設定
 ### 権限設定（Permissions）
-デフォルトの権限設定において、**High**以上必須！
+デフォルトの権限設定において、**Default**以上必須！**High**以上推奨。
 
 あなただけではなく、あなたのアバターを見る他のプレイヤーも同様に、あなたの信頼度を上げる必要があります！
 
