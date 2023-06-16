@@ -12,6 +12,8 @@
 		"textures.for_modeling.leather_layer_1_overlay",
 		"textures.for_modeling.leather_layer_2",
 		"textures.for_modeling.leather_layer_2_overlay",
+		"textures.for_modeling.trim",
+		"textures.for_modeling.trim_leggings",
 		"textures.for_modeling.steve"
 	],
 	"autoScripts": [
@@ -45,21 +47,36 @@
 			"moveTo": "models.main.Player.Head",
 			"visible": false
 		},
+		"models.armor.ArmorH.Helmet.HelmetTrim": {
+			"visible": false
+		},
 		"models.armor.ArmorB": {
 			"moveTo": "models.main.Player.Torso.Body"
 		},
 		"models.armor.ArmorB.Chestplate": {
 			"visible": false
 		},
+		"models.armor.ArmorB.Chestplate.ChestplateTrim": {
+			"visible": false
+		},
 		"models.armor.ArmorB.Leggings": {
+			"visible": false
+		},
+		"models.armor.ArmorB.Leggings.LeggingsTrim": {
 			"visible": false
 		},
 		"models.armor.ArmorRA": {
 			"moveTo": "models.main.Player.Torso.RightArm",
 			"visible": false
 		},
+		"models.armor.ArmorRA.RightChestplate.RightChestplateTrim": {
+			"visible": false
+		},
 		"models.armor.ArmorLA": {
 			"moveTo": "models.main.Player.Torso.LeftArm",
+			"visible": false
+		},
+		"models.armor.ArmorLA.LeftChestplate.LeftChestplateTrim": {
 			"visible": false
 		},
 		"models.armor.ArmorRL": {
@@ -69,7 +86,13 @@
 			"visible": false,
 			"parentType": "None"
 		},
+		"models.armor.ArmorRL.RightLeggings.RightLeggingsTrim": {
+			"visible": false
+		},
 		"models.armor.ArmorRL.RightBoots": {
+			"visible": false
+		},
+		"models.armor.ArmorRL.RightBoots.RightBootsTrim": {
 			"visible": false
 		},
 		"models.armor.ArmorLL": {
@@ -79,7 +102,13 @@
 			"visible": false,
 			"parentType": "None"
 		},
+		"models.armor.ArmorLL.LeftLeggings.LeftLeggingsTrim": {
+			"visible": false
+		},
 		"models.armor.ArmorLL.LeftBoots": {
+			"visible": false
+		},
+		"models.armor.ArmorLL.LeftBoots.LeftBootsTrim": {
 			"visible": false
 		}
 	}
