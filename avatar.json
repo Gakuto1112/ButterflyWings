@@ -2,7 +2,7 @@
 	"name": "Butterfly wings",
 	"description": "Beautiful and customizable butterfly wings",
 	"author": "Gakuto1112",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"ignoredTextures": [
 		"textures.base",
 		"textures.edge",
@@ -20,95 +20,95 @@
 		"scripts/index.lua"
 	],
 	"customizations": {
-		"models.main": {
+		"models.models.main": {
 			"primaryRenderType": "CUTOUT"
 		},
-		"models.main.Player.Torso.RightArm.RightArmClassic": {
+		"models.models.main.Player.Torso.RightArm.RightArmClassic": {
 			"parentType": "None"
 		},
-		"models.main.Player.Torso.RightArm.RightArmSlim": {
+		"models.models.main.Player.Torso.RightArm.RightArmSlim": {
 			"parentType": "None"
 		},
-		"models.main.Player.Torso.LeftArm.LeftArmClassic": {
+		"models.models.main.Player.Torso.LeftArm.LeftArmClassic": {
 			"parentType": "None"
 		},
-		"models.main.Player.Torso.LeftArm.LeftArmSlim": {
+		"models.models.main.Player.Torso.LeftArm.LeftArmSlim": {
 			"parentType": "None"
 		},
-		"models.butterfly.ButterflyH": {
-			"moveTo": "models.main.Player.Head",
+		"models.models.butterfly.ButterflyH": {
+			"moveTo": "models.models.main.Player.Head",
 			"primaryRenderType": "TRANSLUCENT_CULL"
 		},
-		"models.butterfly.ButterflyB": {
-			"moveTo": "models.main.Player.Torso.Body",
+		"models.models.butterfly.ButterflyB": {
+			"moveTo": "models.models.main.Player.Torso.Body",
 			"primaryRenderType": "TRANSLUCENT_CULL"
 		},
-		"models.armor.ArmorH": {
-			"moveTo": "models.main.Player.Head",
+		"models.models.armor.ArmorH": {
+			"moveTo": "models.models.main.Player.Head",
 			"visible": false
 		},
-		"models.armor.ArmorH.Helmet.HelmetTrim": {
+		"models.models.armor.ArmorH.Helmet.HelmetTrim": {
 			"visible": false
 		},
-		"models.armor.ArmorB": {
-			"moveTo": "models.main.Player.Torso.Body"
+		"models.models.armor.ArmorB": {
+			"moveTo": "models.models.main.Player.Torso.Body"
 		},
-		"models.armor.ArmorB.Chestplate": {
+		"models.models.armor.ArmorB.Chestplate": {
 			"visible": false
 		},
-		"models.armor.ArmorB.Chestplate.ChestplateTrim": {
+		"models.models.armor.ArmorB.Chestplate.ChestplateTrim": {
 			"visible": false
 		},
-		"models.armor.ArmorB.Leggings": {
+		"models.models.armor.ArmorB.Leggings": {
 			"visible": false
 		},
-		"models.armor.ArmorB.Leggings.LeggingsTrim": {
+		"models.models.armor.ArmorB.Leggings.LeggingsTrim": {
 			"visible": false
 		},
-		"models.armor.ArmorRA": {
-			"moveTo": "models.main.Player.Torso.RightArm",
+		"models.models.armor.ArmorRA": {
+			"moveTo": "models.models.main.Player.Torso.RightArm",
 			"visible": false
 		},
-		"models.armor.ArmorRA.RightChestplate.RightChestplateTrim": {
+		"models.models.armor.ArmorRA.RightChestplate.RightChestplateTrim": {
 			"visible": false
 		},
-		"models.armor.ArmorLA": {
-			"moveTo": "models.main.Player.Torso.LeftArm",
+		"models.models.armor.ArmorLA": {
+			"moveTo": "models.models.main.Player.Torso.LeftArm",
 			"visible": false
 		},
-		"models.armor.ArmorLA.LeftChestplate.LeftChestplateTrim": {
+		"models.models.armor.ArmorLA.LeftChestplate.LeftChestplateTrim": {
 			"visible": false
 		},
-		"models.armor.ArmorRL": {
-			"moveTo": "models.main.Player.RightLeg"
+		"models.models.armor.ArmorRL": {
+			"moveTo": "models.models.main.Player.RightLeg"
 		},
-		"models.armor.ArmorRL.RightLeggings": {
+		"models.models.armor.ArmorRL.RightLeggings": {
 			"visible": false,
 			"parentType": "None"
 		},
-		"models.armor.ArmorRL.RightLeggings.RightLeggingsTrim": {
+		"models.models.armor.ArmorRL.RightLeggings.RightLeggingsTrim": {
 			"visible": false
 		},
-		"models.armor.ArmorRL.RightBoots": {
+		"models.models.armor.ArmorRL.RightBoots": {
 			"visible": false
 		},
-		"models.armor.ArmorRL.RightBoots.RightBootsTrim": {
+		"models.models.armor.ArmorRL.RightBoots.RightBootsTrim": {
 			"visible": false
 		},
-		"models.armor.ArmorLL": {
-			"moveTo": "models.main.Player.LeftLeg"
+		"models.models.armor.ArmorLL": {
+			"moveTo": "models.models.main.Player.LeftLeg"
 		},
-		"models.armor.ArmorLL.LeftLeggings": {
+		"models.models.armor.ArmorLL.LeftLeggings": {
 			"visible": false,
 			"parentType": "None"
 		},
-		"models.armor.ArmorLL.LeftLeggings.LeftLeggingsTrim": {
+		"models.models.armor.ArmorLL.LeftLeggings.LeftLeggingsTrim": {
 			"visible": false
 		},
-		"models.armor.ArmorLL.LeftBoots": {
+		"models.models.armor.ArmorLL.LeftBoots": {
 			"visible": false
 		},
-		"models.armor.ArmorLL.LeftBoots.LeftBootsTrim": {
+		"models.models.armor.ArmorLL.LeftBoots.LeftBootsTrim": {
 			"visible": false
 		}
 	}
