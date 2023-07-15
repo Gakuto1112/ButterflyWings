@@ -1,7 +1,24 @@
-# ButterflyWings
-プレイヤーに蝶の羽と触角を追加する、スキンMod「[Figura](https://www.curseforge.com/minecraft/mc-mods/figura)」向けスキンです。
+# !!! 重要なお知らせ VERY IMPORTANT NOTES !!!
+本日未明（2023/7/16 JST）、突如として、**Figuraが削除されました**。
 
-ターゲットFiguraバージョン：[0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1)
+特に予告も何もなかったため、詳細は不明ですが、Figura代表者（Francielly）が数々の不適切行為を行っており、それが原因で開発チーム間で不和が発生したのでしょう。
+
+現在、Figuraはダウンロードできません。ただし、開発チームの1人がFiguraのコピーをアップロードしているので、そちらのダウンロードは可能です。
+
+尚、このREADMEに含まれるFiguraへのリンク先は一時的このコピーに変更します。
+
+何かありましたら追って更新します。
+
+[内部告発文書](https://docs.google.com/document/u/0/d/1pfy17co5ngaHMVksFrAB6FTeJgeh1EKsGmDLzo1qgIE/mobilebasic?pli=1)
+
+[Figuraのコピー](https://modrinth.com/mod/figura)
+
+***
+
+# ButterflyWings
+プレイヤーに蝶の羽と触角を追加する、スキンMod「[Figura](https://modrinth.com/mod/figura)」向けスキンです。
+
+ターゲットFiguraバージョン：[0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1-0f8b7a9)
 
 ![メイン](README_images/メイン.jpg)
 
@@ -117,7 +134,7 @@ Figuraには、アクションホイールキー（デフォルトは「B」キ�
 カラーパレットを閉じます。
 
 ## 使用方法
-1. マインクラフトに[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1)を追加します。各Modの依存関係にご注意ください。
+1. マインクラフトに[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1-0f8b7a9)を追加します。各Modの依存関係にご注意ください。
 2. ページ上部の緑色のボタン「**Code**」から「**Download ZIP**」からこのレポジトリのファイルをダウンロードします。（または、このレポジトリをクローンします。）
 3. 圧縮ファイルの場合は展開します。
    - 以下のファイル、フォルダはアバターの動作には不要なので削除しても構いません。
