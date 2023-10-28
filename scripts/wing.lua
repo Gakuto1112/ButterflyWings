@@ -94,7 +94,7 @@ events.TICK:register(function ()
         else
             wingSoundCount = 0
         end
-        local healthPercent = (player:getHealth() + player:getAbsorptionAmount()) / player:getMaxHealth()
+        local healthPercent = player:getHealth() / player:getMaxHealth()
         local gamemode = player:getGamemode()
         local healthCondition = (healthPercent > 0.5 or gamemode == "CREATIVE" or gamemode == "SPECTATOR") and "HIGH" or (healthPercent > 0.2 and "MEDIUM" or "LOW")
         if healthCondition ~= healthConditionPrev then
