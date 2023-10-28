@@ -77,6 +77,7 @@ function pings.setColor4(newColor)
 end
 
 ---羽の透明度を設定する。
+---@param newOpacity number 新しい透明度
 function pings.setOpacity(newOpacity)
     Color.Opacity = newOpacity
     Color.setOpacity()
@@ -86,6 +87,12 @@ end
 ---@param glow boolean 羽を発光させるかどうか
 function pings.setWingGlow(glow)
     Wing.setGlowing(glow)
+end
+
+---羽のパーティクルの長さを設定する。
+---@param newDuration number 新しい長さの値
+function pings.setParticleDuration(newDuration)
+    Wing.ParticleDuration = newDuration
 end
 
 ---透明度変更アクションのタイトルを設定する。
@@ -110,7 +117,7 @@ end
 if host:isHost() then
     ---パーティクルの出現時間変更アクションのタイトルを設定する。
     local function setParticleDurationActionTitle()
-        mainPage:getAction(7):title(Locale.getTranslate("action_wheel__main__action_7")..Locale.getTranslate(Wing.ParticleDuration == 0 and "action_wheel__main__action_7__none" or (Wing.ParticleDuration == 1 and "action_wheel__main__action_7__short" or (Wing.ParticleDuration == 2 and "action_wheel__main__action_7__normal" or (Wing.ParticleDuration == 3 and "action_wheel__main__action_7__long" or "action_wheel__main__action_7__very_long")))))
+        mainPage:getAction(7):title(Locale.getTranslate("action_wheel__main__action_7")..Locale.getTranslate(particleDuration == 0 and "action_wheel__main__action_7__none" or (particleDuration == 1 and "action_wheel__main__action_7__short" or (particleDuration == 2 and "action_wheel__main__action_7__normal" or (particleDuration == 3 and "action_wheel__main__action_7__long" or "action_wheel__main__action_7__very_long")))))
     end
 
     local sprintKey = keybinds:fromVanilla("key.sprint")
@@ -249,6 +256,11 @@ if host:isHost() then
                 Config.saveConfig("opacity", wingOpacity)
                 currentWingOpacity = wingOpacity
             end
+            if particleDuration ~= currentParticleDuration then
+                pings.setParticleDuration(particleDuration)
+                Config.saveConfig("particleDuration", particleDuration)
+                currentParticleDuration = particleDuration
+            end
         end
         isOpenActionWheelPrev = isOpenActionWheel
     end)
@@ -326,13 +338,13 @@ if host:isHost() then
 
     --アクション7. パーティクルの出現時間
     mainPage:newAction(7):item("glowstone_dust"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onScroll(function (direction)
-        local addValue = direction > 0 and 1 or -1
-        Wing.ParticleDuration = math.clamp(Wing.ParticleDuration + addValue, 0, 4)
-        Config.saveConfig("particleDuration", Wing.ParticleDuration)
+        particleDuration = math.clamp(particleDuration + (direction > 0 and 1 or -1), 0, 4)
+        setParticleDurationActionTitle()
+    end):onLeftClick(function ()
+        particleDuration = currentParticleDuration
         setParticleDurationActionTitle()
     end):onRightClick(function ()
-        Wing.ParticleDuration = 2
-        Config.saveConfig("particleDuration", 2)
+        particleDuration = 2
         setParticleDurationActionTitle()
     end)
 
