@@ -30,7 +30,8 @@ local renderProcessed = false
 
 events.TICK:register(function ()
     if not client:isPaused() then
-        if General.Flying then
+        local isFlying = General.Flying and player:getPose() ~= "SLEEPING" and player:getVehicle() == nil
+        if isFlying then
             local velocity = player:getVelocity()
             flyIdle = math.sqrt(velocity.x ^ 2 + velocity.z ^ 2) < 0.001
         else
@@ -49,7 +50,7 @@ events.TICK:register(function ()
             heldItemCorrection = {false, false}
         end
 
-        if General.Flying then
+        if isFlying then
             local leftHanded = player:isLeftHanded()
             local heldItems = {player:getHeldItem(leftHanded), player:getHeldItem(not leftHanded)}
             hasChargedCrossbow = false

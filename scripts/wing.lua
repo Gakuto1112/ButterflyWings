@@ -79,7 +79,8 @@ events.TICK:register(function ()
                 end
             end
         end
-        local flap = General.Flying or player:getPose() == "FALL_FLYING" or (Wing.SlowFallEffect and not (player:isOnGround() or player:getVehicle() ~= nil or player:isInWater() or player:isInLava()))
+        local playerPose = player:getPose()
+        local flap = (General.Flying and playerPose ~= "SLEEPING" and player:getVehicle() == nil) or playerPose == "FALL_FLYING" or (Wing.SlowFallEffect and not (player:isOnGround() or player:getVehicle() ~= nil or player:isInWater() or player:isInLava()))
         wingOpened = flap or player:isCrouching()
         animations["models.butterfly"]["flap"]:setPlaying(flap)
         if flap then
