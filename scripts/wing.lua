@@ -22,20 +22,33 @@ Wing = {
     end
 }
 
+---羽を開く条件を満たしているかどうか
 ---@type boolean
-local wingOpened = false --羽を開く条件を満たしているかどうか
+local wingOpened = false
+
+---前レンダーに羽を開く条件を満たしていたかどうか
 ---@type boolean
-local wingOpenedPrev = false --前レンダーに羽を開く条件を満たしていたかどうか
+local wingOpenedPrev = false
+
+---羽の開閉のアニメーションの進行度：0. 開いている ～ 1. 閉じている
 ---@type number
-local closeStep = 0 --羽の開閉のアニメーションの進行度：0. 開いている ～ 1. 閉じている
+local closeStep = 0
+
+---スニークによる羽の開閉がどれぐらいの割合で影響を及ぼすかの変数（0-1）
 ---@type number
-local wingCrouchRatio = 0 --スニークによる羽の開閉がどれぐらいの割合で影響を及ぼすかの変数（0-1）
+local wingCrouchRatio = 0
+
+---前チックのプレイヤーのHPの状態
 ---@type HealthLevel
-local healthConditionPrev = "HIGH" --前チックのプレイヤーのHPの状態
+local healthConditionPrev = "HIGH"
+
+---羽の音のカウンター
 ---@type integer
-local wingSoundCount = 0 --羽の音のカウンター
+local wingSoundCount = 0
+
+---このレンダーで処理を行ったかどうか
 ---@type boolean
-local renderProcessed = false --このレンダーで処理を行ったかどうか
+local renderProcessed = false
 
 ---低速落下のバフのフラグを設定する。
 ---@param value boolean 低速落下のバフを受けているかどうか
@@ -87,7 +100,7 @@ events.TICK:register(function ()
                     particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[2]):scale(0.1):lifetime(lifeTime)
                 end
             end
-            if wingSoundCount == 1 then
+            if wingSoundCount == 2 then
                 sounds:playSound("block.wool.step", player:getPos(), 0.25, 2)
             end
             wingSoundCount = wingSoundCount == 4 and 0 or wingSoundCount + 1
