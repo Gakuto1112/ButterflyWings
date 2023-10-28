@@ -251,15 +251,21 @@ if host:isHost() then
             mainPageInit = true
         end
         if not isOpenActionWheel and isOpenActionWheelPrev then
+            local configChanged = false
             if wingOpacity ~= currentWingOpacity then
                 pings.setOpacity(wingOpacity)
                 Config.saveConfig("opacity", wingOpacity)
                 currentWingOpacity = wingOpacity
+                configChanged = true
             end
             if particleDuration ~= currentParticleDuration then
                 pings.setParticleDuration(particleDuration)
                 Config.saveConfig("particleDuration", particleDuration)
                 currentParticleDuration = particleDuration
+                configChanged = true
+            end
+            if configChanged then
+                print(Locale.getTranslate("action_wheel__main__config_changed"))
             end
         end
         isOpenActionWheelPrev = isOpenActionWheel
