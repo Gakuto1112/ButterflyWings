@@ -21,6 +21,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-4, 24, -4],
 			"to": [4, 32, 4],
 			"autouv": 0,
@@ -60,6 +62,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-4, 24, -4],
 			"to": [4, 32, 4],
 			"autouv": 0,
@@ -101,6 +105,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-4, 12, -2],
 			"to": [4, 24, 2],
 			"autouv": 0,
@@ -141,6 +147,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-4, 12, -2],
 			"to": [4, 24, 2],
 			"autouv": 0,
@@ -182,6 +190,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [4, 12, -2],
 			"to": [7, 24, 2],
 			"autouv": 0,
@@ -222,6 +232,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [4, 12, -2],
 			"to": [7, 24, 2],
 			"autouv": 0,
@@ -263,6 +275,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-7, 12, -2],
 			"to": [-4, 24, 2],
 			"autouv": 0,
@@ -303,6 +317,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-7, 12, -2],
 			"to": [-4, 24, 2],
 			"autouv": 0,
@@ -344,6 +360,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-0.1, 0, -2],
 			"to": [3.9, 12, 2],
 			"autouv": 0,
@@ -384,6 +402,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-0.1, 0, -2],
 			"to": [3.9, 12, 2],
 			"autouv": 0,
@@ -425,6 +445,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-3.9, 0, -2],
 			"to": [0.1, 12, 2],
 			"autouv": 0,
@@ -465,6 +487,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-3.9, 0, -2],
 			"to": [0.1, 12, 2],
 			"autouv": 0,
@@ -506,6 +530,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [4, 12, -2],
 			"to": [8, 24, 2],
 			"autouv": 0,
@@ -546,6 +572,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [4, 12, -2],
 			"to": [8, 24, 2],
 			"autouv": 0,
@@ -587,6 +615,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-8, 12, -2],
 			"to": [-4, 24, 2],
 			"autouv": 0,
@@ -627,6 +657,8 @@
 			"box_uv": true,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-8, 12, -2],
 			"to": [-4, 24, 2],
 			"autouv": 0,
@@ -751,7 +783,7 @@
 							"uuid": "695e6131-cdef-9dbf-da36-7496218039bd",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": false,
+							"isOpen": true,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
@@ -921,7 +953,7 @@
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\ButterflyWings\\ButterflyWings\\textures\\for_modeling\\steve.png",
+			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\蝶の羽\\textures\\for_modeling\\steve.png",
 			"name": "steve.png",
 			"folder": "",
 			"namespace": "",
@@ -939,6 +971,123 @@
 			"uuid": "2d2d5ef0-b1da-d50f-1f42-3e5a22a64084",
 			"relative_path": "../../textures/for_modeling/steve.png",
 			"source": "data:image/png;base64,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"
+		}
+	],
+	"animations": [
+		{
+			"uuid": "1b25f2a8-9281-1478-5ccb-af5f80f2432b",
+			"name": "sleep",
+			"loop": "hold",
+			"override": false,
+			"length": 0,
+			"snapping": 20,
+			"selected": true,
+			"anim_time_update": "",
+			"blend_weight": "",
+			"start_delay": "",
+			"loop_delay": "",
+			"animators": {
+				"5f8e1970-457a-365b-721a-298bef0b91b7": {
+					"name": "Player",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": "0",
+									"y": "180",
+									"z": "0"
+								}
+							],
+							"uuid": "6972e95c-252a-8dbc-1cc1-a2f4cd761b68",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						}
+					]
+				},
+				"377a0216-0412-0570-47bb-926885d2a833": {
+					"name": "Head",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": -80,
+									"y": "0",
+									"z": "0"
+								}
+							],
+							"uuid": "33384c1d-a3f1-5f5b-5f48-c60254bbb807",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						}
+					]
+				},
+				"695e6131-cdef-9dbf-da36-7496218039bd": {
+					"name": "LeftArm",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": 180,
+									"y": 0,
+									"z": 10
+								}
+							],
+							"uuid": "bfd73763-7f53-78a1-dedc-d13b707b20b4",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						}
+					]
+				},
+				"b685e4a4-3ad4-b586-dfe0-74b3a20ff56c": {
+					"name": "RightArm",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": 180,
+									"y": 0,
+									"z": -10
+								}
+							],
+							"uuid": "4e1dc2e6-351a-9b58-39a2-2f2f59619f72",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						}
+					]
+				}
+			}
 		}
 	]
 }

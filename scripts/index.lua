@@ -11,6 +11,7 @@ events.ENTITY_INIT:register(function ()
     Wing = require("scripts.wing")
     require("scripts.feeler")
     require("scripts.action_wheel")
+    require("scripts.sleep")
 end)
 
 require("scripts.skull")
