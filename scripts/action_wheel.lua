@@ -1,17 +1,49 @@
 ---@class ActionWheel アクションホイールを制御するクラス
 
+---アクションホイールのメインページ
 ---@type Page
-local mainPage = action_wheel:newPage() --アクションホイールのメインページ
+local mainPage = action_wheel:newPage()
+
+---アクションホイールのカラーパレットのページ
 ---@type Page
-local palettePage = action_wheel:newPage() --アクションホイールのカラーパレットのページ
+local palettePage = action_wheel:newPage()
+
+---前チックにアクションホイールを開いていたかどうか
 ---@type boolean
-local mainPageInit = false --メインページの初期処理を行ったかどうか
+local isOpenActionWheelPrev = false
+
+---メインページの初期処理を行ったかどうか
 ---@type boolean
-local palettePageInit = false --カラーパレットのページの初期処理を行ったかどうか
+local mainPageInit = false
+
+---カラーパレットのページの初期処理を行ったかどうか
+---@type boolean
+local palettePageInit = false
+
+---カラーピッカーでコピーされた色
 ---@type Vector3|nil
-local copiedColor = nil --カラーピッカーでコピーされた色
+local copiedColor = nil
+
+---羽の透明度
+---@type number
+local wingOpacity = Config.loadConfig("opacity", 0.75)
+
+---現在の羽の透明度
+---@type number
+local currentWingOpacity = wingOpacity
+
+---羽のパーティクルの長さ
+---@type number
+local particleDuration = Config.loadConfig("particleDuration", 2)
+
+---現在の羽のパーティクルの長さ
+---@type number
+local currentParticleDuration = particleDuration
+
+---パレットのインポートの初回メッセージを表示したかどうか
 ---@type boolean
-local paletteImportMessage = false --パレットのインポートの初回メッセージを表示したかどうか
+local paletteImportMessage = false
+
 
 --ping関数
 ---色1（グラデーション1）を設定する。
@@ -44,10 +76,21 @@ function pings.setColor4(newColor)
     Color.drawPatternTexture()
 end
 
+---羽の透明度を設定する。
+function pings.setOpacity(newOpacity)
+    Color.Opacity = newOpacity
+    Color.setOpacity()
+end
+
 ---羽の発光を設定する。
 ---@param glow boolean 羽を発光させるかどうか
 function pings.setWingGlow(glow)
     Wing.setGlowing(glow)
+end
+
+---透明度変更アクションのタイトルを設定する。
+local function setOpacityActionTitle()
+    mainPage:getAction(5):title(Locale.getTranslate("action_wheel__main__action_5")..math.round(wingOpacity * 100)..Locale.getTranslate("action_wheel__picker__message__fast_scroll"))
 end
 
 ---現在のカラーパレットを設定する。
@@ -59,14 +102,12 @@ function pings.setPalette(palette)
     Color.setFeelerTipColor()
     Color.Opacity = palette[5]
     Color.setOpacity()
+    wingOpacity = palette[5]
+    currentWingOpacity = wingOpacity
+    setOpacityActionTitle()
 end
 
 if host:isHost() then
-    ---透明度変更アクションのタイトルを設定する。
-    local function setOpacityActionTitle()
-        mainPage:getAction(5):title(Locale.getTranslate("action_wheel__main__action_5")..math.round(Color.Opacity * 100)..Locale.getTranslate("action_wheel__picker__message__fast_scroll"))
-    end
-
     ---パーティクルの出現時間変更アクションのタイトルを設定する。
     local function setParticleDurationActionTitle()
         mainPage:getAction(7):title(Locale.getTranslate("action_wheel__main__action_7")..Locale.getTranslate(Wing.ParticleDuration == 0 and "action_wheel__main__action_7__none" or (Wing.ParticleDuration == 1 and "action_wheel__main__action_7__short" or (Wing.ParticleDuration == 2 and "action_wheel__main__action_7__normal" or (Wing.ParticleDuration == 3 and "action_wheel__main__action_7__long" or "action_wheel__main__action_7__very_long")))))
@@ -195,12 +236,21 @@ if host:isHost() then
     end
 
     events.TICK:register(function ()
-        if action_wheel:isEnabled() and not mainPageInit then
+        local isOpenActionWheel = action_wheel:isEnabled()
+        if isOpenActionWheel and not mainPageInit then
             setOpacityActionTitle()
             setParticleDurationActionTitle()
             Color.setPaletteColorSet(0, Color.Color, true)
             mainPageInit = true
         end
+        if not isOpenActionWheel and isOpenActionWheelPrev then
+            if wingOpacity ~= currentWingOpacity then
+                pings.setOpacity(wingOpacity)
+                Config.saveConfig("opacity", wingOpacity)
+                currentWingOpacity = wingOpacity
+            end
+        end
+        isOpenActionWheelPrev = isOpenActionWheel
     end)
 
     --メインページのアクションの設定
@@ -245,16 +295,14 @@ if host:isHost() then
     end)
 
     --アクション5. 羽の透明度
-    mainPage:newAction(5):item("minecraft:glass_pane"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onScroll(function (direction, action)
-        local addValue = (direction > 0 and 1 or -1) * (sprintKey:isPressed() and 0.05 or 0.01)
-        Color.Opacity = math.clamp(Color.Opacity + addValue, 0, 1)
-        Color.setOpacity()
-        Config.saveConfig("opacity", Color.Opacity)
+    mainPage:newAction(5):item("minecraft:glass_pane"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onScroll(function (direction)
+        wingOpacity = math.clamp(wingOpacity + (direction > 0 and 1 or -1) * (sprintKey:isPressed() and 0.05 or 0.01), 0, 1)
+        setOpacityActionTitle()
+    end):onLeftClick(function ()
+        wingOpacity = currentWingOpacity
         setOpacityActionTitle()
     end):onRightClick(function ()
-        Color.Opacity = 0.75
-        Color.setOpacity()
-        Config.saveConfig("opacity", 0.75)
+        wingOpacity = 0.75
         setOpacityActionTitle()
     end)
 
