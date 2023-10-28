@@ -1,19 +1,32 @@
 ---@class Player バニラやアバタープレイヤーモデルを制御するクラス
 
+---クリエイティブ飛行のアニメーションのカウンター
 ---@type number
-local flyAnimationCount = 0 --クリエイティブ飛行のアニメーションのカウンター
+local flyAnimationCount = 0
+
+---クリエイティブ飛行時に止まっているかどうか（垂直方向は考慮しない）
 ---@type boolean
-local flyIdle = false --クリエイティブ飛行時に止まっているかどうか（垂直方向は考慮しない）
+local flyIdle = false
+
+---移動中に腕を振らせるかどうか
 ---@type boolean
-local unlockArms = true --移動中に腕を振らせるかどうか
+local unlockArms = true
+
+---クリエイティブ飛行時の止まっている時のアニメーションのカウンター
 ---@type number
-local flyIdleAnimationCount = 0 --クリエイティブ飛行時の止まっている時のアニメーションのカウンター
----@type table<boolean>
-local heldItemCorrection = {false, false} --手にアイテムを持っている為に、腕の角度を補正するかどうか
+local flyIdleAnimationCount = 0
+
+---手にアイテムを持っている為に、腕の角度を補正するかどうか
+---@type boolean[]
+local heldItemCorrection = {false, false}
+
+---装填済みのクロスボウを持っているかどうか
 ---@type boolean
-local hasChargedCrossbow = false --装填済みのクロスボウを持っているかどうか
+local hasChargedCrossbow = false
+
+---このレンダーで処理を行ったかどうか
 ---@type boolean
-local renderProcessed = false --このレンダーで処理を行ったかどうか
+local renderProcessed = false
 
 events.TICK:register(function ()
     if not client:isPaused() then
@@ -27,7 +40,16 @@ events.TICK:register(function ()
         if host:isHost() and renderer:isFirstPerson() and not client:hasIrisShader() and not General.RenderPaperdollPrev then
             flyIdleAnimationCount = flyIdle and 1 or 0
         end
-        if General.Flying and not flyIdle then
+
+        ---四肢が動くようにする。
+        local function freeArmsLegs()
+            unlockArms = true
+            models.models.main.Player.RightLeg:setParentType("RightLeg")
+            models.models.main.Player.LeftLeg:setParentType("LeftLeg")
+            heldItemCorrection = {false, false}
+        end
+
+        if General.Flying then
             local leftHanded = player:isLeftHanded()
             local heldItems = {player:getHeldItem(leftHanded), player:getHeldItem(not leftHanded)}
             hasChargedCrossbow = false
@@ -37,18 +59,19 @@ events.TICK:register(function ()
                     break
                 end
             end
-            unlockArms = player:getActiveItem().id ~= "minecraft:air" or hasChargedCrossbow
-            for _, modelPart in ipairs({models.models.main.Player.RightLeg, models.models.main.Player.LeftLeg}) do
-                modelPart:setParentType("None")
-            end
-            for i = 1, 2 do
-                heldItemCorrection[i] = heldItems[i].id ~= "minecraft:air" and not unlockArms
+            if not flyIdle then
+                unlockArms = player:getActiveItem().id ~= "minecraft:air" or hasChargedCrossbow
+                for _, modelPart in ipairs({models.models.main.Player.RightLeg, models.models.main.Player.LeftLeg}) do
+                    modelPart:setParentType("None")
+                end
+                for i = 1, 2 do
+                    heldItemCorrection[i] = heldItems[i].id ~= "minecraft:air" and not unlockArms
+                end
+            else
+                freeArmsLegs()
             end
         else
-            unlockArms = true
-            models.models.main.Player.RightLeg:setParentType("RightLeg")
-            models.models.main.Player.LeftLeg:setParentType("LeftLeg")
-            heldItemCorrection = {false, false}
+            freeArmsLegs()
         end
     end
 end)
@@ -71,8 +94,9 @@ events.RENDER:register(function (_, context)
                 return vectorToScale:scale(0.95 - FlyAnimationCountSin * 0.1):scale(flyIdleAnimationCount)
             end
 
-            models.models.main.Player.Torso.RightArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, 6.25, -13.65)):add(heldItemCorrection[1] and 20 or 0))
-            models.models.main.Player.Torso.LeftArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, -6.28, 13.65)):add(heldItemCorrection[2] and 20 or 0))
+            local flyIdleArmMultiplayer = (player:isUsingItem() or hasChargedCrossbow) and 0 or 1
+            models.models.main.Player.Torso.RightArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, 6.25, -13.65)):scale(flyIdleArmMultiplayer):add(heldItemCorrection[1] and 20 or 0))
+            models.models.main.Player.Torso.LeftArm:setRot(flyIdleAnimationScale(vectors.vec3(24.25, -6.28, 13.65)):scale(flyIdleArmMultiplayer):add(heldItemCorrection[2] and 20 or 0))
             if General.Flying and flyIdle then
                 models.models.main.Player.RightLeg:setRot(flyIdleAnimationScale(vectors.vec3(59.62, -8.65, 5.04)))
                 models.models.main.Player.LeftLeg:setRot(flyIdleAnimationScale(vectors.vec3(59.62, 8.65, -5.04)))
