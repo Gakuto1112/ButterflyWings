@@ -85,7 +85,8 @@ events.RENDER:register(function (_, context)
         models.models.main.Player.Torso.RightArm:setParentType((unlockArms or ((armSwing or firstPerson) and not leftHanded)) and "RightArm" or "None")
         models.models.main.Player.Torso.LeftArm:setParentType((unlockArms or ((armSwing or firstPerson) and leftHanded)) and "LeftArm" or "None")
         if not renderer:isFirstPerson() or client:hasIrisShader() or General.RenderPaperdollPrev then
-            local FlyAnimationCountSin = math.sin(flyAnimationCount * math.pi * 2)
+            local flapAnimationTime = animations["models.butterfly"]["flap"]:getTime()
+            local FlyAnimationCountSin = math.sin(flyAnimationCount * math.pi * 2) + math.sin(flapAnimationTime <= 0.15 and math.map(flapAnimationTime, 0, 0.15, 0, math.pi) or math.map(flapAnimationTime, 0.15, 0.25, math.pi, 2 * math.pi)) * 0.1
             models.models.main:setPos(0, FlyAnimationCountSin, 0)
 
             ---クリエイティブ飛行のアイドル時のベクトルのスケール処理
