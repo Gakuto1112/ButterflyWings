@@ -56,3 +56,7 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
   - Their flying abilities won't be weak even if their wings are tattered.
 
   ![Tattered wings](./README_images/tattered_wings.jpg)
+
+- Sleeps on your back not to interfere the wings and the bed.
+
+  ![Sleeping pose](./README_images/sleeping_pose.jpg)
