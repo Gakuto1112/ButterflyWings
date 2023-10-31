@@ -1,3 +1,5 @@
+言語: 　[English](./README.md)　|　**日本語**
+
 # ButterflyWings
 プレイヤーに蝶の羽と触角を追加する、スキンMod「[Figura](https://modrinth.com/mod/figura)」向けスキンです。
 
