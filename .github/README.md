@@ -60,3 +60,64 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
 - Sleeps on your back not to interfere the wings and the bed.
 
   ![Sleeping pose](./README_images/sleeping_pose.jpg)
+
+## The action wheel
+Figura provides the action wheel with which players can play some actions (emotes, animations, configs, and etc.). It will be shown when holding the action wheel key (default is B key). This avatar also has some actions.
+
+![The action wheel](./README_images/action_wheel.jpg)
+
+### Action 1~4. Change wing colors
+Specifies the color with the color picker and changes wing colors. The wing areas where can be changed are followings:
+
+1. Wing base gradient top
+2. Wing base gradient bottom
+3. Edge
+4. Pattern
+
+![Color picker](./README_images/color_picker.jpg)
+
+#### Color picker action 1. Current color
+Displays current color.
+
+#### Color picker action 2~4. Change hue, saturation, and brightness
+Changes hue, saturation, and brightness by scrolling on each actions. You can scroll faster by holding the sprint key (default is L-Ctrl).
+
+#### Color picker action 5. Copy/Paste
+Left-click to copy the current color. Then, right-click to paste the copied color. The copied color will be erased after unloading the avatar.
+
+#### Color picker action 6. Reset color
+Resets the color to default.
+
+#### Color picker action 7. Close color picker
+Left-click to apply the selected color and close the color picker. Right-click to close the color without applying it.
+
+### Action 5. Change wing opacity
+Changes the wing opacity by scrolling on the action. You can scroll faster by holding the sprint key (default is L-Ctrl).
+
+### Action 6. Toggle wing glow
+Toggles whether the wings glow or not.
+
+### Action 7. Change particle durations
+Changes durations of the particle which are emitted while flapping the wings by scrolling on the action. The options are followings:
+
+| name | duration (seconds) |
+| - | - |
+| none | 0 |
+| short | 1.5 |
+| normal | 3 |
+| long | 6 |
+| very long | 12 |
+
+### Action 8. The color palette
+Saves/Loads color sets (called palettes).
+
+![The color palette](./README_images/color_palette.jpg)
+
+#### Color palette action 1. Current palette
+Showing current palette. Left-click to copy current palette to the clipboard. You can save it as a text file. Right-click to apply the color palette from the clipboard.
+
+#### Color palette action 2~7. Palettes
+Saves up to 6 palettes. The default palette is saved in each slots if the slot is empty. Left-click to load and apply the palette. Right-click to save current palette.
+
+#### Color palette action 8. Close the color palette
+Closes the color palette
