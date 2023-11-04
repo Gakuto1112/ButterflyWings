@@ -5,7 +5,7 @@ This is the avatar for [Figura](https://modrinth.com/mod/figura), the skin mod f
 
 Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1-0f8b7a9)~
 
-![メイン](./README_images/main.jpg)
+![メイン](../README_images/main.jpg)
 
 ## Features
 **Notes**
@@ -16,17 +16,17 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
 
 - Has butterfly wings and feelers.
 
-  ![Butterfly wings](./README_images/butterfly_wings.jpg)
+  ![Butterfly wings](../README_images/butterfly_wings.jpg)
 
   - The are usually closed, but will be opened when flapping or snaking.
 
-    ![Open wings](./README_images/open_wings.jpg)
+    ![Open wings](../README_images/open_wings.jpg)
 
 - The color and opacity of the wings can be changed as you like.
   - You can change 4 regions of color in the wings.
   - Also has the color import/export feature and the feature which stores up to 6 color sets.
 
-  ![Wing colors](./README_images/wing_colors.jpg)
+  ![Wing colors](../README_images/wing_colors.jpg)
 
 - The wings flap when staying in the air.
   - "Staying in the air" means doing the following actions:
@@ -40,31 +40,31 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
     - They look good in the dark because they glow (look better with the shaders).
   - The flapping sound will be played small when flapping.
 
-  ![Flapping](./README_images/flap.gif)
+  ![Flapping](../README_images/flap.gif)
 
 - The feelers will sway with the player's movements.
 
-  ![Feelers](./README_images/feelers.gif)
+  ![Feelers](../README_images/feelers.gif)
 
 - The wings will glow in the dark.
   - This feature can be disabled in the action wheel.
   - This isn't the feature to make the wings light sources.
 
-  ![Glow wings](./README_images/glow_wings.jpg)
+  ![Glow wings](../README_images/glow_wings.jpg)
 
 - The wings will be tattered as the player's health decreases.
   - Their flying abilities won't be weak even if their wings are tattered.
 
-  ![Tattered wings](./README_images/tattered_wings.jpg)
+  ![Tattered wings](../README_images/tattered_wings.jpg)
 
 - Sleeps on your back not to interfere the wings and the bed.
 
-  ![Sleeping pose](./README_images/sleeping_pose.jpg)
+  ![Sleeping pose](../README_images/sleeping_pose.jpg)
 
 ## The action wheel
 Figura provides the action wheel with which players can play some actions (emotes, animations, configs, and etc.). It will be shown when holding the action wheel key (default is B key). This avatar also has some actions.
 
-![The action wheel](./README_images/action_wheel.jpg)
+![The action wheel](../README_images/action_wheel.jpg)
 
 ### Action 1~4. Change wing colors
 Specifies the color with the color picker and changes wing colors. The wing areas where can be changed are followings:
@@ -74,7 +74,7 @@ Specifies the color with the color picker and changes wing colors. The wing area
 3. Edge
 4. Pattern
 
-![Color picker](./README_images/color_picker.jpg)
+![Color picker](../README_images/color_picker.jpg)
 
 #### Color picker action 1. Current color
 Displays current color.
@@ -111,7 +111,7 @@ Changes durations of the particle which are emitted while flapping the wings by 
 ### Action 8. The color palette
 Saves/Loads color sets (called palettes).
 
-![The color palette](./README_images/color_palette.jpg)
+![The color palette](../README_images/color_palette.jpg)
 
 #### Color palette action 1. Current palette
 Showing current palette. Left-click to copy current palette to the clipboard. You can save it as a text file. Right-click to apply the color palette from the clipboard.

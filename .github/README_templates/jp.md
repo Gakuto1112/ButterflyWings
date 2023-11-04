@@ -5,7 +5,7 @@
 
 ターゲットFiguraバージョン：[0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1-0f8b7a9)~
 
-![メイン](./README_images/main.jpg)
+![メイン](../README_images/main.jpg)
 
 ## 特徴
 **注意事項**
@@ -16,17 +16,17 @@
 
 - 蝶の羽と触角が追加されます。
 
-  ![蝶の羽](./README_images/butterfly_wings.jpg)
+  ![蝶の羽](../README_images/butterfly_wings.jpg)
 
   - 羽は普段閉じていますが、羽ばたく時やスニークをする時に開きます。
 
-    ![羽を開く](./README_images/open_wings.jpg)
+    ![羽を開く](../README_images/open_wings.jpg)
 
 - 羽の色や透明度は自由に設定できます。
   - 羽の色は4つ指定できます。
   - 色のインポート/エクスポート機能や色の組み合わせを6つまで保存できる機能もあります。
 
-  ![羽の色](./README_images/wing_colors.jpg)
+  ![羽の色](../README_images/wing_colors.jpg)
 
 - 空中に留まることで、羽が羽ばたきます。
   - 「空中に留まる」とは、以下のアクションを指します。
@@ -40,31 +40,31 @@
     - パーティクルは光るので暗い所で映えます（シェーダーを適用すると更に映えます）。
   - 羽ばたきの際は、羽ばたく音が小さく再生されます。
 
-  ![羽ばたく](./README_images/flap.gif)
+  ![羽ばたく](../README_images/flap.gif)
 
 - 触角はプレイヤーの動きに合わせて揺れます。
 
-  ![触角](./README_images/feelers.gif)
+  ![触角](../README_images/feelers.gif)
 
 - 暗い所で羽が発光します。
   - この機能は設定で無効にできます。
   - 羽が光源になる機能ではありません。
 
-  ![羽の発光](./README_images/glow_wings.jpg)
+  ![羽の発光](../README_images/glow_wings.jpg)
 
 - HPが低下すると羽がボロボロになってしまいます。
   - 羽がボロボロになったからといって、飛行能力が落ちることはありません。
 
-  ![ボロボロの羽](./README_images/tattered_wings.jpg)
+  ![ボロボロの羽](../README_images/tattered_wings.jpg)
 
 - 羽がベッドと干渉しないように、仰向けで寝ます。
 
-  ![寝姿](./README_images/sleeping_pose.jpg)
+  ![寝姿](../README_images/sleeping_pose.jpg)
 
 ## アクションホイール
 Figuraには、アクションホイールキー（デフォルトは「B」キー）を押すことで、エモートなどを実行できるリングメニューが実装されています。このアバターにもいくつかのアクションが用意されています。
 
-![アクションホイール](./README_images/action_wheel.jpg)
+![アクションホイール](../README_images/action_wheel.jpg)
 
 ### アクション1～4. 羽の色の変更
 カラーピッカーで色を指定して、羽の色を変更できます。変更できる箇所は以下の通りです。
@@ -74,7 +74,7 @@ Figuraには、アクションホイールキー（デフォルトは「B」キ�
 3. 縁
 4. 模様
 
-![カラーピッカー](./README_images/color_picker.jpg)
+![カラーピッカー](../README_images/color_picker.jpg)
 
 #### カラーピッカーアクション1. 現在の色
 設定中の色のプレビューを表示します。
@@ -111,7 +111,7 @@ Figuraには、アクションホイールキー（デフォルトは「B」キ�
 ### アクション8. カラーパレット
 羽の色の組み合わせ（パレットと呼びます）を保存したり、保存したパレットを読み込んだりできる機能です。
 
-![カラーパレット](./README_images/color_palette.jpg)
+![カラーパレット](../README_images/color_palette.jpg)
 
 #### カラーパレットアクション1. 現在のパレット
 現在のパレットを表示しています。左クリックで現在のパレットの情報をクリップボードにコピーします。別途テキストデータとして保存しておくことができます。右クリックでクリップボードからパレットの情報を読み込んで、現在のパレットに適用します。
