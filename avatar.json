@@ -2,7 +2,7 @@
 	"name": "Butterfly wings",
 	"description": "Beautiful and customizable butterfly wings",
 	"author": "Gakuto1112",
-	"version": "0.1.1",
+	"version": "0.1.4",
 	"ignoredTextures": [
 		"textures.base",
 		"textures.edge",
