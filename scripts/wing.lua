@@ -69,7 +69,8 @@ events.TICK:register(function ()
             if slowFallEffect ~= Wing.SlowFallEffect then
                 pings.setSlowFallEffect(slowFallEffect)
             end
-            if renderer:isFirstPerson() and not client:hasIrisShader() and not General.RenderPaperdollPrev then
+            ---@diagnostic disable-next-line: undefined-field
+            if renderer:isFirstPerson() and not client:hasShaderPack() and not General.RenderPaperdollPrev then
                 if wingOpened then
                     closeStep = 0
                     wingCrouchRatio = 0
@@ -121,7 +122,8 @@ end)
 
 events.RENDER:register(function ()
     if not client:isPaused() then
-        if not renderer:isFirstPerson() or client:hasIrisShader() or General.RenderPaperdollPrev then
+        ---@diagnostic disable-next-line: undefined-field
+        if not renderer:isFirstPerson() or client:hasShaderPack() or General.RenderPaperdollPrev then
             local rightLegRotX = player:getVehicle() == nil and vanilla_model.RIGHT_LEG:getOriginRot().x or 0
             models.models.main.Player.Torso.Body.ButterflyB.RightWing:setRot(0, rightLegRotX * 0.1 - (wingCrouchRatio * 60 + 10))
             models.models.main.Player.Torso.Body.ButterflyB.LeftWing:setRot(0, rightLegRotX * -0.1 + (wingCrouchRatio * 60 + 10))

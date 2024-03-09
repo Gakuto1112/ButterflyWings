@@ -38,7 +38,8 @@ events.TICK:register(function ()
             flyAnimationCount = 0
             flyIdle = false
         end
-        if host:isHost() and renderer:isFirstPerson() and not client:hasIrisShader() and not General.RenderPaperdollPrev then
+        ---@diagnostic disable-next-line: undefined-field
+        if host:isHost() and renderer:isFirstPerson() and not client:hasShaderPack() and not General.RenderPaperdollPrev then
             flyIdleAnimationCount = flyIdle and 1 or 0
         end
 
@@ -84,7 +85,8 @@ events.RENDER:register(function (_, context)
         local leftHanded = player:isLeftHanded()
         models.models.main.Player.Torso.RightArm:setParentType((unlockArms or ((armSwing or firstPerson) and not leftHanded)) and "RightArm" or "None")
         models.models.main.Player.Torso.LeftArm:setParentType((unlockArms or ((armSwing or firstPerson) and leftHanded)) and "LeftArm" or "None")
-        if not renderer:isFirstPerson() or client:hasIrisShader() or General.RenderPaperdollPrev then
+        ---@diagnostic disable-next-line: undefined-field
+        if not renderer:isFirstPerson() or client:hasShaderPack() or General.RenderPaperdollPrev then
             local flapAnimationTime = animations["models.butterfly"]["flap"]:getTime()
             local FlyAnimationCountSin = math.sin(flyAnimationCount * math.pi * 2) + math.sin(flapAnimationTime <= 0.15 and math.map(flapAnimationTime, 0, 0.15, 0, math.pi) or math.map(flapAnimationTime, 0.15, 0.25, math.pi, 2 * math.pi)) * 0.1
             models.models.main:setPos(0, FlyAnimationCountSin, 0)
