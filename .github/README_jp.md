@@ -3,7 +3,7 @@
 # ButterflyWings
 プレイヤーに蝶の羽と触角を追加する、スキンMod「[Figura](https://modrinth.com/mod/figura)」向けスキンです。
 
-ターゲットFiguraバージョン：[0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1-0f8b7a9)~
+ターゲットFiguraバージョン：[0.1.4](https://modrinth.com/mod/figura/version/0.1.4+1.20.4)
 
 ![メイン](./README_images/main.jpg)
 
