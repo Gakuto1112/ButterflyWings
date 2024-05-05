@@ -138,6 +138,7 @@ Figura is available in [Forge](https://files.minecraftforge.net/net/minecraftfor
 8. Select the avatar from the avatar list at the left of the Figura menu.
 9. Sets your permission if you need.
 10. Other Figura players can see your avatar after uploading your avatar to the Figura server.
+    - **If your Minecraft is Pirated (cracked, unlicensed, free), you cannot upload your avatar.** This is a Figura specification and I cannot help you with this.
 
 ## Notes
 - I'm not responsible for any damages caused by using this avatar.
