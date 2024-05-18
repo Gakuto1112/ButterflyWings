@@ -12,4 +12,4 @@ jobs:
       contents: write
     uses: Gakuto1112/FiguraAvatarsReadmeTemplate/.github/workflows/generate_my_figura_avatar_readme.yml@main
     with:
-      branch-name: '["main"]'
+      branch-name: main
