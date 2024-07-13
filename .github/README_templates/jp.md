@@ -1,9 +1,11 @@
 <!-- $inject(locale_link) -->
 
 # ButterflyWings
+<!-- DESCRIPTION_START -->
 プレイヤーに蝶の羽と触角を追加する、スキンMod「[Figura](https://modrinth.com/mod/figura)」向けスキンです。
 
 ターゲットFiguraバージョン：[0.1.4](https://modrinth.com/mod/figura/version/0.1.4+1.20.4)
+<!-- DESCRIPTION_END -->
 
 ![メイン](../README_images/main.jpg)
 
