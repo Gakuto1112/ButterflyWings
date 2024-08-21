@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"format_version": "4.5",
+		"format_version": "4.9",
 		"model_format": "free",
 		"box_uv": false
 	},
@@ -716,7 +716,7 @@
 					"uuid": "377a0216-0412-0570-47bb-926885d2a833",
 					"export": true,
 					"mirror_uv": false,
-					"isOpen": false,
+					"isOpen": true,
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
@@ -748,6 +748,32 @@
 							"visibility": true,
 							"autouv": 0,
 							"children": []
+						},
+						{
+							"name": "HelmetPivot",
+							"origin": [0, 24, 0],
+							"color": 0,
+							"uuid": "9e7d1e6e-d124-3ffd-0a1e-71377a44d541",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"children": []
+						},
+						{
+							"name": "HelmetItemPivot",
+							"origin": [0, 24, 0],
+							"color": 0,
+							"uuid": "77149106-bda0-8e78-57cf-8b346b4481ab",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"children": []
 						}
 					]
 				},
@@ -770,11 +796,66 @@
 							"uuid": "ca13acc9-4638-e77c-664d-7272f064d0d8",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": false,
+							"isOpen": true,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
-							"children": ["c9659b61-ea21-c681-5f67-01f8045fb915", "06defd32-6579-e680-d016-3e3a35e145f2"]
+							"children": [
+								"c9659b61-ea21-c681-5f67-01f8045fb915",
+								"06defd32-6579-e680-d016-3e3a35e145f2",
+								{
+									"name": "ChestplateBodyPivot",
+									"origin": [0, 24, 0],
+									"color": 0,
+									"uuid": "b9dec75b-39cf-3198-a80e-cc368dce9472",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": []
+								},
+								{
+									"name": "BeltPivot",
+									"origin": [0, 12, 0],
+									"color": 0,
+									"uuid": "39b39223-d1af-3d8a-5778-d2090021b2b3",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": []
+								},
+								{
+									"name": "RightParrotPivot",
+									"origin": [6.5, 24, 0],
+									"color": 0,
+									"uuid": "077d7e90-2d98-a9f5-b4c3-4ae2142f2f17",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": []
+								},
+								{
+									"name": "LeftParrotPivot",
+									"origin": [-6.5, 24, 0],
+									"color": 0,
+									"uuid": "a1cc86cb-8b2b-9c3b-2942-4f071ce66991",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": []
+								}
+							]
 						},
 						{
 							"name": "LeftArm",
@@ -795,7 +876,7 @@
 									"uuid": "5447bbcf-4769-6221-0b44-565a87e0c5ae",
 									"export": true,
 									"mirror_uv": false,
-									"isOpen": true,
+									"isOpen": false,
 									"locked": false,
 									"visibility": true,
 									"autouv": 0,
@@ -824,7 +905,7 @@
 									"uuid": "87b87207-fc84-1ea8-34c2-a64c1c57bcac",
 									"export": true,
 									"mirror_uv": false,
-									"isOpen": true,
+									"isOpen": false,
 									"locked": false,
 									"visibility": true,
 									"autouv": 0,
@@ -845,6 +926,19 @@
 											"children": []
 										}
 									]
+								},
+								{
+									"name": "LeftShoulderPivot",
+									"origin": [-6, 24, 0],
+									"color": 0,
+									"uuid": "3851e12c-3a3e-bffd-9e55-c1afab99b28d",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": []
 								}
 							]
 						},
@@ -855,7 +949,7 @@
 							"uuid": "b685e4a4-3ad4-b586-dfe0-74b3a20ff56c",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": false,
+							"isOpen": true,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
@@ -917,6 +1011,19 @@
 											"children": []
 										}
 									]
+								},
+								{
+									"name": "RightShoulderPivot",
+									"origin": [6, 24, 0],
+									"color": 0,
+									"uuid": "593b4d96-6882-8637-2ee6-7b8cd0213c1f",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": []
 								}
 							]
 						}
@@ -929,11 +1036,40 @@
 					"uuid": "b78d9cc2-764d-fe16-4b03-026cdd1b07a8",
 					"export": true,
 					"mirror_uv": false,
-					"isOpen": false,
+					"isOpen": true,
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
-					"children": ["86167dd7-3a44-9635-d6ce-871d44d7f959", "9f85b98e-63aa-d5f2-effc-3b13a1673ae8"]
+					"children": [
+						"86167dd7-3a44-9635-d6ce-871d44d7f959",
+						"9f85b98e-63aa-d5f2-effc-3b13a1673ae8",
+						{
+							"name": "RightLeggingPivot",
+							"origin": [2, 12, 0],
+							"color": 0,
+							"uuid": "df67628d-e35c-51c5-f016-485de30ccda0",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"children": []
+						},
+						{
+							"name": "RightBootPivot",
+							"origin": [2, 0, 0],
+							"color": 0,
+							"uuid": "7056c916-f626-1ae2-6740-a306d7256b0c",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"children": []
+						}
+					]
 				},
 				{
 					"name": "LeftLeg",
@@ -942,23 +1078,58 @@
 					"uuid": "bf77c19e-c286-e9d1-d9b3-d06bc3c2bb41",
 					"export": true,
 					"mirror_uv": false,
-					"isOpen": false,
+					"isOpen": true,
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
-					"children": ["0f4c530c-32d6-e8ab-1841-a63996f7c0ef", "3642f546-1724-ee04-b0a5-30a7f84beb89"]
+					"children": [
+						"0f4c530c-32d6-e8ab-1841-a63996f7c0ef",
+						"3642f546-1724-ee04-b0a5-30a7f84beb89",
+						{
+							"name": "LeftBootPivot",
+							"origin": [-2, 0, 0],
+							"color": 0,
+							"uuid": "4ba1fab3-9dc1-c684-a667-6400a0e396fc",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"children": []
+						},
+						{
+							"name": "LeftLeggingPivot",
+							"origin": [-2, 12, 0],
+							"color": 0,
+							"uuid": "29b7e326-c5f4-8bed-3431-d747a421f2bf",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"children": []
+						}
+					]
 				}
 			]
 		}
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\蝶の羽\\textures\\for_modeling\\steve.png",
+			"path": "C:\\Users\\gakut\\AppData\\Roaming\\ModrinthApp\\profiles\\Fabricバニラ\\figura\\avatars\\蝶の羽\\textures\\for_modeling\\steve.png",
 			"name": "steve.png",
 			"folder": "",
 			"namespace": "",
 			"id": "0",
+			"width": 64,
+			"height": 64,
+			"uv_width": 64,
+			"uv_height": 64,
 			"particle": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
 			"render_mode": "default",
 			"render_sides": "auto",
 			"frame_time": 1,
@@ -966,7 +1137,7 @@
 			"frame_order": "",
 			"frame_interpolate": false,
 			"visible": true,
-			"mode": "bitmap",
+			"internal": true,
 			"saved": true,
 			"uuid": "2d2d5ef0-b1da-d50f-1f42-3e5a22a64084",
 			"relative_path": "../../textures/for_modeling/steve.png",

@@ -136,12 +136,10 @@ events.WORLD_RENDER:register(function ()
     end
 end)
 
-for _, modelPart in ipairs({models.models.main.Player.Head.Head, models.models.main.Player.Head.HeadLayer, models.models.main.Player.Torso.Body.Body, models.models.main.Player.Torso.Body.BodyLayer, models.models.main.Player.Torso.RightArm, models.models.main.Player.Torso.LeftArm, models.models.main.Player.RightLeg, models.models.main.Player.LeftLeg}) do
-    modelPart:setPrimaryTexture("SKIN")
-end
+models.models.main.Player:setPrimaryTexture("SKIN")
 for _, modelPart in ipairs(player:getModelType() == "DEFAULT" and {models.models.main.Player.Torso.RightArm.RightArmSlim, models.models.main.Player.Torso.LeftArm.LeftArmSlim} or {models.models.main.Player.Torso.RightArm.RightArmClassic, models.models.main.Player.Torso.LeftArm.LeftArmClassic}) do
 	modelPart:setVisible(false)
 end
-for _, vanillaModel in ipairs({vanilla_model.PLAYER, vanilla_model.ARMOR, vanilla_model.ELYTRA}) do
+for _, vanillaModel in ipairs({vanilla_model.PLAYER, vanilla_model.ELYTRA}) do
     vanillaModel:setVisible(false)
 end
