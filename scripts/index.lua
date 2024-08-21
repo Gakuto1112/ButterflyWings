@@ -1,7 +1,7 @@
 --クラスのインスタンス化
 events.ENTITY_INIT:register(function ()
     General = require("scripts.general")
-    CompatibilityUtils = require("scripts.utils.compatibility_utils")
+    CompatibilityUtils = require("scripts.compatibility_utils")
     TextureGenerator = require("scripts.texture_generator")
     Physics = require("scripts.physics")
     require("scripts.player")
