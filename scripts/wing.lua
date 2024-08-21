@@ -96,14 +96,14 @@ events.TICK:register(function ()
 
                 local lifeTime = 2 ^ Wing.ParticleDuration / 4 * 60
                 for _, modelPart in ipairs({models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightTopWing.ParticleAnchorRT, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftTopWing.ParticleAnchorLT}) do
-                    particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[1]):scale(0.1):lifetime(lifeTime)
+                    particles:newParticle(CompatibilityUtils:checkParticle("minecraft:firework"), getAbsoluteModelPos(modelPart)):color(Color.Color[1]):scale(0.1):lifetime(lifeTime)
                 end
                 for _, modelPart in ipairs({models.models.main.Player.Torso.Body.ButterflyB.RightWing.RightBottomWing.ParticleAnchorRB, models.models.main.Player.Torso.Body.ButterflyB.LeftWing.LeftBottomWing.ParticleAnchorLB}) do
-                    particles:newParticle("firework", getAbsoluteModelPos(modelPart)):color(Color.Color[2]):scale(0.1):lifetime(lifeTime)
+                    particles:newParticle(CompatibilityUtils:checkParticle("minecraft:firework"), getAbsoluteModelPos(modelPart)):color(Color.Color[2]):scale(0.1):lifetime(lifeTime)
                 end
             end
             if wingSoundCount == 2 then
-                sounds:playSound("block.wool.step", player:getPos(), 0.25, 2)
+                sounds:playSound(CompatibilityUtils:checkSound("block.wool.step"), player:getPos(), 0.25, 2)
             end
             wingSoundCount = wingSoundCount == 4 and 0 or wingSoundCount + 1
         else
