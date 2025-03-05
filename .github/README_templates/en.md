@@ -7,7 +7,7 @@ This is the avatar for [Figura](https://modrinth.com/mod/figura), the skin mod f
 Target Figura version: [0.1.5](https://modrinth.com/mod/figura/version/0.1.5b+1.21.4)
 <!-- DESCRIPTION_END -->
 
-![メイン](../README_images/main.jpg)
+![Main](../README_images/main.jpg)
 
 ## Features
 **Notes**
@@ -66,9 +66,10 @@ Target Figura version: [0.1.5](https://modrinth.com/mod/figura/version/0.1.5b+1.
 ## The action wheel
 Figura provides the action wheel with which players can play some actions (emotes, animations, configs, and etc.). It will be shown when holding the action wheel key (default is B key). This avatar also has some actions.
 
-![The action wheel](../README_images/action_wheel.jpg)
+### Page1
+![The action wheel 1](../README_images/action_wheel_1.jpg)
 
-### Action 1~4. Change wing colors
+#### Action 1-1~1-4. Change wing colors
 Specifies the color with the color picker and changes wing colors. The wing areas where can be changed are followings:
 
 1. Wing base gradient top
@@ -78,28 +79,28 @@ Specifies the color with the color picker and changes wing colors. The wing area
 
 ![Color picker](../README_images/color_picker.jpg)
 
-#### Color picker action 1. Current color
+##### Color picker action 1. Current color
 Displays current color.
 
-#### Color picker action 2~4. Change hue, saturation, and brightness
+##### Color picker action 2~4. Change hue, saturation, and brightness
 Changes hue, saturation, and brightness by scrolling on each actions. You can scroll faster by holding the sprint key (default is L-Ctrl).
 
-#### Color picker action 5. Copy/Paste
+##### Color picker action 5. Copy/Paste
 Left-click to copy the current color. Then, right-click to paste the copied color. The copied color will be erased after unloading the avatar.
 
-#### Color picker action 6. Reset color
+##### Color picker action 6. Reset color
 Resets the color to default.
 
-#### Color picker action 7. Close color picker
+##### Color picker action 7. Close color picker
 Left-click to apply the selected color and close the color picker. Right-click to close the color without applying it.
 
-### Action 5. Change wing opacity
+#### Action 1-5. Change wing opacity
 Changes the wing opacity by scrolling on the action. You can scroll faster by holding the sprint key (default is L-Ctrl).
 
-### Action 6. Toggle wing glow
+#### Action 1-6. Toggle wing glow
 Toggles whether the wings glow or not.
 
-### Action 7. Change particle durations
+#### Action 1-7. Change particle durations
 Changes durations of the particle which are emitted while flapping the wings by scrolling on the action. The options are followings:
 
 | name | duration (seconds) |
@@ -110,19 +111,55 @@ Changes durations of the particle which are emitted while flapping the wings by 
 | long | 6 |
 | very long | 12 |
 
-### Action 8. The color palette
+### Page 2
+![The action wheel 2](../README_images/action_wheel_2.jpg)
+
+#### Action 2-1. The color palette
 Saves/Loads color sets (called palettes).
 
 ![The color palette](../README_images/color_palette.jpg)
 
-#### Color palette action 1. Current palette
+##### Color palette action 1. Current palette
 Showing current palette. Left-click to copy current palette to the clipboard. You can save it as a text file. Right-click to apply the color palette from the clipboard.
 
-#### Color palette action 2~7. Palettes
+##### Color palette action 2~7. Palettes
 Saves up to 6 palettes. The default palette is saved in each slots if the slot is empty. Left-click to load and apply the palette. Right-click to save current palette.
 
-#### Color palette action 8. Close the color palette
+##### Color palette action 8. Close the color palette
 Closes the color palette.
+
+#### Action 2-2. Check for avatar updates
+Left click to check for avatar updates. You can try to check updates again even if the check fails. In addition to manually checking for updates from here, the script will automatically check for updates once a day.
+
+> [!IMPORTANT]
+> To check for avatar updates, you must turn on "Allow Networking" and add `api.github.com` to the Network Filter from Figura settings!
+
+> [!CAUTION]
+> It is DANGEROUS to use a network filter other than "Whitelist" when activating Figura's Networking Feature. Although this avatar uses secure links, there is no guarantee that links used by other players' avatars are secure. I'm not responsible for any damages caused by using this feature.
+
+> [!WARNING]
+> If you repeatedly check for updates in a short period of time, GitHub will impose a temporary restriction and avatar scripts will not be able to check for updates for a while.
+
+Right click to copy the latest avatar download link to your clipboard. Please access the download page from your browser.Please note that if you have not checked for updates once or have not checked for updates for a long period of time, you will not get the correct link.
+
+## Avatar version display
+From v1.1.0, when the action wheel is open, the version of avatar currently in use and whether it has been updated are displayed in the upper left corner of the screen.
+
+![avatar version display](../README_images/version_information.jpg)
+
+Updates are automatically checked once a day, but can also be done manually via the [action wheel](#action-2-2-check-for-avatar-updates).
+
+A notification will be sent when a new avatar version is available. You can get the download link for the latest version from the [action wheel](#action-2-2-check-for-avatar-updates), which you can access from your browser.
+
+> [!IMPORTANT]
+> To check for avatar updates, you must turn on "Allow Networking" and add `api.github.com` to the Network Filter from Figura settings!
+
+> [!CAUTION]
+> It is DANGEROUS to use a network filter other than "Whitelist" when activating Figura's Networking Feature. Although this avatar uses secure links, there is no guarantee that links used by other players' avatars are secure. I'm not responsible for any damages caused by using this feature.
+
+> [!WARNING]
+> If you repeatedly check for updates in a short period of time, GitHub will impose a temporary restriction and avatar scripts will not be able to check for updates for a while.
+
 
 <!-- $inject(how_to_use) -->
 
