@@ -4,7 +4,7 @@
 <!-- DESCRIPTION_START -->
 This is the avatar for [Figura](https://modrinth.com/mod/figura), the skin mod for [Minecraft](https://www.minecraft.net/en-us), which adds butterfly wings and feelers.
 
-Target Figura version: [0.1.4](https://modrinth.com/mod/figura/version/0.1.4+1.20.4)
+Target Figura version: [0.1.5](https://modrinth.com/mod/figura/version/0.1.5b+1.21.4)
 <!-- DESCRIPTION_END -->
 
 ![メイン](../README_images/main.jpg)
