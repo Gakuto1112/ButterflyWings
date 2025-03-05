@@ -32,8 +32,8 @@ events.TICK:register(function ()
     if not client:isPaused() then
         local isFlying = General.Flying and player:getPose() ~= "SLEEPING" and player:getVehicle() == nil
         if isFlying then
-            local velocity = player:getVelocity()
-            flyIdle = math.sqrt(velocity.x ^ 2 + velocity.z ^ 2) < 0.001
+            ---@diagnostic disable-next-line: undefined-field
+            flyIdle = not player:isMoving(true)
         else
             flyAnimationCount = 0
             flyIdle = false
