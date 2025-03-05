@@ -4,7 +4,7 @@
 <!-- DESCRIPTION_START -->
 プレイヤーに蝶の羽と触角を追加する、スキンMod「[Figura](https://modrinth.com/mod/figura)」向けスキンです。
 
-ターゲットFiguraバージョン：[0.1.4](https://modrinth.com/mod/figura/version/0.1.4+1.20.4)
+ターゲットFiguraバージョン：[0.1.5](https://modrinth.com/mod/figura/version/0.1.5b+1.21.4)
 <!-- DESCRIPTION_END -->
 
 ![メイン](./README_images/main.jpg)
