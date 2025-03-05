@@ -52,7 +52,13 @@ Color = {
         TextureGenerator.addTextureQueue(textures["base"], 1, 56, function(texture, _, y)
             local instructionsUsed = y == 1 and 3000 or 0
             for _, chunk in ipairs(baseDrawData[y + 1]) do
-                texture:fill(chunk[1], y, chunk[2], 1, math.map(y, 1, 56, Color.Color[1].x, Color.Color[2].x), math.map(y, 1, 56, Color.Color[1].y, Color.Color[2].y), math.map(y, 1, 56, Color.Color[1].z, Color.Color[2].z))
+                local colorVec = vectors.vec3(math.map(y, 1, 56, Color.Color[1].z, Color.Color[2].z), math.map(y, 1, 56, Color.Color[1].y, Color.Color[2].y), math.map(y, 1, 56, Color.Color[1].x, Color.Color[2].x))
+                if client:getVersion() <= "1.21.1" then
+                    local tmp = colorVec.x
+                    colorVec.x = colorVec.z
+                    colorVec.z = tmp
+                end
+                texture:fill(chunk[1], y, chunk[2], 1, colorVec)
                 instructionsUsed = instructionsUsed + 100
             end
             if Color.TatterState == "SOFT" then
