@@ -57,7 +57,7 @@ events.TICK:register(function ()
             hasChargedCrossbow = false
             for i = 1, 2 do
                 local gameVersion = client:getVersion()
-                if heldItems[i].id == "minecraft:crossbow" and ((gameVersion >= "1.20.5" and #heldItems[i].tag["minecraft:charged_projectiles"] >= 1) or (gameVersion < "1.20.5" and #heldItems[i].tag.Charged == 1)) then
+                if heldItems[i].id == "minecraft:crossbow" and ((gameVersion >= "1.20.5" and #heldItems[i].tag["minecraft:charged_projectiles"] >= 1) or (gameVersion < "1.20.5" and heldItems[i].tag.Charged == 1)) then
                     hasChargedCrossbow = true
                     break
                 end
