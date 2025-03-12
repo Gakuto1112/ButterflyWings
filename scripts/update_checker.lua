@@ -83,7 +83,7 @@ UpdateChecker = {
         local instance = {}
         setmetatable(instance, {__index = UpdateChecker})
 
-        instance.AVATAR_VERSION = "v1.1.0_dev"
+        instance.AVATAR_VERSION = "v1.2.0_dev"
         instance.AVATAR_NAME = "ButterflyWings"
         instance.BRANCH_NAME = ""
         instance.CONFIG_NAME = "update_cache_butterflywings"
