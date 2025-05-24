@@ -1,5 +1,6 @@
 --クラスのインスタンス化
 events.ENTITY_INIT:register(function ()
+    StringUtils = require("scripts.string_utils")
     General = require("scripts.general")
     TextureGenerator = require("scripts.texture_generator")
     Physics = require("scripts.physics")
